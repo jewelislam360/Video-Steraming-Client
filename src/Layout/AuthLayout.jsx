@@ -1,36 +1,31 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 const AuthLayout = () => {
+  const { pathname } = useLocation();
   return (
     <>
       <div className="bg-gray-950 pt-10">
         <div className=" text-center flex justify-center gap-x-4">
-          <NavLink
+          <Link
             to="/auth/login"
-            className={({ isActive, isPending }) => {
-              return isActive
-                ? "text-red-500"
-                : isPending
-                ? "text-white"
-                : " text-2xl font-semibold text-red-600";
-            }}
+            className={`text-2xl font-semibold  ${
+              pathname === "/auth/login" ? "text-red-600" : "text-white"
+            }`}
           >
             Login
-          </NavLink>
+          </Link>
+
           <div className="border"></div>
-          <NavLink
+
+          <Link
             to="/auth/register"
-            className={({ isActive, isPending }) => {
-              return isActive
-                ? "text-red-500"
-                : isPending
-                ? "text-white"
-                : "text-white text-2xl font-semibold ";
-            }}
+            className={`text-2xl font-semibold  ${
+              pathname === "/auth/register" ? "text-red-600" : "text-white"
+            }`}
           >
             Register
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div className="bg-gray-950 py-10">

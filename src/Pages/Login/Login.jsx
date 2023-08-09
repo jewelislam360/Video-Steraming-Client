@@ -6,7 +6,6 @@ import SolialLogin from "../../components/SocialLog";
 const Login = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  console.log(auth);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     // dispatch(loginEmailPass(data));
