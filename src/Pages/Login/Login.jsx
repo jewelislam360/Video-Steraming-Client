@@ -1,7 +1,16 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import SolialLogin from "../../components/SocialLog";
 
 const Login = () => {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  console.log(auth);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    // dispatch(loginEmailPass(data));
+  };
   return (
     <>
       <div className="min-w-[400px]">
@@ -29,7 +38,7 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <SocialLog />
+        <SolialLogin/>
       </div>
     </>
   );

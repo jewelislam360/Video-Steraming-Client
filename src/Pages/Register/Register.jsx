@@ -1,15 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import SolialLogin from "../../components/SocialLog";
 
 const Register = () => {
-    const dispatch = useDispatch();
-    const auth = useSelector((state) => state.auth);
-    console.log(auth);
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-      dispatch(createUserEmailPass(data));
-    };
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  console.log(auth);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    // dispatch(createUserEmailPass(data));
+  };
   return (
     <div className="min-w-[400px]">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -44,7 +45,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <SocialLog />
+      <SolialLogin />
     </div>
   );
 };

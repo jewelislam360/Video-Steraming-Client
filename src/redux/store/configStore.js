@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "../features/counterSlice";
+// import authSlice from "../features/authSlice/authSlice";
 
 const store = configureStore({
-  reducer: { count: counterSlice.reducer },
+  reducer: { count: counterSlice.reducer,  },
   middleware: (getdefaultMiddleware) => getdefaultMiddleware().concat(),
 });
 

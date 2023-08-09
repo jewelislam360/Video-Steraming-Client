@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
   return (
@@ -6,7 +7,7 @@ const AuthLayout = () => {
       <div className="bg-gray-950 pt-10">
         <div className=" text-center flex justify-center gap-x-4">
           <NavLink
-            to="/login/log"
+            to="/auth/login"
             className={({ isActive, isPending }) => {
               return isActive
                 ? "text-red-500"
@@ -19,7 +20,7 @@ const AuthLayout = () => {
           </NavLink>
           <div className="border"></div>
           <NavLink
-            to="/login/register"
+            to="/auth/register"
             className={({ isActive, isPending }) => {
               return isActive
                 ? "text-red-500"
