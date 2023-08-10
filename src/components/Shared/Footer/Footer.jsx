@@ -9,7 +9,7 @@ import movies3 from "../Footer/imgs/movies-2.jpg"
 const Footer = () => {
     return (
         // footer
-        <footer className="bg-gray-900  text-white">
+        <footer className="bg-gray-900  text-white max-w-screen-xl">
             <div className="">
                 <div className="grid grid-cols-12 gap-8 mx-5 py-10">
                     {/* left side */}
