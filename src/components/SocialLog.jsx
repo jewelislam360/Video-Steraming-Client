@@ -16,7 +16,7 @@ const SolialLogin = () => {
       </button>
       <button
         type="submit "
-        className="px-4 w-[48%] bg-white py-[10px] rounded-[1px] flex items-center gap-x-4"
+        className="px-4 w-[48%] text-black bg-white py-[10px] rounded-[1px] flex items-center gap-x-4"
         onClick={() => dispatch(googleLog())}
       >
         <FaGoogle /> Google
