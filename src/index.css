@@ -26,4 +26,7 @@ body {
   .cs-input {
     @apply bg-gray-50/10  text-sm  focus:ring-blue-500  outline-none w-full block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-white;
   }
+  .cs-btn {
+    @apply px-4 w-full bg-red-600 py-[10px] rounded-[1px] text-white;
+  }
 }

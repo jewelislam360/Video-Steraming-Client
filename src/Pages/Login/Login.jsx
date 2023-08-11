@@ -33,7 +33,7 @@ const Login = () => {
           </div>
           <button
             type="submit "
-            className="px-4 w-full bg-red-600 py-[10px] rounded-[1px] text-white"
+            className="cs-btn"
           >
             Login
           </button>
