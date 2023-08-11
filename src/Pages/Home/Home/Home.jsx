@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Banner from "../Banner/Banner";
+import Faq from "../Faq/Faq";
 
 const Home = () => {
   return (
-    <Banner></Banner>
+    <div>
+      <Banner></Banner>
+    <Faq></Faq>
+    </div>
   );
 };
 
