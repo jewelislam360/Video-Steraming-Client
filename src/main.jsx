@@ -10,9 +10,9 @@ import store from "./redux/store/configStore.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <div className="max-w-screen-xl mx-auto">
+    
       <RouterProvider router={router} />
-      </div>
+      
     </Provider>
   </React.StrictMode>
 );
