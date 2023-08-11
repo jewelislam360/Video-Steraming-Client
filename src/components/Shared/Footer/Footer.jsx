@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="grid grid-cols-12 gap-8 mx-5 py-10">
                     {/* left side */}
                     <div className="col-span-12 md:col-span-4">
-                        <a href="/" className="text-6xl font-bold pb-8">Netfliexy</a>
+                        <a href="/" className="text-6xl font-bold pb-8">VIDBOX</a>
                         <p className="pt-10">Eiusmod tempor incididunt ut la abore et minim ven exerc itation ulla mco lboris naliquip ex ea comm.</p>
                         <div className='flex mt-8 text-4xl'>
 
