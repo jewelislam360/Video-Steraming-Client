@@ -21,23 +21,24 @@ const Login = () => {
             placeholder="Email"
             {...register("email", { required: true })}
           />
-          <input
-            type="password"
-            id="password"
-            className="cs-input"
-            placeholder="Password"
-            {...register("password", { required: true })}
-          />
           <div>
-            <button
-              type="submit "
-              className="px-4 w-full bg-red-600 py-[10px] rounded-[1px] text-white"
-            >
-              Login
-            </button>
+            <input
+              type="password"
+              id="password"
+              className="cs-input"
+              placeholder="Password"
+              {...register("password", { required: true })}
+            />
+            <p className="text-[12px] cursor-pointer mt-2 text-red-600">Forgot Password</p>
           </div>
+          <button
+            type="submit "
+            className="px-4 w-full bg-red-600 py-[10px] rounded-[1px] text-white"
+          >
+            Login
+          </button>
         </form>
-        <SolialLogin/>
+        <SolialLogin />
       </div>
     </>
   );
