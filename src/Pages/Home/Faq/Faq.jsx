@@ -3,7 +3,12 @@ import React from "react";
 const Faq = () => {
   return (
     <div>
-      <div className="h-screen flex justify-center items-center">
+      <div>
+        <h1 className="text-center my-9 font-semibold text-5xl">
+          Frequently Ask Questions And Answers
+        </h1>
+      </div>
+      <div className="flex justify-center items-center">
         <div className="join join-vertical w-full">
           <div className="collapse collapse-arrow join-item border border-base-300">
             <input type="checkbox" checkbox="checkbox" />
@@ -91,9 +96,7 @@ const Faq = () => {
           </div>
         </div>
       </div>
-      <div>
-         
-      </div>
+      <div></div>
     </div>
   );
 };
