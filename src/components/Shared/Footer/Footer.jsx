@@ -9,7 +9,7 @@ import movies3 from "../Footer/imgs/movies-2.jpg"
 const Footer = () => {
     return (
         // footer
-        <footer className="bg-gray-900  text-white max-w-screen-xl">
+        <footer className="bg-gray-900 text-white ">
             <div className="">
                 <div className="grid grid-cols-12 gap-8 mx-5 py-10">
                     {/* left side */}
@@ -45,14 +45,14 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="col-span-12 text-xl  mb-8 ">
-                            <a href="#" className=" hover:text-red-600 pr-3  border-r-2">Report a Bug</a>
-                            <a href="#" className=" hover:text-red-600 pr-3 border-r-2">Request a Feature</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 border-r-2">Content Grievance</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 border-r-2">Movie Request</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 border-r-2">Submit Your Story</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 border-r-2">Privacy Policy</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 border-r-2">Terms of Services</a>
-                            <a href="#" className=" hover:text-red-600  pr-3 ">Support</a>
+                            <a href="#" className=" hover:text-red-600 pr-5  border-r-2">Report a Bug</a>
+                            <a href="#" className=" hover:text-red-600 px-5 border-r-2">Request a Feature</a>
+                            <a href="#" className=" hover:text-red-600  px-5 border-r-2">Content Grievance</a>
+                            <a href="#" className=" hover:text-red-600  px-5 border-r-2">Movie Request</a>
+                            <a href="#" className=" hover:text-red-600  px-5 border-r-2">Submit Your Story</a>
+                            <a href="#" className=" hover:text-red-600  px-5 border-r-2">Privacy Policy</a>
+                            <a href="#" className=" hover:text-red-600  px-5 border-r-2">Terms of Services</a>
+                            <a href="#" className=" hover:text-red-600  px-5 ">Support</a>
                         </div>
                     </div>
                 </div>
