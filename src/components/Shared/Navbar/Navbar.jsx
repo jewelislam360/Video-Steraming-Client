@@ -28,7 +28,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link className="px-4 bg-red-600 py-[10px] rounded-[1px] text-white">Login</Link>
+    <Link to="/login" className="px-4 bg-red-600 py-[10px] rounded-[1px] text-white">Login</Link>
   </div>
 </div>
             
