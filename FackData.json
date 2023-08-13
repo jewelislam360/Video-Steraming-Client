@@ -1,0 +1,42 @@
+
+    [
+      {
+        "id": 1,
+        "title": "Inception",
+        "img": "https://i.ibb.co/LnLzgx3/17.jpg",
+        "trailer": "https://example.com/inception_trailer.mp4",
+        "video": "https://example.com/inception_trailer.mp4",
+        "description": "A thief who enters the dreams of others to steal their secrets...",
+        "category": ["Action", "Adventure", "Sci-Fi"],
+        "time": "2h 28min",
+        "rating": 8.8,
+        "like": 1200
+      },
+      {
+        "id": 2,
+        "title": "The Shawshank Redemption",
+        "img": "https://i.ibb.co/cQHCv3P/1-1.jpg",
+        "trailer": "https://example.com/shawshank_redemption_trailer.mp4",
+        "video": "https://example.com/inception_trailer.mp4",
+        "description": "Two imprisoned men bond over a number of years...",
+        "category": ["Drama"],
+        "time": "2h 22min",
+        "rating": 9.3,
+        "like": 1500
+      },
+      {
+        "id": 3,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "img": "https://i.ibb.co/GQqX2fW/7.jpg",
+        "trailer": "https://example.com/lotr_fellowship_trailer.mp4",
+        "video": "https://example.com/inception_trailer.mp4",
+        "description": "A young hobbit, Frodo, embarks on a perilous journey...",
+        "category": ["Adventure", "Drama", "Fantasy"],
+        "time": "2h 58min",
+        "rating": 8.8,
+        "like": 980
+      }
+    ]
+  
+  
+  
