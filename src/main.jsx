@@ -10,9 +10,7 @@ import store from "./redux/store/configStore.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <div className="">
       <RouterProvider router={router} />
-      </div>
     </Provider>
   </React.StrictMode>
 );

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import Faq from "../Faq/Faq";
+import Plan from "../Plan/Plan";
+import Contact from "../../Contact/Contact";
 
 const Home = () => {
   return (
-    <div className="h-screen flex justify-center items-center max-w-screen-xl">
-      <div>
-        <h1 className="text-4xl">This is home Page </h1>
-        <button className="btn btn-primary">Increment</button>
-        <button className="btn btn-primary">Decrement</button>
-      </div>
+    <div>
+    <Faq></Faq>
+    <Plan></Plan>
+    <Contact/>
     </div>
   );
 };
