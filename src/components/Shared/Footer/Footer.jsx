@@ -1,21 +1,20 @@
+
 import { FaAngleRight, FaFacebook, FaSkype, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        // footer
-        <footer className="bg-gray-900 text-white ">
-            <div className="">
-                <div className="grid grid-cols-12 gap-8 mx-5 py-10">
-                    {/* left side */}
-                    <div className="col-span-12 md:col-span-4">
-                        <a href="/" className="text-6xl font-bold pb-8">Netfliexy</a>
-                        <p className="pt-10">Eiusmod tempor incididunt ut la abore et minim ven exerc itation ulla mco lboris naliquip ex ea comm.</p>
-                        <div className='flex mt-8 text-4xl'>
-
-                            <Link to="/#"><FaTwitter className=' mr-4 hover:text-white  text-sky-600' /></Link>
-                            <Link to="/#"><FaFacebook className=' mr-4 hover:text-white  text-blue-600' /></Link>
-                            <Link to="/#"><FaWhatsapp className=' mr-4 hover:text-white  text-lime-600' /></Link>
-                            <Link to="/#"><FaInstagram className=' mr-4 hover:text-white  text-red-600' /></Link>
+        <footer>
+            {/* /Top section */}
+            <div className="p-10 bg-[#272829] text-white">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-10">
+                    <div className='mr-3 text-white'>
+                        <h2 className='text-3xl font-bold pb-10'>VidBox</h2>
+                        <p className='text-xl pb-10'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, reiciendis.</p>
+                        <div className='flex  '>
+                            <a className=' flex items-center justify-center  mr-7 text-sky-600 hover:text-white' href=""><FaFacebook className='text-2xl' /></a>
+                            <a className=' flex items-center justify-center mr-7 text-sky-600  hover:text-white' href=""><FaSkype className='text-2xl' /></a>
+                            <a className='flex items-center justify-center mr-7 text-blue-700  hover:text-white' href=""><FaTwitter className='text-2xl' /></a>
+                            <a className='flex items-center justify-center mr-7 text-red-500  hover:text-white' href=""><FaInstagram className='text-2xl' /></a>
                         </div>
 
                     </div>
