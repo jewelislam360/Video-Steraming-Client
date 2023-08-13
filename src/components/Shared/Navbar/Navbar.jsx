@@ -1,100 +1,94 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaYoutube, FaPlay, FaSearch, FaLongArrowAltRight, FaLongArrowAltLeft, FaRegWindowClose } from 'react-icons/fa'
+import M from 'materialize-css';
 
-const Navbar = () => {
-    const navOption= <>
-    <li><a> Home</a></li>
-    <li><a>Movies</a></li>
-    <li><a>Tv series</a></li>
-    </>
-    
-    return (
-        <div>
-            <div className="navbar fixed top-0 z-50 text-white    bg-slate-900/60 ">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        {navOption}
-      </ul>
-    </div>
-    <a className="btn btn-ghost text-red-700 font-bold text-xl">VIDBOX</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-        {navOption}
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <Link to="/login" className="px-4 bg-red-600 py-[10px] rounded-[1px] text-white">Login</Link>
-  </div>
-</div>
-            
+import banner01 from '../../../../public/assets/images/banner/banner02.jpg'
+
+import movieCard01 from '../../../../public/assets/images/banner/banner card.jpg'
+import movieCard02 from '../../../../public/assets/images/banner/movie card01.jpg'
+import movieCard03 from '../../../../public/assets/images/banner/movie card02.jpg'
+import movieCard04 from '../../../../public/assets/images/banner/movie card03.jpg'
+import movieCard05 from '../../../../public/assets/images/banner/movie card04.jpg'
+
+
+const NavBar = () => {
+  useEffect(() => {
+    // Initialize the Materialize Carousel
+    const elems = document.querySelectorAll('.carousel');
+    M.Carousel.init(elems, {
+      indicators: true,
+      duration: 200,
+    });
+  }, []);
+
+  return (
+    <>
+      <header className=' absolute top-0 left-0 w-full flex justify-between items-center text-white py-6 px-10 z-10'>
+        <a href="#" className=' font-extrabold text-4xl space-x-1'>mOvex</a>
+        <ul className='flex'>
+          <Link><li>Home</li></Link>
+          <Link><li>Adults</li></Link>
+          <Link><li>Kids</li></Link>
+          <Link><li>Trand</li></Link>
+          <Link><li>My Collection</li></Link>
+        </ul>
+        <div className='flex search relative w-[300px] h-[40px]'>
+          <input className=' absolute left-0 top-0 w-[100%] h-[100%] text-white bg-transparent border-b-2 rounded-lg pl-4' type="text" placeholder='Search' />
+          <FaSearch className='absolute top-2/4 -translate-y-2/4 right-3 text-white' />
         </div>
-    );
+      </header>
+      <div className='banner relative w-full min-h-screen px-10 py-24 flex justify-between items-center bg-cover bg-no-repeat bg-center' style={{ backgroundImage: `URL(${banner01})` }}>
+        <div className=' content active relative max-w-xl hidden '>
+          <img className=' max-w-[250px]' src="../../../../public/assets/images/banner/banner001-removebg-preview.png" alt="" />
+          <h4 className='text-gray-300 font-normal text-xl'>
+            <span>2023</span>
+            <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
+            <span>2h 14min</span>
+            <span>Romance</span>
+          </h4>
+          <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem!</p>
+          <div className='button flex'>
+            <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch</a>
+            <a href="#" className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />My Lists</a>
+          </div>
+        </div>
+        <div className='carousel-box relative min-w-[650px] flex justify-center items-center'>
+          <div className="carousel relative h-[380px]">
+            <div className="carousel-item">
+              <img src={movieCard01} alt="" />
+            </div>
+            <div className="carousel-item">
+              <img src={movieCard02} alt="" />
+            </div>
+            <div className="carousel-item">
+              <img src={movieCard03} alt="" />
+            </div>
+            <div className="carousel-item">
+              <img src={movieCard04} alt="" />
+            </div>
+            <div className="carousel-item">
+              <img src={movieCard05} alt="" />
+            </div>
+          </div>
+        </div>
+        <a href="#" className='play absolute bottom-12 left-24 inline-flex justify-start items-center text-white font-medium text-sm'><FaPlay className=' mr-2 text-3xl' /> Watch Trailer</a>
+        <ul className='sociel absolute bottom-12 right-24 inline-flex justify-center items-center gap-6'>
+          <li><a href=""><FaFacebook /></a></li>
+          <li><a href=""><FaYoutube /></a></li>
+          <li><a href=""><FaTwitter /></a></li>
+        </ul>
+      </div>
+      {/* <div className='trailer fixed top-2/4 left-2/4 transform translate-x-[-50%] translate-y-[-50% z-10 w-full h-full flex justify-center items-center backdrop:blur-xl]'>
+                <video src="https://www.youtube.com/watch?v=UDgjJ9XzgHk"
+                 muted 
+                 controls="true"
+                 autoPlay="true"
+                 ></video>
+                 <FaRegWindowClose/>
+            </div> */}
+    </>
+  );
 };
 
-export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState} from 'react';
-// import { FaStudiovinari, FaRegWindowClose, FaBars} from 'react-icons/fa';
-
-// const Navbar = () => {
-//     const [open, setOpen]=useState(false);
-
-//     const Links=[
-//         {name:"Home", link:"/"},
-//         {name:"About", link:"/"},
-//         {name:"Service", link:"/"},
-//         {name:"Blogs", link:"/"},
-//         {name:"Contact", link:"/"},
-//     ]
-//     return (
-//        <div className=' shadow-md top-0 left-0 w-full fixed z-[10] bg-gray-500'>
-//         <div className='md:flex lg:flex py-4 justify-between'>
-//             <div className='ml-6 lg:ml-0 font-bold text-2xl cursor-pointer flex items-center font[Poppins]'>
-//                 <span className='text-3xl text-[#12f7ff] mr-1 pt-2'>
-//                 <FaStudiovinari/>
-//                 </span>
-//                 pHero
-//             </div>
-//             <div onClick={()=>setOpen(!open)} id='manu-icon' className=' absolute right-6 top-6 cursor-pointer lg:hidden md:hidden'>
-//                 {open ? 
-//                 <FaRegWindowClose />
-//                 :
-//                 <FaBars/>
-//                 }
-            
-//             </div>
-//             <ul className={`md:flex md:items-center lg:flex lg:justify-end md:pb-0 pb-0 pt-4 absolute md:static w-full left-0 md:pl-0 pl-4 transition-all duration-500 ease-in ${open ? 'top-16' : 'top-[-480px]'}`}>
-//                 {
-//                     Links.map((link)=>(
-//                         <li key={link.name} className='md:ml-8 text-xl pb-4'>
-//                             <a href={link.link} className='hover duration-500'>{link.name}</a>
-//                         </li>
-//                     ))
-//                 }
-//             </ul>
-//         </div>
-//        </div>
-//     );
-// };
-
-// export default Navbar;
+export default NavBar;
