@@ -1,5 +1,6 @@
 import React from "react";
 import "./Plan.css";
+import { FaArrowRight } from "react-icons/fa";
 
 const Plan = () => {
   return (
@@ -13,7 +14,39 @@ const Plan = () => {
           <div className="row">
             <div class="price-details">
               <span class="price">9</span>
-              <p className="font-medium">For Daily Plan</p>
+              <p className="font-medium text-lg">For Daily Plan</p>
+            </div>
+            <div className="">
+              <ul>
+                <span className="flex items-center text-lg">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Access to the entire video library
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    HD video quality (up to 1080p)
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Ad-free streaming
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    1 Device access
+                  </li>
+                </span>
+              </ul>
             </div>
           </div>
           <button>Get It</button>
@@ -26,7 +59,39 @@ const Plan = () => {
           <div className="row">
             <div class="price-details">
               <span class="price2">60</span>
-              <p className="font-medium">For Weekly Plan</p>
+              <p className="font-medium text-lg">For Weekly Plan</p>
+            </div>
+            <div className="">
+              <ul>
+                <span className="flex items-center text-lg">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Everything in the Daily Pass
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Ultra HD video quality (up to 4K)
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Stream on two devices simultaneously
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Offline downloads on mobile devices
+                  </li>
+                </span>
+              </ul>
             </div>
           </div>
           <button>Get It</button>
@@ -39,7 +104,39 @@ const Plan = () => {
           <div className="row">
             <div class="price-details">
               <span class="price3">250</span>
-              <p className="font-medium">For Monthly Plan</p>
+              <p className="font-medium text-lg">For Monthly Plan</p>
+            </div>
+            <div className="">
+              <ul>
+                <span className="flex items-center text-lg">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Everything in the Weekly Pass
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Unlimited device streaming
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Exclusive content and early releases
+                  </li>
+                </span>
+                <span className="flex items-center text-lg mt-2">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Offline downloads on mobile devices
+                  </li>
+                </span>
+              </ul>
             </div>
           </div>
           <button>Get It</button>
@@ -52,7 +149,32 @@ const Plan = () => {
           <div className="row">
             <div class="price-details">
               <span class="price4">2880</span>
-              <p className="font-medium">For Yearly Plan</p>
+              <p className="font-medium text-lg">For Yearly Plan</p>
+            </div>
+            <div className="">
+              <ul>
+                <span className="flex items-center text-lg">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Everything in the Monthly Pass
+                  </li>
+                </span>
+                <span className="flex items-center text-lg">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    Save 17% compared to monthly payments
+                  </li>
+                </span>
+                <span className="flex items-center text-lg ">
+                  {" "}
+                  <FaArrowRight />{" "}
+                  <li className="font-medium text-gray-700 ">
+                    One-time payment for a year of premium streaming
+                  </li>
+                </span>
+              </ul>
             </div>
           </div>
           <button>Get It</button>
