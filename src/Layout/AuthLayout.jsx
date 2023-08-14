@@ -16,10 +16,6 @@ const AuthLayout = () => {
   }
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
-
       <div className="bg-gray-950 py-10 md:min-h-[70vh] flex items-center flex-col">
         <div className="bg-gray-950 pt-10 mb-6">
           <div className=" text-center flex justify-center gap-x-4">

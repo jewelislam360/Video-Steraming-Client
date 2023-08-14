@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import SolialLogin from "../../components/SocialLog";
+import { createUserEmailPass } from "../../redux/features/authSlice/authThunk";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const Register = () => {
   console.log(auth,"hallo");
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    // dispatch(createUserEmailPass(data));
+    dispatch(createUserEmailPass(data));
   };
   return (
     <div className="min-w-[400px]">
