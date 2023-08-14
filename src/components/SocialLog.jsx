@@ -1,8 +1,7 @@
 import React from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-// import { googleLog } from "../../features/authSlice/authThunk";
-
+import {googleLog} from "../redux/features/authSlice/authThunk"
 const SolialLogin = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);

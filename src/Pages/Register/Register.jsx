@@ -9,7 +9,7 @@ const Register = () => {
   console.log(auth,"hallo");
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    // dispatch(createUserEmailPass(data));
+    dispatch(createUserEmailPass(data));
   };
   return (
     <div className="min-w-[400px]">
