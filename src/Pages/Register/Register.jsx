@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import SolialLogin from "../../components/SocialLog";
+import { createUserEmailPass } from "../../redux/features/authSlice/authThunk";
 
 const Register = () => {
   const dispatch = useDispatch();
