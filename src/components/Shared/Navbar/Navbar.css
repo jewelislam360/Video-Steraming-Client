@@ -1,0 +1,7 @@
+ul li{
+    margin: 0 10px;
+}
+ul li:hover{
+    color: #f25a5a;
+    transition: 0.5s;
+}
