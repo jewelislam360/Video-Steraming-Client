@@ -11,8 +11,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-
-const AllMovies = () => {
+const Action = () => {
     const [movies, setMovies] = useState();
     useEffect(() => {
         fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
@@ -22,7 +21,7 @@ const AllMovies = () => {
             })
     }, [])
     return (
-        <div className='my-28 px-20'>
+        <div className=' px-20'>
           <div className='flex justify-between'>
             <div>
               <h1 className='font-bold text-4xl'>All Movies</h1>
@@ -58,7 +57,7 @@ const AllMovies = () => {
         <div className=''>
             
             {
-             movies?.map(movie=><SwiperSlide><MovieCard
+             movies?.slice(3,7).map(movie=><SwiperSlide><MovieCard
              key={movie._id}
              movie={movie}
              ></MovieCard></SwiperSlide>)   
@@ -71,14 +70,7 @@ const AllMovies = () => {
       </Swiper>
 
         </div>
-
-      
-   
-
-
-        
-        
     );
 };
 
-export default AllMovies;
+export default Action;
