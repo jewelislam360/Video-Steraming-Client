@@ -52,7 +52,7 @@
     position: relative;
   }
   .banner .content .button a{
-      background: #f25a5a;
+      background: #ff1d1d;
       color: #ffff;
       text-decoration: none;
       font-weight: 500;
@@ -66,7 +66,7 @@
       background: #000;
   }
   .banner .content .button a:hover:nth-child(2){
-      background: #f25a5a;
+      background: #ff1d1d;
   }
   
   /*==============banner carousel slider=========*/
@@ -97,7 +97,7 @@
     transition: 0.3s;
   }
   .play:hover{
-    color: #f25a5a;
+    color: #ff1d1d;
   }
   .sociel li a{
     color: #ffff;

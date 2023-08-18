@@ -1,7 +1,10 @@
 ul li{
-    margin: 0 10px;
+    border-radius: 3px;
+    color: white;
+    transition: 0.5s;
+    margin-left: 2px;
 }
 ul li:hover{
-    color: #f25a5a;
-    transition: 0.5s;
+    background: #ff3131;
+    color: white;
 }
