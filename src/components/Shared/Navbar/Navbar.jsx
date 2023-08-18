@@ -4,6 +4,7 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -81,7 +82,9 @@ const Navbar = () => {
             {navOption}
           </ul>
         </div>
-        <a className="font-extrabold text-3xl cursor-pointer">mOvex</a>
+        <Link to="/" className="font-extrabold text-3xl cursor-pointer">
+          mOvex
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex md:flex">
         <ul className="menu menu-horizontal px-1 text-white">{navOption}</ul>
@@ -103,7 +106,9 @@ const Navbar = () => {
           </div>
         )}
         <AiFillHeart size={24} className="text-gray-400 mr-1" />
-        <a className="btn bg-red-600 btn-outline text-white">Login</a>
+        <Link to="/login" className="btn bg-red-600 btn-outline text-white">
+          Login
+        </Link>
       </div>
     </div>
   );
