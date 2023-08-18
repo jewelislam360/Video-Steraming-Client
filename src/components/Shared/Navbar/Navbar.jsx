@@ -83,7 +83,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="font-extrabold text-3xl cursor-pointer">
-          mOvex
+          VidBox
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex md:flex">
