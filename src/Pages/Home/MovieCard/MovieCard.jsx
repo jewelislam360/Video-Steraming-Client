@@ -1,7 +1,7 @@
 import React from 'react';
 // Import Swiper React components
 import { AiOutlineLike } from "react-icons/ai";
-import { FaPlus, FaRegPlayCircle, FaShareAlt, } from "react-icons/fa";
+import { FaPlay, FaPlus, FaShareAlt, } from "react-icons/fa";
 
 
 const MovieCard = ({ movie }) => {
@@ -20,7 +20,7 @@ const MovieCard = ({ movie }) => {
 
                             </div>
                             <div>
-                            <button className=" text-red-600  group/edit invisible absolute bottom-[43%] right-[43%] group-hover/:visible "><a href={video}><FaRegPlayCircle className='w-14 h-14'></FaRegPlayCircle></a></button>
+                            <button className=" bg-red-600 p-5 rounded-full  group/edit invisible absolute bottom-[45%] right-[45%] group-hover/:visible "><a href={video}><FaPlay className=''></FaPlay></a></button>
                             </div>
 
                         </div>
