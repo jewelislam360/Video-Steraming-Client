@@ -8,7 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    // dispatch(loginEmailPass(data));
+    dispatch(loginEmailPass(data));
   };
   return (
     <>

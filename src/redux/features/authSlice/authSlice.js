@@ -61,7 +61,7 @@ const authSlice = createSlice({
         state.isError = false;
         state.loading = false;
       })
-      .addCase(loginEmailPass.fulfilled, (state, action) => {
+      .addCase(loginEmailPass.rejected, (state, action) => {
         state.user = "";
         state.error = action.error;
         state.isError = true;
