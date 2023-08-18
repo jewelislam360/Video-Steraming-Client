@@ -5,7 +5,7 @@ import { FaEnvelope, FaGlobe, FaHome, FaPhone } from "react-icons/fa";
 const Contact = () => {
   const { register, handleSubmit } = useForm();
   return (
-    <div className="h-screen bg-gray-950">
+    <div className="min-h-screen bg-gray-950 pt-20">
       <h1 className="font-semibold text-center text-4xl text-white">
         Contact us
       </h1>
