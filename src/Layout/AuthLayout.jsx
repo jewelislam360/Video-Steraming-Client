@@ -40,7 +40,7 @@ const AuthLayout = () => {
             </Link>
           </div>
         </div>
-        <div className="border border-gray-700 p-4 mx-4 md:p-12 max-w-lg md:mx-auto ">
+        <div className="border border-gray-700 p-6 mx-4 md:p-12 max-w-lg md:mx-auto ">
           {content}
         </div>
       </div>

@@ -57,7 +57,7 @@ const Register = () => {
     reset({ userName: "", email: "", password: "" });
   }
   return (
-    <div className="min-w-[400px]">
+    <div className="min-w-[300px] md:min-w-[400px] ">
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
