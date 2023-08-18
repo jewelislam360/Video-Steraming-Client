@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import MovieCard from '../MovieCard/MovieCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,8 +57,7 @@ const Action = () => {
         <div className=''>
             
             {
-             movies?.slice(3,7).map(movie=><SwiperSlide><MovieCard
-             key={movie._id}
+             movies?.slice(3,7).map(movie=><SwiperSlide key={movie._id}><MovieCard
              movie={movie}
              ></MovieCard></SwiperSlide>)   
             
