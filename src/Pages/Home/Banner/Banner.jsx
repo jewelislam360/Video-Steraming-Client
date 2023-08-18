@@ -36,7 +36,7 @@ const Banner = () => {
     const changeBg = (bg, title) => {
         const banner = document.querySelector('.banner');
         const contents = document.querySelectorAll('.content');
-        banner.style.backgroundImage = `url('assets/images/banner/${bg}')`;
+        banner.style.backgroundImage = `url('../../../../public/assets/images/banner/${bg}')`;
         banner.style.backgroundSize = 'cover';
         banner.backgroundPosition = 'center';
 
