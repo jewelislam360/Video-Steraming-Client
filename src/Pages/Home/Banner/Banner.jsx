@@ -49,13 +49,13 @@ const Banner = () => {
     }
     return (
         <>
-            <div className='banner xl:w-[100%] lg:w-[100%] md:w-[50%] w-1/4'>
+            <div className='banner w-full'>
                 <div className=' content avenger-title active'>
-                    <img className='movie-title xl:w-[100%] lg:w-[100%] md:w-[50%] w-1/4'
+                    <img className='movie-title'
                         src="../../../../public/assets/images/banner/avenger-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2023</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
                         <span>2h 14min</span>
                         <span>Romance</span>
                     </h4>
@@ -70,7 +70,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/venom-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2023</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
                         <span>2h 14min</span>
                         <span>Romance</span>
                     </h4>
@@ -85,7 +85,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/hobit-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2020</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>17+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>17+</i></span>
                         <span>2h 14min</span>
                         <span>Adventure</span>
                     </h4>
@@ -100,7 +100,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/immortals-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2018</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>21+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>21+</i></span>
                         <span>2h 14min</span>
                         <span>Action</span>
                     </h4>
@@ -115,7 +115,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/kum-fu-panda-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2019</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>25+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>25+</i></span>
                         <span>3h 14min</span>
                         <span>Animation</span>
                     </h4>
@@ -130,7 +130,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/Pirates-of-The-Caribbean-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2021</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>16+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>16+</i></span>
                         <span>2h 14min</span>
                         <span>Thiller</span>
                     </h4>
@@ -145,7 +145,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/troy-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2017</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>33+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>33+</i></span>
                         <span>2h 14min</span>
                         <span>History</span>
                     </h4>
@@ -160,7 +160,7 @@ const Banner = () => {
                         src="../../../../public/assets/images/banner/spider-man-title.png" alt="movie-title" />
                     <h4 className='text-gray-300 font-normal text-xl'>
                         <span>2013</span>
-                        <span><i className=' bg-rose-500 text-white px-1 py-1 inline-block rounded-sm'>27+</i></span>
+                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>27+</i></span>
                         <span>2h 14min</span>
                         <span>Advanture</span>
                     </h4>
@@ -171,19 +171,19 @@ const Banner = () => {
                     </div>
                 </div>
                 {/* ==========carousel=============== */}
-                <div className='carousel-box relative min-w-[650px] flex justify-center items-center ml-4'>
-                    <div className="carousel relative h-[380px]">
+                <div className='carousel-box relative min-w-[300px] lg:min-w-[650px] flex justify-center items-center ml-4'>
+                    <div className="carousel relative h-[200px] lg:h-[380px]">
                         <div className="carousel-item"
                             onClick={() => changeBg('avenger.jpg', 'avenger-title')}>
                             <img src={movieCard00} alt="" />
                         </div>
-                        <div className="carousel-item"
+                        <div className="carousel-item "
                             onClick={() => changeBg('venom.webp', 'venom-title')}>
                             <img src={movieCard01} alt="" />
                         </div>
                         <div className="carousel-item"
                             onClick={() => changeBg('hobbit.jpg', 'hobit-title')}>
-                            <img src={movieCard02} alt="" />
+                            <img className='' src={movieCard02} alt="" />
                         </div>
                         <div className="carousel-item"
                             onClick={() => changeBg('immortal.jpg', 'immortals-title')}>
