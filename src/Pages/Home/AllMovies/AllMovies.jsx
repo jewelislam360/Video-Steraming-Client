@@ -13,17 +13,17 @@ import { Pagination } from 'swiper/modules';
 
 
 const AllMovies = () => {
-    const [movies, setMovies] = useState();
-    useEffect(() => {
-        fetch("Data.json")
-            .then(res => res.json())
-            .then(data => {
-                setMovies(data);
-            })
-    }, [])
-    return (
-        <div className='my-64 px-10'>
-            <Swiper
+  const [movies, setMovies] = useState();
+  useEffect(() => {
+    fetch("Data.json")
+      .then(res => res.json())
+      .then(data => {
+        setMovies(data);
+      })
+  }, [])
+  return (
+    <div className='my-64 px-10'>
+      <Swiper
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -46,31 +46,31 @@ const AllMovies = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        
+
         <div className=''>
-            
-            {
-             movies?.map(movie=><SwiperSlide><MovieCard
-             key={movie.id}
-             movie={movie}
-             ></MovieCard></SwiperSlide>)   
-            
-            }
-        
-    </div>
-        
-        
-      </Swiper>
+
+          {
+            movies?.map(movie => <SwiperSlide><MovieCard
+              key={movie.id}
+              movie={movie}
+            ></MovieCard></SwiperSlide>)
+
+          }
 
         </div>
 
-      
-   
+
+      </Swiper>
+
+    </div>
 
 
-        
-        
-    );
+
+
+
+
+
+  );
 };
 
 export default AllMovies;
