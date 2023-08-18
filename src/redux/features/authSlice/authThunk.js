@@ -5,8 +5,11 @@ import {
   signInWithEmailAndPassword,
   getAuth,
   signInWithPopup,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../../../Firebase/Firebase.config";
+import { setUser } from "./authSlice";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -36,7 +39,6 @@ export const loginEmailPass = createAsyncThunk(
   "authSlice/loginEmailPass",
   async ({ email, password }) => {
     const result = await signInWithEmailAndPassword(auth, email, password);
-    console.log(result);
     const {
       displayName,
       email: userEmail,
@@ -71,6 +73,39 @@ export const googleLog = createAsyncThunk("authSlice/googleLogin", async () => {
     phoneNumber,
     photoURL,
   };
-  console.log(user);
   return user;
 });
+
+export const currentUser = createAsyncThunk(
+  "authSlice/currentUser",
+  async (_, { dispatch }) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {
+          displayName,
+          email: userEmail,
+          emailVerified,
+          phoneNumber,
+          photoURL,
+        } = user;
+        const u = {
+          displayName,
+          userEmail,
+          emailVerified,
+          phoneNumber,
+          photoURL,
+        };
+        dispatch(setUser(u));
+      } else {
+        dispatch(setUser(null));
+      }
+    });
+  }
+);
+
+export const sendForgotEmail = createAsyncThunk(
+  "authSlice/forgotPass",
+  async (email) => {
+    const result = await sendPasswordResetEmail(auth, email);
+  }
+);
