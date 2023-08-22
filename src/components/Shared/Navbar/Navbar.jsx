@@ -63,6 +63,9 @@ const Navbar = () => {
       <li>
         <a>Contact</a>
       </li>
+      <li>
+        <Link to="/dashboard/watchlist">Dashboard</Link>
+      </li>
     </>
   );
   return (

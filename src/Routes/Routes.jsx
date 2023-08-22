@@ -5,6 +5,8 @@ import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import DashBoard from "../Layout/DashBoard";
+import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 
 export const router = createBrowserRouter([
   {
@@ -24,4 +26,14 @@ export const router = createBrowserRouter([
        element: <AuthLayout /> },
     ],
   },
+  {
+    path: 'dashboard',
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: 'watchlist',
+        element: <WatchList></WatchList>
+      }
+    ]
+  }
 ]);

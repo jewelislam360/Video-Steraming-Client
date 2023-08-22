@@ -158,6 +158,7 @@ const Banner = () => {
                                     <video className=' w-[100%] lg:w-2/3 lg:h-2/4 md:w-2/3 md:h-2/4 rounded-lg relative' src="../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4"
                                         muted
                                         controls="true"
+                                        light='true'
                                     ></video>
                                 </div>
                             </div>
