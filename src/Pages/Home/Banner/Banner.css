@@ -1,15 +1,13 @@
 .banner{
     position: relative;
-    /* width: 100%; */
     min-height: 100vh;
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: url('assets/images/banner/avenger.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    overflow: hidden; 
     transition: 0.5s;
   }
   .banner::before{
@@ -26,17 +24,8 @@
   .content{
     position: relative;
     max-width: 550px;
-    display: none;
-    visibility: hidden;
-    transform: scale(0);
-    transition: 0.5s;
   }
-  .banner .content.active{
-      display: block;
-      visibility: visible;
-      transform: scale(1);
-      transition: 0.5s;
-  }
+  
   .banner .content h4 span{
       padding: 0 10px;
       border-right: 1px solid;
@@ -48,10 +37,8 @@
   .banner .content h4 span:last-child{
       border-right: none;
   }
-  .banner .content .button{
-    position: relative;
-  }
-  .banner .content .button a{
+  
+  .banner .content .button {
       background: #ff1d1d;
       color: #ffff;
       text-decoration: none;
@@ -67,64 +54,5 @@
   }
   .banner .content .button a:hover:nth-child(2){
       background: #ff1d1d;
-  }
+  } 
   
-  /*==============banner carousel slider=========*/
-  
-  .banner .carousel-box{
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-    border-radius: 10px;
-  }
-  .banner .carousel{
-    perspective: 1500;
-  }
-  .banner .carousel-item{
-    width: 180px;
-    cursor: pointer;
-  }
-  .banner .carousel-item img{
-    max-width: 235px;
-    height: 250px;
-    border-radius: 10px;
-    transform: translateX(10px) translateY(-35px);
-    object-fit: cover;
-    object-position: center;
-  }
-  .play{
-    transition: 0.3s;
-  }
-  .play:hover{
-    color: #ff1d1d;
-  }
-  .sociel li a{
-    color: #ffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 25px;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  .trailer{
-    transition: 0.3s;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(20px);
-    visibility: hidden;
-    opacity: 0;
-  }
-  .trailer.active{
-  visibility: visible;
-  opacity: 1;
-  }
-  .trailer video{
-  max-width: 900px;
-  outline: none;
-  }
-  .close{
-    cursor: pointer;
-    filter: invert(1);
-    max-width: 30px;
-  }

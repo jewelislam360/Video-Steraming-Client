@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { FaSearch, FaBars,FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
@@ -63,6 +63,9 @@ const Navbar = () => {
       <li>
         <a>Contact</a>
       </li>
+      <li>
+        <Link to="/dashboard/watchlist">Dashboard</Link>
+      </li>
     </>
   );
   return (
@@ -97,7 +100,7 @@ const Navbar = () => {
           <FaSearch size={20} className="mr-1" />
         </button>
         {searchVisible && (
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="flex lg:flex md:flex space-x-4 items-center">
             <input
               type="text"
               placeholder="Search for movies..."
@@ -105,8 +108,8 @@ const Navbar = () => {
             />
           </div>
         )}
-        <AiFillHeart size={24} className="text-gray-400 mr-1" />
-        <Link to="/login" className="btn bg-red-600 btn-outline text-white">
+        <FaUserCircle size={24} className="text-gray-400 mr-1" />
+        <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">
           Login
         </Link>
       </div>

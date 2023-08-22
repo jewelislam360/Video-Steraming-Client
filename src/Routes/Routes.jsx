@@ -3,7 +3,8 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import AuthLayout from "../Layout/AuthLayout";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
+import DashBoard from "../Layout/DashBoard";
+import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 
 export const router = createBrowserRouter([
   {
@@ -30,4 +31,14 @@ export const router = createBrowserRouter([
        },
     ],
   },
+  {
+    path: 'dashboard',
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: 'watchlist',
+        element: <WatchList></WatchList>
+      }
+    ]
+  }
 ]);
