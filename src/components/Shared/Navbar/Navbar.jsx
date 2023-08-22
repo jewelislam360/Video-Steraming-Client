@@ -97,7 +97,7 @@ const Navbar = () => {
           <FaSearch size={20} className="mr-1" />
         </button>
         {searchVisible && (
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="flex lg:flex md:flex space-x-4 items-center">
             <input
               type="text"
               placeholder="Search for movies..."
@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
         )}
         <AiFillHeart size={24} className="text-gray-400 mr-1" />
-        <Link to="/login" className="btn bg-red-600 btn-outline text-white">
+        <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">
           Login
         </Link>
       </div>
