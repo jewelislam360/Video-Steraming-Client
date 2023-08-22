@@ -5,6 +5,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashBoard from "../Layout/DashBoard";
 import WatchList from "../Pages/DashBoard/WatchList/WatchList";
+import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 
 export const router = createBrowserRouter([
   {
