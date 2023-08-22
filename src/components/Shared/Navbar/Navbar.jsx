@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { FaSearch, FaBars,FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
@@ -105,7 +105,7 @@ const Navbar = () => {
             />
           </div>
         )}
-        <AiFillHeart size={24} className="text-gray-400 mr-1" />
+        <FaUserCircle size={24} className="text-gray-400 mr-1" />
         <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">
           Login
         </Link>
