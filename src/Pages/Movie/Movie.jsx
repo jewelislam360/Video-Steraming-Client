@@ -15,10 +15,10 @@ const Movie = () => {
         <>
             <section className="relative py- overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-24">
                 <div className="absolute inset-0">
-                    <img className="object-cover w-full h-full md:object-left md:scale-150 md:origin-top-left" src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/5/girl-working-on-laptop.jpg" alt="" />
+                    <img className="object-cover w-full h-full md:object-left md:scale-150 md:origin-top-left brightness-50" src="https://i.ibb.co/mCLJHh1/home-banner.png" alt="" />
                 </div>
 
-                <div className="absolute inset-0 hidden bg-gradient-to-r md:block from-black to-transparent">
+                <div className="absolute inset-0 hidden bg-gradient-to-br md:block from-black to-transparent">
 
                 </div>
 
@@ -26,18 +26,14 @@ const Movie = () => {
 
                 <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mt-6">
                     <div className="text-center ">
-                        <h2 className="text-3xl font-bold leading-tight text-white sm:text-2xl lg:text-4xl">Get full access to Celebration</h2>
+                        <h2 className="text-3xl font-bold leading-tight sm:text-2xl lg:text-4xl">Search your Favourite Movie </h2>
                     </div>
                 </div>
             </section>
 
             <section>
 
-                <div className=' w-[95%] mx-auto mt-10 mb-5 gap-3 
-                
-                flex flex-col md:flex-row lg:flex-row
-                
-                '>
+                <div className=' w-[95%] mx-auto mt-10 mb-5 gap-3 flex flex-col md:flex-row lg:flex-row'>
                     <div className='gap-4 grid lg:w-[30%] sm:w-[20%] '>
                         <div className='p-5'>
                             <form>
@@ -51,7 +47,7 @@ const Movie = () => {
                                 </div>
                             </form>
                             <div className='mt-5 font-semibold' >
-                                <p className='text-3xl font-semibold mt-5'>
+                                <p className='text-3xl font-semibold mt-10'>
                                 Filter By Genre
                                 </p>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
@@ -70,12 +66,18 @@ const Movie = () => {
                                 <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Mystery</span>
                                 </div>
 
-                                <div className=''>
+                                <div className='mt-8'>
                                 <p className='text-3xl font-semibold mt-5'>
                                 Filter By Tags
                                 </p>
-                                <div className=''>
-                                <button type="button" className="px-5 py-2 font-semibold rounded dark:bg-gray-100 dark:text-gray-800">Basic</button>
+                                <div className='mt-5'>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">4K Ultra</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Brother</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Dubbing</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1">Hero</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1 mt-2">King</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Viking</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">K-Drama</button>
                                 </div>
                                 </div>
                             </div>
