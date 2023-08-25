@@ -7,6 +7,8 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   sendPasswordResetEmail,
+  signOut,
+  updatePassword,
 } from "firebase/auth";
 import app from "../../../Firebase/Firebase.config";
 import { setUser } from "./authSlice";
@@ -32,7 +34,7 @@ export const createUserEmailPass = createAsyncThunk(
       phoneNumber,
       photoURL,
     };
-    return user;
+    return JSON.stringify(result.user);
   }
 );
 export const loginEmailPass = createAsyncThunk(
@@ -95,7 +97,7 @@ export const currentUser = createAsyncThunk(
           phoneNumber,
           photoURL,
         };
-        dispatch(setUser(u));
+        dispatch(setUser(JSON.stringify({ userr: user })));
       } else {
         dispatch(setUser(null));
       }
@@ -109,3 +111,28 @@ export const sendForgotEmail = createAsyncThunk(
     const result = await sendPasswordResetEmail(auth, email);
   }
 );
+
+export const changePassword = createAsyncThunk(
+  "authSlice/changePassword",
+  async (newPassword, { getState, rejectWithValue }) => {
+    // const currentUser = JSON.parse(getState().auth.user.userr);
+    // console.log(currentUser, "change password hallo");
+    try {
+      onAuthStateChanged(auth, async (user) => {
+        try {
+          await updatePassword(user, "");
+          console.log("Password updated successfully.");
+        } catch (error) {
+          console.log("error:",error)
+        }
+      });
+    } catch (error) {
+      console.error("Error updating password:", error);
+      // throw error; // Rethrow the error to be handled by Redux Toolkit
+    }
+  }
+);
+
+export const logOut = createAsyncThunk("authSlice/logOut", async () => {
+  const result = await signOut(auth);
+});

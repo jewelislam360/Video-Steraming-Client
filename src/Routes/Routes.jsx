@@ -6,12 +6,14 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashBoard from "../Layout/DashBoard";
 import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
+import User from "../Pages/User/User";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -21,25 +23,25 @@ export const router = createBrowserRouter([
         path: "login",
         element: <AuthLayout />,
       },
-      { path: "register",
-       element: <AuthLayout />
-       },
-       { 
+      { path: "register", element: <AuthLayout /> },
+      {
         path: "viewPlayer/:id",
-       element: <ViewPlayer></ViewPlayer>,
-       loader:({params})=>fetch(`http://localhost:5000/allMovies/${params.id}`)
-       
-       },
+        element: <ViewPlayer></ViewPlayer>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allMovies/${params.id}`),
+      },
+      { path: "user", element: <User /> },
+      { path: "contact", element: <Contact /> },
     ],
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <DashBoard></DashBoard>,
     children: [
       {
-        path: 'watchlist',
-        element: <WatchList></WatchList>
-      }
-    ]
-  }
+        path: "watchlist",
+        element: <WatchList></WatchList>,
+      },
+    ],
+  },
 ]);
