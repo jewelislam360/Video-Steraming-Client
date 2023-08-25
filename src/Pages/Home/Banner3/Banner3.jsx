@@ -56,7 +56,7 @@ const Banner3 = () => {
     }
     ]
     return (
-        <>
+        <div className='mx-20'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
@@ -109,7 +109,7 @@ const Banner3 = () => {
                     </SwiperSlide>)
                 }
             </Swiper>
-        </>
+        </div>
     );
 };
 
