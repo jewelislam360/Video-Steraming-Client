@@ -7,6 +7,7 @@ import DashBoard from "../Layout/DashBoard";
 import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
+import Blog from "../Pages/Blog/Blog";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       },
       { path: "register",
        element: <AuthLayout />
+       },
+       {
+        path:"blog",
+        element:<Blog></Blog>
        },
        { 
         path: "viewPlayer/:id",
