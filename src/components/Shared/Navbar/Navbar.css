@@ -3,8 +3,9 @@ ul li{
     color: white;
     transition: 0.5s;
     margin-left: 2px;
+    margin-top: 2px;
 }
 ul li:hover{
-    background: #ff3131;
-    color: white;
+    background: #ee2c2c;
+    color: #ffff;
 }

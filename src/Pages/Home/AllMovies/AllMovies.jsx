@@ -32,6 +32,7 @@ const AllMovies = () => {
             </div>
           </div>
             <Swiper
+  
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
