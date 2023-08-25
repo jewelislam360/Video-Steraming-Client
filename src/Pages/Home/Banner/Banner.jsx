@@ -116,10 +116,10 @@ const Banner = () => {
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
-                // autoplay={{
-                //     delay: 2500,
-                //     disableOnInteraction: false,
-                // }}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
                 pagination={{
                     clickable: true,
                 }}
@@ -153,7 +153,7 @@ const Banner = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="flex flex-col justify-center items-center p-4" data-aos="zoom-in-left">
+                                <div className="flex flex-col justify-end items-end p-4 text-center" data-aos="zoom-in-left">
                                     <h2 className='text-2xl font-extrabold text-white mb-2'>Watch Trailer</h2>
                                     <video className=' w-[100%] lg:w-2/3 lg:h-2/4 md:w-2/3 md:h-2/4 rounded-lg relative' src="../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4"
                                         muted
