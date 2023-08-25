@@ -14,6 +14,8 @@ const Home = () => {
       <AllMovies></AllMovies>
       <Action></Action>
       <Banner3></Banner3>
+      <AllMovies></AllMovies>
+      <Action></Action>
       <Faq></Faq>
       <Plan></Plan>
       <Contact />
