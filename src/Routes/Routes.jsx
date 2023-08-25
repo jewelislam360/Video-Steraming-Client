@@ -6,6 +6,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashBoard from "../Layout/DashBoard";
 import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
+import Movie from "../Pages/Movie/Movie";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
        loader:({params})=>fetch(`http://localhost:5000/allMovies/${params.id}`)
        
        },
+       {
+        path:'/movie',
+        element:<Movie />
+       }
     ],
   },
   {
