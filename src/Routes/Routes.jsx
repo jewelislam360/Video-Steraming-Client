@@ -6,8 +6,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashBoard from "../Layout/DashBoard";
 import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
-import User from "../Pages/User/User";
-import Contact from "../Pages/Contact/Contact";
+import Movie from "../Pages/Movie/Movie";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +25,20 @@ export const router = createBrowserRouter([
       { path: "register", element: <AuthLayout /> },
       {
         path: "viewPlayer/:id",
-        element: <ViewPlayer></ViewPlayer>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/allMovies/${params.id}`),
-      },
-      { path: "user", element: <User /> },
-      { path: "contact", element: <Contact /> },
+       element: <ViewPlayer></ViewPlayer>,
+       loader:({params})=>fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
+       
+       },
+       { 
+        path: "/movie/viewPlayer/:id",
+       element: <ViewPlayer></ViewPlayer>,
+       loader:({params})=>fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
+       
+       },
+       {
+        path:'/movie',
+        element:<Movie />
+       }
     ],
   },
   {

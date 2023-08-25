@@ -21,17 +21,15 @@ const Login = () => {
     (state) => state.auth
   );
 
-  const [login, { isSuccess, data }] = useLoginMutation();
+  const [loginMutation, { isLoading, data }] = useLoginMutation();
   //useform use for manage input
   const { register, handleSubmit, reset, watch } = useForm();
-
   //handle form submition
   const onSubmit = (data) => {
     reset({ email: "", password: "" });
     dispatch(loginEmailPass(data));
-    login(data);
+    loginMutation(data);
   };
-  console.log(data,"data with access token");
   const watchEmail = watch("email");
 
   //forgot password handler

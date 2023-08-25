@@ -114,16 +114,14 @@ export const sendForgotEmail = createAsyncThunk(
 
 export const changePassword = createAsyncThunk(
   "authSlice/changePassword",
-  async (newPassword, { getState, rejectWithValue }) => {
-    // const currentUser = JSON.parse(getState().auth.user.userr);
-    // console.log(currentUser, "change password hallo");
+  async (newPassword) => {
     try {
       onAuthStateChanged(auth, async (user) => {
         try {
-          await updatePassword(user, "");
+          await updatePassword(user, newPassword);
           console.log("Password updated successfully.");
         } catch (error) {
-          console.log("error:",error)
+          console.log("error:", error);
         }
       });
     } catch (error) {

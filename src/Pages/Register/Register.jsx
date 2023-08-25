@@ -8,6 +8,7 @@ import {
   setIsLoginSuccess,
 } from "../../redux/features/authSlice/authSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { useSignUpMutation } from "../../redux/api/userApi";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Register = () => {
   const { actionName, error, isLoginSuccess, isError, user } = useSelector(
     (state) => state.auth
   );
-  console.log(user, isLoginSuccess, isError, "hallo user");
+  const [signMutation, { data }] = useSignUpMutation();
   //use form hook
   const {
     register,
@@ -35,6 +36,7 @@ const Register = () => {
   //form submit handler
   const onSubmit = (data) => {
     dispatch(createUserEmailPass(data));
+    signMutation(data);
   };
   //error and success massage
   const err = () =>
