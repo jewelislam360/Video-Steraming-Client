@@ -1,156 +1,27 @@
 .plan {
-    width: 350px !important;
-    height: 500px;
-    background:  #030303;
     border-radius: 16px;
     color: white;
-    padding: 20px 10px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+    background-color: #221F1F;
     transition: 0.3s;
 }
- 
-.plan:hover{
-    background:  linear-gradient(145deg, #eb1212 0%, #021334 100%);
-    transform: translateY(-20px);
-    
-}
-.img img{
-    width: 60px;
-    color: #fff;
-}
-.row .price-details {
-    margin: 10px 0;
-    text-align: center;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #e6e6e6;
+
+.plan:hover {
+    background:  #900909;
+    transform: scale(1.05);
+
 }
 
-.price-details .price {
-    font-size: 65px;
-    font-weight: 600;
-    position: relative;
-    font-family: 'Noto Sans', sans-serif;
+ul span li{
+    margin-top: 5px;
+}
+.plan:hover button{
+
+    background: transparent;
+    border: 2px solid whitesmoke;
 }
 
-.price-details .price::before,
-.price-details .price::after {
-    position: absolute;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-}
-
-.price-details .price::before {
-    content: "$";
-    font-weight: bold;
-    color: white;
-    left: -13px;
-    top: 17px;
-    font-size: 20px;
-}
-
-.price-details .price::after {
-    content: "/daily";
-    font-weight: bold;
-    right: -33px;
-    bottom: 17px;
-    font-size: 13px;
-}
-
-
-.price-details .price2 {
-    font-size: 65px;
-    font-weight: 600;
-    position: relative;
-    font-family: 'Noto Sans', sans-serif;
-}
-
-.price-details .price2::before,
-.price-details .price2::after {
-    position: absolute;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-}
-
-.price-details .price2::before {
-    content: "$";
-    font-weight: bold;
-    color: white;
-    left: -13px;
-    top: 17px;
-    font-size: 20px;
-}
-
-.price-details .price2::after {
-    content: "/weekly";
-    font-weight: bold;
-    right: -45px;
-    bottom: 17px;
-    font-size: 13px;
-}
-
-.price-details .price3 {
-    font-size: 65px;
-    font-weight: 600;
-    position: relative;
-    font-family: 'Noto Sans', sans-serif;
-}
-.price-details .price3::before,
-.price-details .price3::after {
-    position: absolute;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-}
-
-.price-details .price3::before {
-    content: "$";
-    font-weight: bold;
-    color: white;
-    left: -13px;
-    top: 17px;
-    font-size: 20px;
-}
-
-.price-details .price3::after {
-    content: "/monthly";
-    font-weight: bold;
-    right: -53px;
-    bottom: 17px;
-    font-size: 13px;
-}
-.price-details .price4 {
-    font-size: 65px;
-    font-weight: 600;
-    position: relative;
-    font-family: 'Noto Sans', sans-serif;
-}
-.price-details .price4::before,
-.price-details .price4::after {
-    position: absolute;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-}
-
-.price-details .price4::before {
-    content: "$";
-    font-weight: bold;
-    color: white;
-    left: -13px;
-    top: 17px;
-    font-size: 20px;
-}
-
-.price-details .price4::after {
-    content: "/yearly";
-    font-weight: bold;
-    right: -40px;
-    bottom: 17px;
-    font-size: 13px;
-}
-
-
-.plan button{
-    width: 100%;
-    border-radius: 25px;
+.plan button {
+    border-radius: 11px;
     border: none;
     outline: none;
     height: 50px;
@@ -160,7 +31,10 @@
     cursor: pointer;
     background: red;
     transition: transform 0.3s ease;
-  }
-  .plan button:hover{
+}
+
+.plan button:hover {
     transform: scale(0.98);
-  }
+    background-color: whitesmoke;
+    color: #221F1F;
+}
