@@ -22,6 +22,11 @@ const Navbar = () => {
       <li>
         <a href="">Home</a>
       </li>
+      <li>
+        <Link to='/movie'>
+        Movie
+        </Link>
+      </li>
       <li tabIndex={0}>
         <details>
           <summary>Movies</summary>
