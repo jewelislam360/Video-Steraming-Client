@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import MovieCard from '../MovieCard/MovieCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -32,6 +32,7 @@ const AllMovies = () => {
             </div>
           </div>
             <Swiper
+  
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -58,8 +59,8 @@ const AllMovies = () => {
         <div className=''>
             
             {
-             movies?.map(movie=><SwiperSlide><MovieCard
-             key={movie._id}
+             movies?.map(movie=><SwiperSlide key={movie._id}><MovieCard
+             
              movie={movie}
              ></MovieCard></SwiperSlide>)   
             

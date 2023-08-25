@@ -2,10 +2,11 @@ import React from 'react';
 // Import Swiper React components
 import { AiOutlineLike } from "react-icons/ai";
 import { FaPlay, FaPlus, FaShareAlt, } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 const MovieCard = ({ movie }) => {
-    const { id, title, img, video, like, trailer, description, time, rating, category } = movie;
+    const { _id, title, img, video, like, trailer, description, time, rating, category } = movie;
     return (
         <>
                 
@@ -20,7 +21,9 @@ const MovieCard = ({ movie }) => {
 
                             </div>
                             <div>
-                            <button className=" bg-red-600 p-5 rounded-full  group/edit invisible absolute bottom-[45%] right-[45%] group-hover/:visible "><a href={video}><FaPlay className=''></FaPlay></a></button>
+                            <Link to={`viewPlayer/${_id}`}>
+                            <button className=" bg-red-600 p-5 rounded-full  group/edit invisible absolute bottom-[45%] right-[45%] group-hover/:visible "><FaPlay className=''></FaPlay></button>
+                            </Link>
                             </div>
 
                         </div>

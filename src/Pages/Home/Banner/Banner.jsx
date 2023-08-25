@@ -1,227 +1,177 @@
-import React, { useEffect } from 'react';
 import './Banner.css';
-import { FaFacebook, FaTwitter, FaYoutube, FaPlay, FaRegWindowClose } from 'react-icons/fa'
-import M from 'materialize-css';
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import movieCard00 from '../../../../public/assets/images/banner/avenger-card.jpeg'
-import movieCard01 from '../../../../public/assets/images/banner/Venom-card.webp'
-import movieCard02 from '../../../../public/assets/images/banner/hobbit-card.jpg'
-import movieCard03 from '../../../../public/assets/images/banner/immortals-card.jpg'
-import movieCard04 from '../../../../public/assets/images/banner/Kung_Fu_Panda_card.jpg'
-import movieCard05 from '../../../../public/assets/images/banner/pairets-card.jpeg'
-import movieCard06 from '../../../../public/assets/images/banner/troy-carg.jpg'
-import movieCard07 from '../../../../public/assets/images/banner/spaider-man-card.jpg'
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { FaFacebook, FaTwitter, FaYoutube, FaPlay, FaPlayCircle, FaRegWindowClose } from 'react-icons/fa'
+
+import banner1 from '../../../../public/assets/images/banner/spider-man.jpg'
+import banner2 from '../../../../public/assets/images/banner/avenger.jpg'
+import banner3 from '../../../../public/assets/images/banner/dark-knight.jpg'
+import banner4 from '../../../../public/assets/images/banner/Jungle-Book.webp'
+import banner5 from '../../../../public/assets/images/banner/star-wars.webp'
+import banner6 from '../../../../public/assets/images/banner/venom.webp'
+import banner7 from '../../../../public/assets/images/banner/Avatar.jpg'
+
 
 const Banner = () => {
-    useEffect(() => {
-        // Initialize the Materialize Carousel
-        const elems = document.querySelectorAll('.carousel');
-        M.Carousel.init(elems, {
-            indicators: true,
-            duration: 200,
-        });
-    }, []);
+    const slidDoc = [{
+        bgImg: banner1,
+        id: 1,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/spider-man-title.png",
+        year: '2021',
+        watch_time: '2h 14min',
+        total_view: '50+',
+        category: 'Romantic',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
 
-    const toggleVideo = () => {
-        const trailer = document.querySelector('.trailer');
-        const video = document.querySelector('video');
-        video.pause();
-        trailer.classList.toggle('active');
+    },
+    {
+        bgImg: banner2,
+        id: 3,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/avenger-title.png",
+        year: '2020',
+        watch_time: '2h 14min',
+        total_view: '27+',
+        category: 'Action',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
 
-        if (video !== null) {
-            video.pause();
-        }
-    }
+    },
+    {
+        bgImg: banner3,
+        id: 3,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/the-dark-knight.png",
+        year: '2017',
+        watch_time: '2h',
+        total_view: '43+',
+        category: 'Advanture',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
 
-    const changeBg = (bg, title) => {
-        const banner = document.querySelector('.banner');
-        const contents = document.querySelectorAll('.content');
-        banner.style.backgroundImage = `url('../../../../public/assets/images/banner/${bg}')`;
-        banner.style.backgroundSize = 'cover';
-        banner.backgroundPosition = 'center';
+    },
+    {
+        bgImg: banner4,
+        id: 4,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/jungle-book.png",
+        year: '2016',
+        watch_time: '1h 14min',
+        total_view: '23+',
+        category: 'Animation',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
 
-        contents.forEach(content => {
-            content.classList.remove('active');
-            if (content.classList.contains(title)) {
-                content.classList.add('active');
-            }
-        })
-    }
+    },
+    {
+        bgImg: banner5,
+        id: 5,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/star-wars.png",
+        year: '2010',
+        watch_time: '3h 14min',
+        total_view: '30+',
+        category: 'Horror',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
+
+    },
+    {
+        bgImg: banner6,
+        id: 6,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/venom-title.png",
+        year: '2007',
+        watch_time: '2h 14min',
+        total_view: '27+',
+        category: 'Animation',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
+
+    },
+    {
+        bgImg: banner7,
+        id: 7,
+        video: "../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4",
+        movieTitle: "../../../../public/assets/images/banner/avatar.png",
+        year: '2007',
+        watch_time: '2h 14min',
+        total_view: '27+',
+        category: 'Animation',
+        para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?'
+
+    },
+    ]
+    const progressCircle = useRef(null);
+    const progressContent = useRef(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+        progressCircle.current.style.setProperty('--progress', 1 - progress);
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    };
     return (
         <>
-            <div className='banner w-full'>
-                <div className=' content avenger-title active'>
-                    <img className='movie-title'
-                        src="../../../../public/assets/images/banner/avenger-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2023</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
-                        <span>2h 14min</span>
-                        <span>Romance</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content venom-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/venom-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2023</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>12+</i></span>
-                        <span>2h 14min</span>
-                        <span>Romance</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content hobit-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/hobit-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2020</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>17+</i></span>
-                        <span>2h 14min</span>
-                        <span>Adventure</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content immortals-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/immortals-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2018</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>21+</i></span>
-                        <span>2h 14min</span>
-                        <span>Action</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolore facere exercitationem. Dolore, quasi deserunt!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content kum-fu-panda-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/kum-fu-panda-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2019</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>25+</i></span>
-                        <span>3h 14min</span>
-                        <span>Animation</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolore facere exercitationem. Dolore, quasi deserunt!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content Pirates-of-The-Caribbean-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/Pirates-of-The-Caribbean-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2021</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>16+</i></span>
-                        <span>2h 14min</span>
-                        <span>Thiller</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem!</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content troy-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/troy-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2017</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>33+</i></span>
-                        <span>2h 14min</span>
-                        <span>History</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                <div className=' content spider-man-title'>
-                    <img className='movie-title max-w-[250px]'
-                        src="../../../../public/assets/images/banner/spider-man-title.png" alt="movie-title" />
-                    <h4 className='text-gray-300 font-normal text-xl'>
-                        <span>2013</span>
-                        <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>27+</i></span>
-                        <span>2h 14min</span>
-                        <span>Advanture</span>
-                    </h4>
-                    <p className=' text-xs font-light text-white leading-5 my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam adipisci rerum aspernatur error possimus iure nemo, perferendis, a explicabo quae, omnis vero? Dolor reiciendis voluptatum aliquid, error consequuntur officiis laudantium! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis aliquam maiores iste aspernatur illo voluptatem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, consequatur aspernatur voluptatem facere fugiat est quo accusamus impedit pariatur mollitia?</p>
-                    <div className='button flex'>
-                        <a href="#" className='flex justify-start items-center'><FaPlay className='mr-1' />Watch Now</a>
-                        <a href="#" onClick={() => toggleVideo()} className='flex justify-start items-center ml-4'><FaPlay className='mr-1' />Watch Trailer</a>
-                    </div>
-                </div>
-                {/* ==========carousel=============== */}
-                <div className='carousel-box relative min-w-[300px] lg:min-w-[650px] flex justify-center items-center ml-4'>
-                    <div className="carousel relative h-[200px] lg:h-[380px]">
-                        <div className="carousel-item"
-                            onClick={() => changeBg('avenger.jpg', 'avenger-title')}>
-                            <img src={movieCard00} alt="" />
-                        </div>
-                        <div className="carousel-item "
-                            onClick={() => changeBg('venom.webp', 'venom-title')}>
-                            <img src={movieCard01} alt="" />
-                        </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('hobbit.jpg', 'hobit-title')}>
-                            <img className='' src={movieCard02} alt="" />
-                        </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('immortal.jpg', 'immortals-title')}>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                onAutoplayTimeLeft={onAutoplayTimeLeft}
+                className="mySwiper relative"
+            >
 
-                            <img src={movieCard03} alt="" />
+                {
+                    slidDoc.map(doc => <SwiperSlide
+                        key={doc.id}
+                    >
+                        <div className='banner w-full' style={{ backgroundImage: `url(${doc.bgImg})` }}>
+                            <div className='lg:flex md:flex flex-1 justify-center items-center'>
+                                <div className=' content'>
+                                    <div className='mt-24 md:mt-0 lg:mt-0 xl:mt-0' data-aos="fade-down">
+                                        <img className='movie-title max-w-[250px]' src={doc.movieTitle} alt="" />
+                                    </div>
+                                    <div data-aos="fade-right">
+                                        <h4 className='hidden lg:visible md:visible xl:visible text-gray-300 font-normal text-xl'>
+                                            <span>{doc.year}</span>
+                                            <span><i className=' bg-red-600 text-white px-1 py-1 inline-block rounded-sm'>{doc.total_view}</i></span>
+                                            <span>{doc.watch_time}</span>
+                                            <span>{doc.category}</span>
+                                        </h4>
+                                        <p className=' lg:visible md:visible xl:visible text-xs font-light text-white leading-5 my-5'>{doc.para}</p>
+                                        <button className='button flex justify-start items-center w-36'>
+                                            <FaPlay className='mr-1' />
+                                            <span>Watch Now</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col justify-end items-end p-4 text-center" data-aos="zoom-in-left">
+                                    <h2 className='text-2xl font-extrabold text-white mb-2'>Watch Trailer</h2>
+                                    <video className=' w-[100%] lg:w-2/3 lg:h-2/4 md:w-2/3 md:h-2/4 rounded-lg relative' src="../../../../public/assets/videos/SPIDER-MAN_ NO WAY HOME - Official Trailer.mp4"
+                                        muted
+                                        controls="true"
+                                        light='true'
+                                    ></video>
+                                </div>
+                            </div>
                         </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('Kung-Fu-Panda.webp', 'kum-fu-panda-title')}>
-                            <img src={movieCard04} alt="" />
-                        </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('pirates-of-the-caribbean.webp', 'Pirates-of-The-Caribbean-title')}>
-                            <img src={movieCard05} alt="" />
-                        </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('troy.jpg', 'troy-title')}>
-                            <img src={movieCard06} alt="" />
-                        </div>
-                        <div className="carousel-item"
-                            onClick={() => changeBg('spider-man.jpg', 'spider-man-title')}>
-                            <img src={movieCard07} alt="" />
-                        </div>
-                    </div>
+                    </SwiperSlide>)
+                }
+                <div className="autoplay-progress absolute" slot="container-end">
+                    <svg viewBox="0 0 48 48" ref={progressCircle}>
+                        <circle cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <span ref={progressContent}></span>
                 </div>
-                <ul className='sociel absolute bottom-12 right-24 inline-flex justify-center items-center gap-6'>
-                    <li><a href=""><FaFacebook /></a></li>
-                    <li><a href=""><FaYoutube /></a></li>
-                    <li><a href=""><FaTwitter /></a></li>
-                </ul>
-            </div>
-            <div className='trailer fixed top-2/4 left-2/4 z-10 w-full h-full flex justify-center items-center backdrop:blur-xl'>
-                <video src="../../../../public/assets/videos/pexels_videos_2629 (1080p).mp4"
-                    muted
-                    controls="true"
-                    autoPlay="true"
-                ></video>
-                <FaRegWindowClose onClick={() => toggleVideo()} className='close absolute top-8 right-8 ' />
-            </div>
+            </Swiper>
         </>
     );
 };

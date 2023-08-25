@@ -5,40 +5,40 @@ import { FaEnvelope, FaGlobe, FaHome, FaPhone } from "react-icons/fa";
 const Contact = () => {
   const { register, handleSubmit } = useForm();
   return (
-    <div className="min-h-screen bg-gray-950 pt-20">
+    <div className=" bg-gray-950">
       <h1 className="font-semibold text-center text-4xl text-white">
         Contact us
       </h1>
-      <form className="space-y-4 max-w-[300px] md:max-w-3xl mx-auto py-4">
+      <form className="space-y-4 px-4 md:px-0 md:max-w-3xl mx-auto py-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
-            className="cs-input  "
+            className="cs-input w-full  "
             placeholder="Name"
             {...register("name", { required: true })}
           />
           <input
             type="text"
-            className="cs-input  "
+            className="cs-input w-full  "
             placeholder="Email"
             {...register("email", { required: true })}
           />
           <input
             type="text"
-            className="cs-input  "
+            className="cs-input w-full  "
             placeholder="Phone"
             {...register("phone")}
           />
           <input
             type="text"
-            className="cs-input  "
+            className="cs-input w-full  "
             placeholder="Address"
             {...register("address")}
           />
         </div>
         <textarea
           placeholder="Write from here"
-          className="cs-input row-span-full h-36"
+          className="cs-input w-full row-span-full h-36"
           {...register("message", { required: true })}
         />
         <div className="text-center">
@@ -54,11 +54,11 @@ const Contact = () => {
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747016.8710477026!2d87.70357261671609!3d23.489442907365568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30adaaed80e18ba7%3A0xf2d28e0c4e1fc6b!2sBangladesh!5e0!3m2!1sen!2sbd!4v1691746986236!5m2!1sen!2sbd"
           className="w-full h-[448px]"
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 md:translate-x-0 md:translate-y-0 md:top-4 md:right-40 p-12 md:min-w-[448px]  bg-gradient-to-l from-[#000000] to-[#222222] rounded">
+        <div className="absolute top-4 right-40 p-12 min-w-[448px]  bg-gradient-to-l from-[#000000] to-[#222222] rounded">
           <ul className="space-y-4 ">
             <li className="flex gap-x-4 items-center  text-white border-b-2 pb-5 border-gray-500">
               <div className="h-[50px] w-[50px] min-h-[50px] min-w-[50px] flex justify-center items-center rounded-full  bg-gradient-to-t from-[#0259ae] to-[#12b4f2]">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { FaSearch, FaBars,FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
@@ -20,7 +20,12 @@ const Navbar = () => {
   const navOption = (
     <>
       <li>
-        <a href="">Home</a>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <Link to='/movie'>
+        Movie
+        </Link>
       </li>
       <li tabIndex={0}>
         <details>
@@ -63,6 +68,12 @@ const Navbar = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
+      <li>
+        <Link to="/dashboard/watchlist">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/blog">Blog</Link>
+      </li>
     </>
   );
   return (
@@ -83,7 +94,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="font-extrabold text-3xl cursor-pointer">
-          mOvex
+          VidBox
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex md:flex">
@@ -97,7 +108,7 @@ const Navbar = () => {
           <FaSearch size={20} className="mr-1" />
         </button>
         {searchVisible && (
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="flex lg:flex md:flex space-x-4 items-center">
             <input
               type="text"
               placeholder="Search for movies..."
@@ -105,8 +116,8 @@ const Navbar = () => {
             />
           </div>
         )}
-        <AiFillHeart size={24} className="text-gray-400 mr-1" />
-        <Link to="/login" className="btn bg-red-600 btn-outline text-white">
+        <FaUserCircle size={24} className="text-gray-400 mr-1" />
+        <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">
           Login
         </Link>
       </div>
