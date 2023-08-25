@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
        { 
         path: "viewPlayer/:id",
        element: <ViewPlayer></ViewPlayer>,
-       loader:({params})=>fetch(`http://localhost:5000/allMovies/${params.id}`)
+       loader:({params})=>fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
        
        },
     ],
