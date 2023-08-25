@@ -8,6 +8,7 @@ import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />
+      },
+      {
+        path: "contact",
+        element: <Contact />
       },
 
       {
