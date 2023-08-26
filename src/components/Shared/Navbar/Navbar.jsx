@@ -20,7 +20,7 @@ const Navbar = () => {
   const navOption = (
     <>
       <li>
-        <a href="">Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
         <Link to='/movie'>
@@ -70,6 +70,9 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/dashboard/watchlist">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/blog">Blog</Link>
       </li>
     </>
   );

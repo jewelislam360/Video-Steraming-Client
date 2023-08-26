@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import SolialLogin from "../../components/SocialLog";
@@ -8,18 +8,35 @@ import {
   setIsLoginSuccess,
 } from "../../redux/features/authSlice/authSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { useSignUpMutation } from "../../redux/api/userApi";
 
 const Register = () => {
   const dispatch = useDispatch();
   //auth state import form store
-  const { actionName, error, isLoginSuccess, isError } = useSelector(
+  const { actionName, error, isLoginSuccess, isError, user } = useSelector(
     (state) => state.auth
   );
+  const [signMutation, { data }] = useSignUpMutation();
   //use form hook
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const password = watch("password");
+  const passPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,}) /;
+
+  if (passPattern.test(password)) {
+  }
+
   //form submit handler
   const onSubmit = (data) => {
     dispatch(createUserEmailPass(data));
+    signMutation(data);
   };
   //error and success massage
   const err = () =>
@@ -31,55 +48,73 @@ const Register = () => {
       closeButton: false,
     });
 
-  //show toast if user created successfully
-  if (
-    actionName.includes("authSlice/createUserEmailPass/fulfilled") &&
-    isLoginSuccess &&
-    !isError
-  ) {
-    success();
-    //empty isLoginSuccess state in store
-    dispatch(setIsLoginSuccess());
-    //reset form
-    reset({ userName: "", email: "", password: "" });
-  }
+  useEffect(() => {
+    //show toast if user created successfully
+    if (
+      actionName.includes("authSlice/createUserEmailPass/fulfilled") &&
+      isLoginSuccess &&
+      !isError
+    ) {
+      success();
+      //empty isLoginSuccess state in store
+      dispatch(setIsLoginSuccess());
+      //reset form
+      reset({ userName: "", email: "", password: "" });
+    }
 
-  //show error message if error aucord creating to a user
-  if (
-    actionName.includes("authSlice/createUserEmailPass/rejected") &&
-    !isLoginSuccess &&
-    isError
-  ) {
-    err();
-    // empty error state in store
-    dispatch(errorEmty());
-    //reset form
-    reset({ userName: "", email: "", password: "" });
-  }
+    //show error message if error aucord creating to a user
+    if (
+      actionName.includes("authSlice/createUserEmailPass/rejected") &&
+      !isLoginSuccess &&
+      isError
+    ) {
+      err();
+      // empty error state in store
+      dispatch(errorEmty());
+      //reset form
+      reset({ userName: "", email: "", password: "" });
+    }
+  }, [isError, isLoginSuccess]);
+
   return (
-    <div className="min-w-[400px]">
-      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <div className="md:min-w-[400px]">
+      <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           id="userNname"
-          className="cs-input"
+          className="cs-input w-full"
           placeholder="User Name"
           {...register("userName", { required: true })}
         />
         <input
           type="email"
           id="email"
-          className="cs-input"
+          className="cs-input w-full"
           placeholder="Email"
           {...register("email", { required: true })}
         />
-        <input
-          type="password"
-          id="password"
-          className="cs-input"
-          placeholder="Password"
-          {...register("password", { required: true })}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-2">
+          <div>
+            <input
+              type="password"
+              id="password"
+              className="cs-input w-full"
+              placeholder="Password"
+              {...register("password", {
+                required: true,
+              })}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="confPass"
+              className="cs-input w-full"
+              placeholder="Confirm Password"
+              {...register("confPass", { required: true })}
+            />
+          </div>
+        </div>
 
         <div>
           <button type="submit " className="cs-btn">

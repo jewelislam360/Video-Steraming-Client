@@ -21,12 +21,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-.input{
+ul {
+  background-color: transparent !important;
+}
+.input {
   background-color: transparent !important;
 }
 @layer utilities {
   .cs-input {
-    @apply bg-gray-50/10  text-sm  focus:ring-blue-500  outline-none w-full block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-white;
+    @apply bg-gray-50/10  text-sm  focus:ring-blue-500  outline-none  block p-2.5  text-white;
   }
   .cs-btn {
     @apply px-4 w-full bg-red-600 py-[10px] rounded-[1px] text-white;
