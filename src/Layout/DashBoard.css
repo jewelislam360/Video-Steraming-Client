@@ -18,12 +18,16 @@ nav{
     text-transform: uppercase;
 }
 .drawer .menu li{
+    color: #eee;
     position: relative;
-    color: rgba(58, 83, 83);
     font-size: 14px;
     display: table;
     width: 200px;
     padding: 5px;
+}
+.drawer .menu li:hover{
+    background: #9f1212;
+    color: #eee;
 }
 .icon{
     position: relative;
@@ -32,12 +36,9 @@ nav{
 }
 .drawer .menu li .nav-item{
     position: relative;
-    margin-left: 12px;
+    margin-left: 13px;
 }
-.drawer .menu li:hover{
-    background: #9f1212;
-    color: #eee;
-}
+
 .drawer-side:hover{
     width: 150px !important;
     transition: all 0.5s ease;
