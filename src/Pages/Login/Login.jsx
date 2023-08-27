@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import SolialLogin from "../../components/SocialLog";
@@ -12,22 +12,24 @@ import {
   loginEmailPass,
   sendForgotEmail,
 } from "../../redux/features/authSlice/authThunk";
+import { useLoginMutation } from "../../redux/api/userApi";
 
 const Login = () => {
   const dispatch = useDispatch();
   //get auth state from redux store
-  const {  actionName, isError, isLoginSuccess } = useSelector(
+  const { actionName, isError, isLoginSuccess, loading, user } = useSelector(
     (state) => state.auth
   );
+
+  const [loginMutation, { isLoading, data }] = useLoginMutation();
   //useform use for manage input
   const { register, handleSubmit, reset, watch } = useForm();
-
   //handle form submition
   const onSubmit = (data) => {
     reset({ email: "", password: "" });
     dispatch(loginEmailPass(data));
+    loginMutation(data);
   };
-
   const watchEmail = watch("email");
 
   //forgot password handler
@@ -46,22 +48,25 @@ const Login = () => {
       closeButton: false,
     });
 
-  //show user login successfully message in display
-  if (
-    actionName.includes("authSlice/loginEmailPass/fulfilled") &&
-    isLoginSuccess
-  ) {
-    success();
-    //empty isLoginSuccess state in redux store
-    dispatch(setIsLoginSuccess());
-  }
+  useEffect(() => {
+    //show user login successfully message in display
+    if (
+      actionName.includes("authSlice/loginEmailPass/fulfilled") &&
+      isLoginSuccess
+    ) {
+      success();
+      //empty isLoginSuccess state in redux store
+      dispatch(setIsLoginSuccess());
+    }
 
-  //show error message in display
-  if (actionName.includes("authSlice/loginEmailPass/rejected") && isError) {
-    err();
-    //empty error state in redux store
-    dispatch(errorEmty());
-  }
+    //show error message in display
+    if (actionName.includes("authSlice/loginEmailPass/rejected") && isError) {
+      err();
+      //empty error state in redux store
+      dispatch(errorEmty());
+    }
+  }, [user, isError, isLoginSuccess]);
+
   return (
     <>
       <div className="md:min-w-[400px]">
@@ -69,7 +74,7 @@ const Login = () => {
           <input
             type="email"
             id="email"
-            className="cs-input"
+            className="cs-input w-full"
             name="email"
             placeholder="Email"
             {...register("email", { required: true })}
@@ -78,7 +83,7 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="cs-input"
+              className="cs-input w-full"
               placeholder="Password"
               {...register("password", { required: true })}
             />
