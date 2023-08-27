@@ -8,6 +8,7 @@ import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
+import User from "../Pages/User/User";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: '/movie',
         element: <Movie />
+      },
+      {
+        path: '/user',
+        element: <User></User>
       }
     ],
   },

@@ -17,7 +17,7 @@ const DashBoard = () => {
                 <nav>
                     <div className="logo">
                         <FaUserCircle className='text-5xl'/>
-                        <span>User Name</span>
+                        <span>Admin Profile</span>
                     </div>
 
                     <ul className="menu">
@@ -26,7 +26,7 @@ const DashBoard = () => {
                         className={`${pathname === "/dashboard/userhome" ? "text-red-800" : "text-white"
                             }`}>
                                 <FaHome className='icon'/>
-                                <span className='nav-item'>User Home</span>
+                                <span className='nav-item'>Admin Home</span>
                             </Link></li>
                         <li><Link><FaRegChartBar className='icon'/><span className='nav-item'>Recent</span></Link></li>
                         <li><Link><FaRegStar className='icon'/><span className='nav-item'>Top Rated</span></Link></li>
