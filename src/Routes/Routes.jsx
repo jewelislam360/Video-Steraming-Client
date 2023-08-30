@@ -9,6 +9,8 @@ import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
 import Contact from "../Pages/Contact/Contact";
+import Payment from "../Pages/Payment/Payment";
+import CompletePayment from "../Pages/Payment/CompletePayment";
 
 export const router = createBrowserRouter([
   {
@@ -26,30 +28,34 @@ export const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <AuthLayout />
-      },      
+        element: <AuthLayout />,
+      },
       {
         path: "blog",
-        element: <Blog />
+        element: <Blog />,
       },
 
       {
-
         path: "viewPlayer/:id",
         element: <ViewPlayer></ViewPlayer>,
-        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
-
+        loader: ({ params }) =>
+          fetch(
+            `https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`
+          ),
       },
       {
-        path: "/movie/viewPlayer/:id",
-        element: <ViewPlayer></ViewPlayer>,
-        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
-
+        path: "/movie",
+        element: <Movie />,
       },
       {
-        path: '/movie',
-        element: <Movie />
-      }
+        path: "payment",
+        element: <Payment />,
+      },
+
+      {
+        path: "paymentComplet",
+        element: <CompletePayment />,
+      },
     ],
   },
   {
