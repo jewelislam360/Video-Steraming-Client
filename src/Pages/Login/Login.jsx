@@ -21,7 +21,7 @@ const Login = () => {
     (state) => state.auth
   );
 
-  const [loginMutation, { isLoading, data }] = useLoginMutation;
+  const [loginMutation, { isLoading, data }] = useLoginMutation();
   
   //useform use for manage input
   const { register, handleSubmit, reset, watch } = useForm();

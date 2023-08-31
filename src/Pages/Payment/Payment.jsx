@@ -43,7 +43,7 @@ function Payment() {
     <div className="pt-20">
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret, appearance }}>
-          <CheckoutForm clientSecret={clientSecret} />
+          <CheckoutForm  />
         </Elements>
       )}
     </div>

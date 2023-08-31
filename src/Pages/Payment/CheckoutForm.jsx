@@ -41,9 +41,13 @@ export default function CheckoutForm() {
 
     if (paymentIntent && paymentIntent.status === "succeeded") {
       console.log(paymentIntent, "payment intent line 45");
-      console.log(error,"line 46")
+      console.log(error, "line 46");
+      paymentSuccess(paymentIntent);
     }
-    if (error?.type === "card_error" || error?.type === "validation_error") {
+    if (
+      (error && error?.type === "card_error") ||
+      error?.type === "validation_error"
+    ) {
       setMessage(error.message);
     } else {
       setMessage("An unexpected error occured.");

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { FaSearch, FaBars,FaUserCircle } from "react-icons/fa";
+import { FaSearch, FaBars, FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
@@ -23,47 +23,10 @@ const Navbar = () => {
         <a href="/">Home</a>
       </li>
       <li>
-        <Link to='/movie'>
-        Movie
-        </Link>
+        <Link to="/movie">Movie</Link>
       </li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Movies</summary>
-          <ul className="p-2">
-            <li>
-              <a>Action</a>
-            </li>
-            <li>
-              <a>Adventure</a>
-            </li>
-            <li>
-              <a>Commedy</a>
-            </li>
-            <li>
-              <a>Horror</a>
-            </li>
-          </ul>
-        </details>
-      </li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Tv Series</summary>
-          <ul className="p-2">
-            <li>
-              <a>HD+</a>
-            </li>
-            <li>
-              <a>Sony</a>
-            </li>
-            <li>
-              <a>Sony Plus</a>
-            </li>
-            <li>
-              <a>Sports</a>
-            </li>
-          </ul>
-        </details>
+      <li>
+        <Link to="tvSeries">Tv Series</Link>
       </li>
       <li>
         <Link to="/contact">Contact</Link>
@@ -117,7 +80,10 @@ const Navbar = () => {
           </div>
         )}
         <FaUserCircle size={24} className="text-gray-400 mr-1" />
-        <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">
+        <Link
+          to="/login"
+          className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white"
+        >
           Login
         </Link>
       </div>
