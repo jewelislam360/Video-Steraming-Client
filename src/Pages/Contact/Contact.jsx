@@ -5,7 +5,10 @@ import { FaEnvelope, FaGlobe, FaHome, FaPhone } from "react-icons/fa";
 const Contact = () => {
   const { register, handleSubmit } = useForm();
   return (
-    <div className=" bg-gray-950 pt-32">
+
+
+    <div className=" bg-gray-950 pb-10 pt-20">
+
       <h1 className="font-semibold text-center text-4xl text-white">
         Contact us
       </h1>
@@ -58,7 +61,7 @@ const Contact = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  md:translate-x-0 md:translate-y-0 md:top-4 md:right-40 p-6 md:p-12 md:min-w-[448px]  bg-gradient-to-l from-[#000000] to-[#222222] rounded ">
+        <div className="absolute top-4 right-40 p-12 min-w-[448px]  bg-gradient-to-l from-[#000000] to-[#222222] rounded">
           <ul className="space-y-4 ">
             <li className="flex gap-x-4 items-center  text-white border-b-2 pb-5 border-gray-500">
               <div className="h-[50px] w-[50px] min-h-[50px] min-w-[50px] flex justify-center items-center rounded-full  bg-gradient-to-t from-[#0259ae] to-[#12b4f2]">

@@ -21,7 +21,7 @@ const AuthLayout = () => {
           <div className=" text-center flex justify-center gap-x-4">
             <Link
               to="/login"
-              className={`text-2xl font-semibold  ${
+              className={`text-2xl font-semibol py-2 px-4 ${
                 pathname === "/login" ? "text-red-600" : "text-white"
               }`}
             >
@@ -32,7 +32,7 @@ const AuthLayout = () => {
 
             <Link
               to="/register"
-              className={`text-2xl font-semibold  ${
+              className={`text-2xl font-semibold py-2 px-4 ${
                 pathname === "/register" ? "text-red-600" : "text-white"
               }`}
             >
@@ -40,7 +40,7 @@ const AuthLayout = () => {
             </Link>
           </div>
         </div>
-        <div className="border border-gray-700 p-4 mx-4 md:p-12 max-w-lg md:mx-auto ">
+        <div className="border border-gray-700 p-6 mx-4 md:p-12 max-w-lg md:mx-auto ">
           {content}
         </div>
       </div>
