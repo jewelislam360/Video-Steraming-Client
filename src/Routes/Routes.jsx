@@ -7,8 +7,9 @@ import DashBoard from "../Layout/DashBoard";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
-import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import User from "../Pages/User/User";
+import AddItem from "../Pages/DashBoard/AddItem/AddItem";
+import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
   {
@@ -61,8 +62,12 @@ export const router = createBrowserRouter([
     element: <DashBoard></DashBoard>,
     children: [
       {
-        path: "userhome",
-        element: <UserHome></UserHome>,
+        path: "adminhome",
+        element: <AdminHome></AdminHome>,
+      },
+      {
+        path: "additem",
+        element: <AddItem></AddItem>,
       }
     ],
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { FaUserCircle, FaHome, FaRegChartBar, FaRocket, FaRegStar, FaTv, FaThList, FaRegSun, FaSignOutAlt } from 'react-icons/fa'
+import { FaUserCircle, FaHome, FaRegStar, FaRegCommentDots, FaTv, FaThList, FaSignOutAlt,FaListUl,FaUsers } from 'react-icons/fa'
 import './DashBoard.css'
 
 const DashBoard = () => {
@@ -15,31 +15,36 @@ const DashBoard = () => {
             </div>
             <div className="drawer-side px-8 bg-gray-500">
                 <nav>
-                    <div className="logo">
-                        <FaUserCircle className='text-5xl'/>
-                        <span>Admin Profile</span>
+                    <div className="logo  flex justify-start items-center">
+                        <FaUserCircle className='text-5xl' />
+                        <span>Admin <br /> Name Here</span>
                     </div>
 
                     <ul className="menu">
                         {/* Sidebar content here */}
-                        <li><Link to="/dashboard/userhome" 
-                        className={`${pathname === "/dashboard/userhome" ? "text-red-800" : "text-white"
-                            }`}>
-                                <FaHome className='icon'/>
-                                <span className='nav-item'>Admin Home</span>
-                            </Link></li>
-                        <li><Link><FaRegChartBar className='icon'/><span className='nav-item'>Recent</span></Link></li>
-                        <li><Link><FaRegStar className='icon'/><span className='nav-item'>Top Rated</span></Link></li>
-                        <li><Link><FaRocket className='icon'/><span className='nav-item'>Download</span></Link></li>
+                        <li><Link to="/dashboard/adminhome"
+                            className={`${pathname === "/dashboard/adminhome" ? "text-red-800" : "text-white"
+                                }`}>
+                            <FaHome className='icon' />
+                            <span className='nav-item'>Dashboard</span>
+                        </Link></li>
+                        <li><Link to="/dashboard/additem"
+                            className={`${pathname === "/dashboard/additem" ? "text-red-800" : "text-white"
+                                }`}>
+                                    <FaListUl className='icon' />
+                                    <span className='nav-item'>Add Item</span>
+                                </Link></li>
+                        <li><Link><FaUsers className='icon' /><span className='nav-item'>Users</span></Link></li>
+                        <li><Link><FaRegStar className='icon' /><span className='nav-item'>Reviews</span></Link></li>
+                        <li><Link><FaRegCommentDots className='icon' /><span className='nav-item'>Comments</span></Link></li>
                         <div className="divider"></div>
 
-                        <li><Link><FaTv className='icon'/><span className='nav-item'>Tv-Show</span></Link></li>
-                        <li><Link><FaThList className='icon'/><span className='nav-item'>Movie</span></Link></li>
+                        <li><Link><FaTv className='icon' /><span className='nav-item'>Tv-Show</span></Link></li>
+                        <li><Link><FaThList className='icon' /><span className='nav-item'>Movie</span></Link></li>
                         <div className="divider"></div>
 
-                        <li><Link to="/"><FaHome className='icon'/><span className='nav-item'>Home</span></Link></li>
-                        <li><Link><FaRegSun className='icon'/><span className='nav-item'>Setting</span></Link></li>
-                        <li><Link><FaSignOutAlt className='icon'/><span className='nav-item'>Log Out</span></Link></li>
+                        <li><Link to="/"><FaHome className='icon' /><span className='nav-item'>Home</span></Link></li>
+                        <li><Link><FaSignOutAlt className='icon' /><span className='nav-item'>Log Out</span></Link></li>
                     </ul>
                 </nav>
             </div>
