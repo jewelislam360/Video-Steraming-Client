@@ -10,10 +10,10 @@ const Movie = () => {
         const form = event.target;
         const movieName = form.movieName.value;
         fetch(`https://video-streaming-server-sigma.vercel.app/searchName/${movieName}`)
-        .then((res) => res.json())
-        .then((data) => {
-            setMovies(data);
-        });
+            .then((res) => res.json())
+            .then((data) => {
+                setMovies(data);
+            });
         event.target.reset();
     }
 
@@ -26,6 +26,13 @@ const Movie = () => {
                 setMovies(data);
             })
     }, []);
+
+
+    //------handle see all button condition
+    const [loadMore, setLoadMore] = useState(false);
+    const handleLoadMore = () => {
+        setLoadMore(true);
+    };
     return (
         <>
             <section className="relative py- overflow-hidden bg-black sm:py-16 lg:py-24 xl:py-24">
@@ -63,52 +70,60 @@ const Movie = () => {
                             </form>
                             <div className='mt-5 font-semibold' >
                                 <p className='text-3xl font-semibold mt-10'>
-                                Filter By Genre
+                                    Filter By Genre
                                 </p>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
-                                <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Action</span>
+                                    <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Action</span>
                                 </div>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
-                                <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Adventure</span>
+                                    <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Adventure</span>
                                 </div>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
-                                <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Animation</span>
+                                    <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Animation</span>
                                 </div>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
-                                <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Drama</span>
+                                    <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Drama</span>
                                 </div>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
-                                <AiOutlineFolderOpen className='mt-1'/> <span className='ms-2'>Mystery</span>
+                                    <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Mystery</span>
                                 </div>
 
                                 <div className='mt-8'>
-                                <p className='text-3xl font-semibold mt-5'>
-                                Filter By Tags
-                                </p>
-                                <div className='mt-5'>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">4K Ultra</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Brother</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Dubbing</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1">Hero</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1 mt-2">King</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Viking</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">K-Drama</button>
-                                </div>
+                                    <p className='text-3xl font-semibold mt-5'>
+                                        Filter By Tags
+                                    </p>
+                                    <div className='mt-5'>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">4K Ultra</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Brother</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Dubbing</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1">Hero</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1 mt-2">King</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Viking</button>
+                                        <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">K-Drama</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div className='lg:w-[80%] sm:[100%]'>
                         <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4'>
                             {
-                                movies?.slice(0,4).map(movie => <MovieCard
+                                movies?.slice(0, loadMore ? 7: 4).map(movie => <MovieCard
                                     key={movie._id}
                                     movie={movie}
                                 ></MovieCard>)
 
                             }
                         </div>
+                        {!loadMore && (
+                        <button
+                            onClick={handleLoadMore}
+                            className="btn mt-3 rounded mb-5 bg-red-700 hover:bg-red-900 border-none"
+                        >
+                            Load More 
+                        </button>
+                         )}
                     </div>
 
                 </div>
