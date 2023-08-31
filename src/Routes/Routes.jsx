@@ -4,11 +4,17 @@ import Home from "../Pages/Home/Home/Home";
 import AuthLayout from "../Layout/AuthLayout";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashBoard from "../Layout/DashBoard";
-import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
+<<<<<<< HEAD
 import Contact from "../Pages/Contact/Contact";
+=======
+import User from "../Pages/User/User";
+import AddItem from "../Pages/DashBoard/AddItem/AddItem";
+import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import TvShows from "../Pages/TvShows/TvShows";
+>>>>>>> d37663cc1f59253e7c0bb093b0f76280be35bb6f
 
 export const router = createBrowserRouter([
   {
@@ -53,7 +59,11 @@ export const router = createBrowserRouter([
       {
         path: '/movie',
         element: <Movie />
-      }
+      },
+      {
+        path: '/user',
+        element: <User></User>
+      },
     ],
   },
   {
@@ -61,9 +71,13 @@ export const router = createBrowserRouter([
     element: <DashBoard></DashBoard>,
     children: [
       {
-        path: "watchlist",
-        element: <WatchList></WatchList>,
+        path: "adminhome",
+        element: <AdminHome></AdminHome>,
       },
+      {
+        path: "additem",
+        element: <AddItem></AddItem>,
+      }
     ],
   },
 ]);

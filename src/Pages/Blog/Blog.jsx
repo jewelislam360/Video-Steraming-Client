@@ -99,14 +99,16 @@ const Blog = () => {
     return (
         <div className="bg-fixed " style={{ backgroundImage: `url(${bgImg})` }}>
             {/* Top */}
-            <div className=" text-center text-white py-10">
-                <h2 className="text-5xl font-bold ">What It Takes To Live Stream A Global Event</h2>
-                <div className='flex justify-center items-center font-bold text-2xl mt-8'>
-                    <a className='flex items-center justify-center mr-7   hover:text-red-600' href="/"><FaHome className='text-4xl  pr-4' />Home </a>
-                    <FaCaretRight className='mr-3' />
-                    <p className='text-red-600'>Blog page</p>
+            <section className="relative py- overflow-hidden  pt-10 sm:py-16 lg:py-24 xl:py-24">
+                <div className=" text-center text-white py-10">
+                    <h2 className="text-6xl font-bold ">Blog page</h2>
+                    <div className='flex justify-center items-center font-bold text-2xl mt-8'>
+                        <a className='flex items-center justify-center mr-7   hover:text-red-600' href="/"><FaHome className='text-4xl  pr-4' />Home </a>
+                        <FaCaretRight className='mr-3' />
+                        <p className='text-red-600'>Blog</p>
+                    </div>
                 </div>
-            </div>
+            </section>
 
             {/* bottom */}
 
@@ -124,7 +126,7 @@ const Blog = () => {
                                 </ul>
                             </div>
                             <h2 className="text-4xl pb-5 hover:text-[#D71313]">{blogPost.name}</h2>
-                            <p className="pb-5">{blogPost.description.length < 50 ? <> {blogPost.description}</> : <>{blogPost.description.slice(0,50)}... <Link to={"/blog"}><button className="text-2xl bg-[#D71313] hover:bg-[#520d06] py-2 mt-10 px-4">Read More</button></Link></>}</p>
+                            <p className="pb-5">{blogPost.description.length < 50 ? <> {blogPost.description}</> : <>{blogPost.description.slice(0, 50)}... <Link to={"/blog"}><button className="text-2xl bg-[#D71313] hover:bg-[#520d06] py-2 mt-10 px-4">Read More</button></Link></>}</p>
 
                             {/* <p className="pb-5">{blogPost.description.length < 50 ? <> {blogPost.description}</> : <>{blogPost.description.slice(0,50)}... <Link to={`/blog/${blogPost.id}`}><button className="text-2xl bg-[#D71313] hover:bg-[#520d06] py-2 mt-10 px-4">Read More</button></Link></>}</p> */}
                         </div>
