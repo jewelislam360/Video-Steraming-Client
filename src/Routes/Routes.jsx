@@ -11,6 +11,7 @@ import User from "../Pages/User/User";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import TvShows from "../Pages/TvShows/TvShows";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />
+      },
+      {
+        path: "contact",
+        element: <Contact />
       },
 
       {
