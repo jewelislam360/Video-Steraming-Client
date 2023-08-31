@@ -22,6 +22,7 @@ const Login = () => {
   );
 
   const [loginMutation, { isLoading, data }] = useLoginMutation();
+  
   //useform use for manage input
   const { register, handleSubmit, reset, watch } = useForm();
   //handle form submition
@@ -69,7 +70,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="md:min-w-[400px]">
+      <div className="min-w-[300px] md:min-w-[400px]">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <input
             type="email"
