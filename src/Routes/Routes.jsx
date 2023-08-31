@@ -10,6 +10,7 @@ import Blog from "../Pages/Blog/Blog";
 import User from "../Pages/User/User";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import TvShows from "../Pages/TvShows/TvShows";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
       {
         path: '/user',
         element: <User></User>
-      }
+      },
     ],
   },
   {
