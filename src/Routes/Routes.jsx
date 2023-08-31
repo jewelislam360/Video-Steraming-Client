@@ -8,6 +8,7 @@ import WatchList from "../Pages/DashBoard/WatchList/WatchList";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
+import TvShows from "../Pages/TvShows/TvShows";
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +49,17 @@ export const router = createBrowserRouter([
       {
         path: '/movie',
         element: <Movie />
-      }
+      },
+      {
+        path: '/tvshows',
+        element: <TvShows></TvShows>
+      },
+      {
+        path: "/tvshows/viewPlayer/:id",
+        element: <ViewPlayer></ViewPlayer>,
+        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
+
+      },
     ],
   },
   {

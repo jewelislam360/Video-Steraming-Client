@@ -66,6 +66,9 @@ const Navbar = () => {
         </details>
       </li>
       <li>
+        <Link to='/tvshows'>Tv Shows</Link>
+      </li>
+      <li>
         <a>Contact</a>
       </li>
       <li>
