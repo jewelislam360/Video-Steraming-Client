@@ -11,10 +11,10 @@ const Faq = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
         <div className="mt-10">
-          <img data-aos="fade-right" src={faq} />
+          <img src={faq} />
         </div>
         <div className="mx-20">
-          <div data-aos="fade-left" data-aos-delay="50" className="flex justify-center items-center">
+          <div data-aos-delay="50" className="flex justify-center items-center">
             <div className="join join-vertical w-full">
               <div className="collapse collapse-arrow join-item border border-base-300">
                 <input type="checkbox" checkbox="checkbox" />
