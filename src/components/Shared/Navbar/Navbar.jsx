@@ -66,14 +66,10 @@ const Navbar = () => {
         </details>
       </li>
       <li>
-<<<<<<< HEAD
-        <Link to="/contact">Contact</Link>
-=======
         <Link to='/tvshows'>Tv Shows</Link>
       </li>
       <li>
         <a>Contact</a>
->>>>>>> d37663cc1f59253e7c0bb093b0f76280be35bb6f
       </li>
       <li>
         <Link to="/dashboard/adminhome">Dashboard</Link>

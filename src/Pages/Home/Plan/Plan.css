@@ -6,7 +6,7 @@
 }
 
 .plan:hover {
-    background:  #900909;
+    /* background:  #900909; */
     transform: scale(1.05);
 
 }

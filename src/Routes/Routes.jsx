@@ -7,14 +7,11 @@ import DashBoard from "../Layout/DashBoard";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
-<<<<<<< HEAD
-import Contact from "../Pages/Contact/Contact";
-=======
 import User from "../Pages/User/User";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import TvShows from "../Pages/TvShows/TvShows";
->>>>>>> d37663cc1f59253e7c0bb093b0f76280be35bb6f
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
