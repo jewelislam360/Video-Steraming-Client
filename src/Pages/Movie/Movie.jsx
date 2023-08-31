@@ -4,6 +4,21 @@ import { AiOutlineFolderOpen } from "react-icons/ai";
 
 const Movie = () => {
     const [movies, setMovies] = useState();
+
+    const searchField = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const movieName = form.movieName.value;
+        fetch(`https://video-streaming-server-sigma.vercel.app/searchName/${movieName}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setMovies(data);
+        });
+        event.target.reset();
+    }
+
+
+
     useEffect(() => {
         fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
             .then(res => res.json())
@@ -36,13 +51,13 @@ const Movie = () => {
                 <div className=' w-[95%] mx-auto mt-10 mb-5 gap-3 flex flex-col md:flex-row lg:flex-row'>
                     <div className='gap-4 grid lg:w-[30%] sm:w-[20%] '>
                         <div className='p-5'>
-                            <form>
+                            <form onSubmit={searchField}>
                                 <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
                                 <div className="relative">
                                     <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                                         <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                     </div>
-                                    <input type="search" id="default-search" className="block p-4 pl-10 w-full text-sm text-gray-900 rounded-lg border border-red-300 focus:ring-red-300 focus:border-ring-red-300 dark:text-white dark:focus:ring-red-300 dark:focus:border-ring-red-300" placeholder="Search..." required />
+                                    <input name='movieName' type="search" id="default-search" className="block p-4 pl-10 w-full text-sm text-gray-900 rounded-lg border border-red-300 focus:ring-red-300 focus:border-ring-red-300 dark:text-white dark:focus:ring-red-300 dark:focus:border-ring-red-300" placeholder="Search..." required />
                                     <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-red-600 ">Search</button>
                                 </div>
                             </form>
@@ -77,7 +92,7 @@ const Movie = () => {
                                 <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1">Hero</button>
                                 <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1 mt-2">King</button>
                                 <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">Viking</button>
-                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 ms-1 mr-1">K-Drama</button>
+                                <button type="button" className="px-2 py-1 bg-red-700 hover:bg-red-900 mr-1">K-Drama</button>
                                 </div>
                                 </div>
                             </div>
