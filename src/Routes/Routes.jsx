@@ -16,7 +16,7 @@ import Contact from "../Pages/Contact/Contact";
 
 import Payment from "../Pages/Payment/Payment";
 import CompletePayment from "../Pages/Payment/CompletePayment";
-
+import UserDashboard from "../Pages/User/UserDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "contact",
-        element: <Contact />
+        element: <Contact />,
       },
 
       {
@@ -67,14 +67,12 @@ export const router = createBrowserRouter([
         element: <CompletePayment />,
       },
       {
-
-        path: '/movie',
-        element: <Movie />
+        path: "/movie",
+        element: <Movie />,
       },
       {
-        path: '/user',
-        element: <User></User>
-
+        path: "/user",
+        element: <UserDashboard />,
       },
     ],
   },
@@ -89,7 +87,7 @@ export const router = createBrowserRouter([
       {
         path: "additem",
         element: <AddItem></AddItem>,
-      }
+      },
     ],
   },
 ]);
