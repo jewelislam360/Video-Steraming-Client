@@ -16,8 +16,10 @@ import Contact from "../Pages/Contact/Contact";
 
 import Payment from "../Pages/Payment/Payment";
 import CompletePayment from "../Pages/Payment/CompletePayment";
-import UserDashboard from "../Pages/User/UserDashboard";
-
+import UserCard from "../Pages/User/UserCard";
+import UserDashboardHome from "../Pages/User/UserDashboardHome";
+import UserDashboard from "../Layout/UserDashboard";
+import PrivetRoute from "./PrivetRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -72,7 +74,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/user",
-        element: <UserDashboard />,
+        element: <User />,
       },
     ],
   },
@@ -88,6 +90,14 @@ export const router = createBrowserRouter([
         path: "additem",
         element: <AddItem></AddItem>,
       },
+    ],
+  },
+  {
+    path: "userDashboard",
+    element: <UserDashboard />,
+    children: [
+      { path: "account", element: <User /> },
+      { path: "library", element: <UserDashboardHome /> },
     ],
   },
 ]);

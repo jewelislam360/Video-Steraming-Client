@@ -15,7 +15,10 @@ const History = () => {
     <div>
       <div className="flex items-center justify-between">
         <p className="text-lg">History</p>{" "}
-        <Link to="#" className="text-sky-500 hover:underline">
+        <Link
+          to="/userdashboard/history"
+          className="text-sky-500 hover:underline"
+        >
           See all
         </Link>
       </div>

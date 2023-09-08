@@ -30,8 +30,7 @@ const Register = () => {
   const passPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,}) /;
 
-  if (passPattern.test(password)) {
-  }
+  
 
   //form submit handler
   const onSubmit = (data) => {

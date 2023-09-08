@@ -1,16 +1,13 @@
 import React from "react";
 import { FaHistory, FaUser } from "react-icons/fa";
-import { MdPlaylistAddCircle } from "react-icons/md";
-import History from "./History";
-import LikedVideos from "./LikedVideos";
-import PlayList from "./PlayList";
-import { Link, useLocation } from "react-router-dom";
-import Navbar from "../../components/Shared/Navbar/Navbar";
-import Footer from "../../components/Shared/Footer/Footer";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import Navbar from "../components/Shared/Navbar/Navbar";
+import Footer from "../components/Shared/Footer/Footer";
+import UserDashboardHome from "../Pages/User/UserDashboardHome";
+import User from "../Pages/User/User";
 
 const UserDashboard = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <>
       <Navbar />
@@ -61,7 +58,7 @@ const UserDashboard = () => {
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
-                <MdPlaylistAddCircle className="inline-block" /> Play Lists
+                <FaHistory className="inline-block" /> Play Lists
               </Link>
               <Link
                 to="/userdashboard/account"
@@ -75,9 +72,7 @@ const UserDashboard = () => {
             </ul>
           </div>
           <div className="col-span-6 space-y-3">
-            <History />
-            <LikedVideos />
-            <PlayList />
+            <Outlet/>
           </div>
         </div>
       </div>

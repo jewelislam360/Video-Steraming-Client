@@ -15,7 +15,7 @@ const LikedVideos = () => {
     <div>
       <div className="flex items-center justify-between">
         <p className="text-lg">Liked Videos</p>{" "}
-        <Link to="#" className="text-sky-500 hover:underline">
+        <Link to="/userdashboard/likedvideos" className="text-sky-500 hover:underline">
           See all
         </Link>
       </div>
