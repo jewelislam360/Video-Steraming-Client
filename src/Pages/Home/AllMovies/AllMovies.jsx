@@ -25,13 +25,18 @@ const AllMovies = () => {
     
 
         
-      <div className='my-64 px-10'>
+      <div className='my-8 px-20'>
+        <div className='flex justify-between'>
+            <div>
+              <h1 className='font-bold text-4xl'>All Movies</h1>
+            </div>
+            <div>
+              <button className='bg-red-600 px-5 py-3'>More Movies</button>
+            </div>
+          </div>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
-          pagination={{
-            clickable: true,
-          }}
           breakpoints={{
             640: {
               slidesPerView: 2,

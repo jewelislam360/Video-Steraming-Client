@@ -7,10 +7,16 @@ import DashBoard from "../Layout/DashBoard";
 import ViewPlayer from "../Pages/ViewPlayer/ViewPlayer";
 import Movie from "../Pages/Movie/Movie";
 import Blog from "../Pages/Blog/Blog";
+
 import User from "../Pages/User/User";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
-import TvShows from "../Pages/TvShows/TvShows"
+import TvShows from "../Pages/TvShows/TvShows";
+import Contact from "../Pages/Contact/Contact";
+
+import Payment from "../Pages/Payment/Payment";
+import CompletePayment from "../Pages/Payment/CompletePayment";
+
 
 export const router = createBrowserRouter([
   {
@@ -28,32 +34,46 @@ export const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <AuthLayout />
-      },      
+        element: <AuthLayout />,
+      },
       {
         path: "blog",
-        element: <Blog />
+        element: <Blog />,
       },
       {
-
+        path: "contact",
+        element: <Contact />
+      },
+      {
         path: "viewPlayer/:id",
         element: <ViewPlayer></ViewPlayer>,
-        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
-
+        loader: ({ params }) =>
+          fetch(
+            `https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`
+          ),
       },
       {
-        path: "/movie/viewPlayer/:id",
-        element: <ViewPlayer></ViewPlayer>,
-        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
-
+        path: "/movie",
+        element: <Movie />,
       },
       {
+        path: "payment",
+        element: <Payment />,
+      },
+
+      {
+        path: "paymentComplet",
+        element: <CompletePayment />,
+      },
+      {
+
         path: '/movie',
         element: <Movie />
       },
       {
         path: '/user',
         element: <User></User>
+
       },
       {
         path:"/tvshows",
