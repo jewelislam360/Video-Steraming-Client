@@ -1,5 +1,5 @@
 import React from "react";
-import faq from '../../../assets/Faq.png'
+import faq from '../../../assets/Faq.png';
 
 const Faq = () => {
   return (
@@ -17,14 +17,14 @@ const Faq = () => {
           <div data-aos-delay="50" className="flex justify-center items-center">
             <div className="join join-vertical w-full">
               <div className="collapse collapse-arrow join-item border border-base-300">
-                <input type="checkbox" checkbox="checkbox" />
+                <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium text-white">
                   How do I create an account on the streaming platform?
                 </div>
                 <div className="collapse-content text-white">
                   <p>
-                    To create an account, visit our website and click on the "Sign
-                    Up" button. Provide your email address, choose a password, and
+                    To create an account, visit our website and click on the Sign
+                    Up button. Provide your email address, choose a password, and
                     follow the verification steps.
                   </p>
                 </div>
