@@ -12,7 +12,18 @@ const userApi = api.injectEndpoints({
         body: user,
       }),
     }),
+    editUser: builder.mutation({
+      query: (user) => ({ url: "/edituser", method: "PETCH", body: user }),
+    }),
+    currentUser: builder.query({
+      query: (email) => ({ url: `/user?email=${email.email}`, method: "GET" }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useSignUpMutation } = userApi;
+export const {
+  useLoginMutation,
+  useSignUpMutation,
+  useEditUserMutation,
+  useCurrentUserQuery,
+} = userApi;
