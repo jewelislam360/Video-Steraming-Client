@@ -1,5 +1,6 @@
 import React from "react";
 // Import Swiper React components
+
 import { AiOutlineLike } from "react-icons/ai";
 import { FaPlay, FaPlus, FaShareAlt } from "react-icons/fa";
 import ReactPlayer from "react-player";
@@ -74,6 +75,7 @@ const MovieCard = ({ movie }) => {
       </div>
     </>
   );
+
 };
 
 export default MovieCard;
