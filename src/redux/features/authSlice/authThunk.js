@@ -97,7 +97,7 @@ export const currentUser = createAsyncThunk(
           phoneNumber,
           photoURL,
         };
-        dispatch(setUser(JSON.stringify({ userr: user })));
+        dispatch(setUser(u));
       } else {
         dispatch(setUser(null));
       }
