@@ -10,7 +10,7 @@ import Blog from "../Pages/Blog/Blog";
 import User from "../Pages/User/User";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
-import TvShows from "../Pages/TvShows/TvShows";
+import TvShows from "../Pages/TvShows/TvShows"
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +34,6 @@ export const router = createBrowserRouter([
         path: "blog",
         element: <Blog />
       },
-
       {
 
         path: "viewPlayer/:id",
@@ -55,6 +54,16 @@ export const router = createBrowserRouter([
       {
         path: '/user',
         element: <User></User>
+      },
+      {
+        path:"/tvshows",
+        element: <TvShows></TvShows>
+      },
+      {
+        path: "/tvshows/viewPlayer/:id",
+        element: <ViewPlayer></ViewPlayer>,
+        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
+
       },
     ],
   },
