@@ -5,7 +5,7 @@ import './DashBoard.css'
 
 const DashBoard = () => {
     const { pathname } = useLocation()
-    console.log(pathname);
+    // console.log(pathname);
     return (
         <div className="drawer drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -34,7 +34,7 @@ const DashBoard = () => {
                                     <FaListUl className='icon' />
                                     <span className='nav-item'>Add Item</span>
                                 </Link></li>
-                        <li><Link><FaUsers className='icon' /><span className='nav-item'>Users</span></Link></li>
+                        <li><Link to="/dashboard/alluser"><FaUsers className='icon' /><span className='nav-item'>Users</span></Link></li>
                         <li><Link><FaRegStar className='icon' /><span className='nav-item'>Reviews</span></Link></li>
                         <li><Link><FaRegCommentDots className='icon' /><span className='nav-item'>Comments</span></Link></li>
                         <div className="divider"></div>

@@ -16,6 +16,9 @@ import Contact from "../Pages/Contact/Contact";
 
 import Payment from "../Pages/Payment/Payment";
 import CompletePayment from "../Pages/Payment/CompletePayment";
+import AllUser from "../Pages/DashBoard/Users/AllUser";
+
+
 import UserCard from "../Pages/User/UserCard";
 import UserDashboardHome from "../Pages/User/UserDashboardHome";
 import UserDashboard from "../Layout/UserDashboard";
@@ -90,6 +93,10 @@ export const router = createBrowserRouter([
         path: "additem",
         element: <AddItem></AddItem>,
       },
+      {
+        path: "alluser",
+        element: <AllUser></AllUser>,
+      }
     ],
   },
   {
