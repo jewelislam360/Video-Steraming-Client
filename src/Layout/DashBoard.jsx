@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { FaUserCircle, FaHome, FaRegStar, FaRegCommentDots, FaTv, FaThList, FaSignOutAlt,FaListUl,FaUsers } from 'react-icons/fa'
+import { FaUserCircle, FaHome, FaRegStar, FaRegCommentDots, FaTv, FaThList, FaSignOutAlt, FaListUl, FaUsers } from 'react-icons/fa'
 import './DashBoard.css'
 
 const DashBoard = () => {
     const { pathname } = useLocation()
     console.log(pathname);
+
+    // TODO: get data from server side for dynamic
+    const isAdmin = true;
+
     return (
-        <div className="drawer drawer-open ">
+        <div className="drawer drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
@@ -21,22 +25,41 @@ const DashBoard = () => {
                     </div>
 
                     <ul className="menu">
-                        {/* Sidebar content here */}
-                        <li><Link to="/dashboard/adminhome"
-                            className={`${pathname === "/dashboard/adminhome" ? "text-red-800" : "text-white"
-                                }`}>
-                            <FaHome className='icon' />
-                            <span className='nav-item'>Dashboard</span>
-                        </Link></li>
-                        <li><Link to="/dashboard/additem"
-                            className={`${pathname === "/dashboard/additem" ? "text-red-800" : "text-white"
-                                }`}>
+                        {
+                            isAdmin ? <>
+                                <li><Link to="/dashboard/adminhome"
+                                    className={`${pathname === "/dashboard/adminhome" ? "text-red-800" : "text-white"
+                                        }`}>
+                                    <FaHome className='icon' />
+                                    <span className='nav-item'>Dashboard</span>
+                                </Link></li>
+                                <li><Link to="/dashboard/additem"
+                                    className={`${pathname === "/dashboard/additem" ? "text-red-800" : "text-white"
+                                        }`}>
                                     <FaListUl className='icon' />
                                     <span className='nav-item'>Add Item</span>
                                 </Link></li>
-                        <li><Link><FaUsers className='icon' /><span className='nav-item'>Users</span></Link></li>
-                        <li><Link><FaRegStar className='icon' /><span className='nav-item'>Reviews</span></Link></li>
-                        <li><Link><FaRegCommentDots className='icon' /><span className='nav-item'>Comments</span></Link></li>
+                                <li><Link to="/dashboard/alluser"
+                                    className={`${pathname === "/dashboard/alluser" ? "text-red-800" : "text-white"
+                                        }`}>
+                                    <FaUsers className='icon' />
+                                    <span className='nav-item'>Manage User</span></Link></li>
+                                <li><Link><FaRegStar className='icon' /><span className='nav-item'>Reviews</span></Link></li>
+                                <li><Link><FaRegCommentDots className='icon' /><span className='nav-item'>Comments</span></Link></li>
+                            </> : <>
+
+                                <li><Link to="/dashboard/userhome"
+                                    className={`${pathname === "/dashboard/userhome" ? "text-red-800" : "text-white"
+                                        }`}>
+                                    <FaHome className='icon' />
+                                    <span className='nav-item'>Dashboard</span>
+                                </Link></li>
+                                <li><Link><FaUsers className='icon' /><span className='nav-item'>My Cart</span></Link></li>
+                                <li><Link><FaRegStar className='icon' /><span className='nav-item'>Histroy</span></Link></li>
+                                <li><Link><FaRegCommentDots className='icon' /><span className='nav-item'>Comments</span></Link></li>
+                            </>
+                        }
+
                         <div className="divider"></div>
 
                         <li><Link><FaTv className='icon' /><span className='nav-item'>Tv-Show</span></Link></li>
