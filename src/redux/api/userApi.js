@@ -25,8 +25,11 @@ const userApi = api.injectEndpoints({
         url:'/users/:id',
         method: 'DELETE',
       })
-    })
+    }),
+    currentUser: builder.query({
+      query: (email) => ({ url: `/user/${email.email}`, method: "GET" }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useSignUpMutation, useGetAllUserQuery } = userApi;
+export const { useLoginMutation, useSignUpMutation, useGetAllUserQuery, useCurrentUserQuery } = userApi;

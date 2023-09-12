@@ -27,11 +27,10 @@ const Register = () => {
   } = useForm();
 
   const password = watch("password");
-  // const passPattern =
-  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,}) /;
+  const passPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,}) /;
 
-  // if (passPattern.test(password)) {
-  // }
+  
 
   //form submit handler
   const onSubmit = (data) => {

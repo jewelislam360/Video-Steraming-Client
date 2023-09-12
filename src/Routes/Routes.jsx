@@ -19,6 +19,10 @@ import CompletePayment from "../Pages/Payment/CompletePayment";
 import AllUser from "../Pages/DashBoard/AllUser/AllUser";
 
 
+import UserCard from "../Pages/User/UserCard";
+import UserDashboardHome from "../Pages/User/UserDashboardHome";
+import UserDashboard from "../Layout/UserDashboard";
+import PrivetRoute from "./PrivetRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -43,9 +47,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "contact",
-        element: <Contact />
+        element: <Contact />,
       },
-
       {
         path: "viewPlayer/:id",
         element: <ViewPlayer></ViewPlayer>,
@@ -68,13 +71,21 @@ export const router = createBrowserRouter([
         element: <CompletePayment />,
       },
       {
-
-        path: '/movie',
-        element: <Movie />
+        path: "/movie",
+        element: <Movie />,
       },
       {
-        path: '/user',
-        element: <User></User>
+        path: "/user",
+        element: <User />,
+      },
+      {
+        path:"/tvshows",
+        element: <TvShows></TvShows>
+      },
+      {
+        path: "/tvshows/viewPlayer/:id",
+        element: <ViewPlayer></ViewPlayer>,
+        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
 
       },
     ],
@@ -95,6 +106,14 @@ export const router = createBrowserRouter([
         path: 'alluser',
         element: <AllUser></AllUser>
       }
+    ],
+  },
+  {
+    path: "userDashboard",
+    element: <UserDashboard />,
+    children: [
+      { path: "account", element: <User /> },
+      { path: "library", element: <UserDashboardHome /> },
     ],
   },
 ]);

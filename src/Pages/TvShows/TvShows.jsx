@@ -6,13 +6,45 @@ import { FaCaretRight, FaHome } from 'react-icons/fa';
 
 const TvShows = () => {
     const [tvShows, setTvShows] = useState();
+
     useEffect(() => {
         fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
             .then(res => res.json())
             .then(data => {
                 setTvShows(data);
+                // console.log(data)
             })
     }, []);
+
+
+    // search text
+    const searchField = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const tvshowName = form.tvshowName.value;
+        fetch(`https://video-streaming-server-sigma.vercel.app/searchName/${tvshowName}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setTvShows(data);
+            // console.log(data);
+        });
+        event.target.reset();
+    }
+
+    // category data
+    const categoryField = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const categoryName = form.categoryName.value;
+        fetch(`https://video-streaming-server-sigma.vercel.app/moviesByCategory/${categoryName}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setTvShows(data);
+            console.log(data)
+        });
+        event.target.reset();
+    }
+
     return (
         <div className='bg-fixed ' style={{ backgroundImage: `url(${bg})` }}>
             <section className="relative py- overflow-hidden  pt-10 sm:py-16 lg:py-24 xl:py-24">
@@ -35,8 +67,8 @@ const TvShows = () => {
                         <div className='p-5'>
                             <div className="w-120 bg-slate-700 rounded-md shadow-lg p-2 mb-4 z-10">
                                 <h2 className='text-2xl pb-1'>Search Tv Shows</h2>
-                                <form className="flex items-center justify-center p-2">
-                                    <input type="search" placeholder="Search here"
+                                <form onSubmit={searchField} className="flex items-center justify-center p-2">
+                                    <input name="tvshowName" type="search" placeholder="Search here"
                                         className="w-full text-black rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent" />
                                     <button type="submit"
                                         className="bg-red-600 text-white rounded-md px-4 py-1 ml-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
@@ -45,12 +77,11 @@ const TvShows = () => {
                                 </form>
 
 
-
                             </div>
                             <div className="w-120 bg-slate-700 rounded-md shadow-lg p-2 z-10">
                                 <h2 className='text-2xl pb-1'>Search Episodes</h2>
-                                <form className="flex items-center justify-center p-2">
-                                    <input type="search" placeholder="Search here"
+                                <form onSubmit={categoryField} className="flex items-center justify-center p-2">
+                                    <input name="categoryName" type="search" placeholder="Search here"
                                         className="w-full text-black rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent" />
                                     <button type="submit"
                                         className="bg-red-600 text-white rounded-md px-4 py-1 ml-2 hover:hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
@@ -122,3 +153,11 @@ const TvShows = () => {
 };
 
 export default TvShows;
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+

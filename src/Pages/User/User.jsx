@@ -1,22 +1,37 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { useCurrentUserQuery } from "../../redux/api/userApi";
 
 const User = () => {
-  const [changeDetails, setChangeDetails] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  const { data, isLoading, isSuccess } = useCurrentUserQuery({
+    email: user?.userEmail,
+  });
+  const {
+    displayName,
+    email: userEmail,
+    emailVerified,
+    phoneNumber,
+    photoURL,
+    address,
+  } = data || {};
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
+  console.log(user.userEmail);
+  console.log("user line 21", data);
   return (
-    <div className="flex flex-col md:flex-row pb-20 pt-28 gap-x-16 justify-center px-4 md:px-0">
+    <div className="flex flex-col md:flex-row pb-20 gap-x-16 justify-center px-4 md:px-0">
       <div className="text-center ">
         <img
-          src="/emon4.jpg"
+          src={photoURL}
           className="w-48 h-44 rounded object-cover  mb-4"
           alt=""
         />
-        <h1 className="text-xl ">Hallo Dear </h1>
-        <p>emon@gmail.com</p>
+        <h1 className="text-xl ">{displayName} </h1>
+        <p>{userEmail}</p>
       </div>
       <div>
         <h4 className="text-xl">General Information</h4>
@@ -29,36 +44,6 @@ const User = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 pb-[30px]  border-b-2 border-gray-500">
             <div>
               <label
-                htmlFor="first_name"
-                className="block mb-2 text-sm font-medium  "
-              >
-                First name
-              </label>
-              <input
-                type="text"
-                id="first_name"
-                className="bg-gray-50/10  text-sm  focus:ring-blue-500  outline-none w-full block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-white"
-                placeholder="John"
-                {...register("first_name")}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="last_name"
-                className="block mb-2 text-sm font-medium  "
-              >
-                Last name
-              </label>
-              <input
-                type="text"
-                id="last_name"
-                className="cs-input w-full"
-                placeholder="Doe"
-                {...register("last_name")}
-              />
-            </div>
-            <div>
-              <label
                 htmlFor="display_name"
                 className="block mb-2 text-sm font-medium  "
               >
@@ -69,9 +54,43 @@ const User = () => {
                 id="display_name"
                 className="cs-input w-full"
                 placeholder="John Doe"
+                value={displayName}
                 {...register("display_name")}
               />
             </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="block mb-2 text-sm font-medium  "
+              >
+                Phone Number
+              </label>
+              <input
+                type="text"
+                id="phone"
+                className="bg-gray-50/10  text-sm  focus:ring-blue-500  outline-none w-full block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-white"
+                placeholder="Phone Number"
+                value={phoneNumber}
+                {...register("phone")}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="address"
+                className="block mb-2 text-sm font-medium  "
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                id="address"
+                className="cs-input w-full"
+                placeholder="Dhaka"
+                value={address}
+                {...register("address")}
+              />
+            </div>
+
             <div>
               <label
                 htmlFor="email"
@@ -84,6 +103,7 @@ const User = () => {
                 id="email"
                 className="cs-input w-full"
                 placeholder="info@example.com"
+                value={userEmail}
                 {...register("email")}
                 disabled
               />
