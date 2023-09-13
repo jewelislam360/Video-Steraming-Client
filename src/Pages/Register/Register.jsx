@@ -34,6 +34,25 @@ const Register = () => {
 
   //form submit handler
   const onSubmit = (data) => {
+    const saveUser = { Name: data.userName, Email: data.email };
+    // user post method
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(saveUser)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          success();
+          //empty isLoginSuccess state in store
+          dispatch(setIsLoginSuccess());
+        }
+      });
+
+
     dispatch(createUserEmailPass(data));
     signMutation(data);
   };
@@ -59,6 +78,7 @@ const Register = () => {
       dispatch(setIsLoginSuccess());
       //reset form
       reset({ userName: "", email: "", password: "" });
+
     }
 
     //show error message if error aucord creating to a user
@@ -68,7 +88,7 @@ const Register = () => {
       isError
     ) {
       err();
-      // empty error state in store
+      // empty error state in store 
       dispatch(errorEmty());
       //reset form
       reset({ userName: "", email: "", password: "" });

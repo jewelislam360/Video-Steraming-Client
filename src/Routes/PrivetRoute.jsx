@@ -1,13 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useCurrentUserQuery } from "../redux/api/userApi";
+import React, { useContext } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
-const PrivetRoute = () => {
-  const auth = useSelector((state) => state.auth);
-  console.log(auth, "line 7 user");
-  const { isSuccess, data } = useCurrentUserQuery({ email: "emon@gmail.com" });
-  console.log(data, "user data");
-  return <div></div>;
+const PrivetRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext)
+  const location = useLocation();
+
+
+  return <>
+    {loading ? <progress className="progress w-56"></progress> : user? children : <Navigate to="/login" state={{ from: location }} replace></Navigate>}
+  </>;
 };
 
 export default PrivetRoute;
+{/* */ }

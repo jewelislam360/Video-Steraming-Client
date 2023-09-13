@@ -19,7 +19,7 @@ const MovieCard = ({ movie }) => {
     rating,
     category,
   } = movie;
-  const videoTitle = title?.length >= 49 ? title : title?.slice(0, 49) + "..."
+ const videoTitle=title?.length>= 49 ? title: title.slice(0,49)+"..."
   return (
     <>
       <div className="card card-compact w-full bg-black  ">
