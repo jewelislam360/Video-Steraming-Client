@@ -3,7 +3,7 @@ import { useGetAllUserQuery } from '../../../redux/api/userApi';
 import Swal from 'sweetalert2';
 
 const AllUser = () => {
-    const { data } = useGetAllUserQuery()
+    const { data, refetch } = useGetAllUserQuery()
     
     const handleDelete = (user) => {
         console.log(user._id);
@@ -27,6 +27,7 @@ const AllUser = () => {
                 })
                     .then(res => {
                         if (res.data.deletedCount > 0) {
+                            refetch();
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
