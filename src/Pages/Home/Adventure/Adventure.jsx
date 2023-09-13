@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,10 +11,10 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
-const Action = () => {
+const Adventure = () => {
     const [movies, setMovies] = useState();
     useEffect(() => {
-        fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Action")
+        fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Adventure")
             .then(res => res.json())
             .then(data => {
                 setMovies(data);
@@ -25,7 +24,7 @@ const Action = () => {
         <div className=' px-20'>
           <div className='flex justify-between'>
             <div>
-              <h1 className='font-bold text-4xl'>Action Movies</h1>
+              <h1 className='font-bold text-4xl'>Adventure Movies</h1>
             </div>
             <div>
             <Link to="/movie"><button className='bg-red-600 px-5 py-3'>More Movies</button></Link>
@@ -73,4 +72,4 @@ const Action = () => {
     );
 };
 
-export default Action;
+export default Adventure;

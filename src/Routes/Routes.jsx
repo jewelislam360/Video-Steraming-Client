@@ -23,7 +23,7 @@ import UserCard from "../Pages/User/UserCard";
 import UserDashboardHome from "../Pages/User/UserDashboardHome";
 import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
-import MovieList from "../Pages/DashBoard/MovieList/MovieList";
+import Action from "../Pages/Home/Action/Action";
 export const router = createBrowserRouter([
   {
     path: "/",
