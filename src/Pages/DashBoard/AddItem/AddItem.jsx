@@ -24,6 +24,24 @@ const AddItem = () => {
                     <label className=' text-xl font-bold'>Video Link :</label>
                     <input {...useForm('videoLink')} className=' w-full text-gray-700 mt-2 px-4'/>
                 </div>
+                <div>
+                    <label className=' text-xl font-bold'>Trailer :</label>
+                    <input {...useForm('trailerLink')} className=' w-full text-gray-700 mt-2 px-4'/>
+                </div>
+                <div>
+                    <label className=' text-xl font-bold'>Thaimnel :</label>
+                    <input {...useForm('thambnelLink')} className=' w-full text-gray-700 mt-2 px-4'/>
+                </div>
+                <div className='my-4'>
+                    <label className=' text-xl font-bold'>Category :</label>
+                    <select {...useForm('category')} className=' text-gray-700 ml-4'>
+                        <option value="movie">Action</option>
+                        <option value="tv-show">Adventure</option>
+                        <option value="movie">Drama</option>
+                        <option value="tv-show">Animation</option>
+                        <option value="tv-show">Mystery</option>
+                    </select>
+                </div>
                 <div className='my-2'>
                     <label className=' text-xl font-bold'>Free or Paid :</label>
                     <Controller
@@ -38,13 +56,7 @@ const AddItem = () => {
                         )}
                     />
                 </div>
-                <div className='my-4'>
-                    <label className=' text-xl font-bold'>Category :</label>
-                    <select {...useForm('category')} className=' text-gray-700 ml-4'>
-                        <option value="movie">Movie</option>
-                        <option value="tv-show">TV Show</option>
-                    </select>
-                </div>
+                
 
 
             <button type="submit" className='btn btn-outline mt-10 border-none text-white bg-red-700'>Submit</button>
