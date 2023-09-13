@@ -107,10 +107,7 @@ export const router = createBrowserRouter([
         path: 'alluser',
         element: <AllUser></AllUser>
       },
-      {
-        path: 'movieList',
-        element: <MovieList></MovieList>
-      },
+      
     ],
   },
   {
