@@ -20,14 +20,16 @@ const userApi = api.injectEndpoints({
       url:'/users',
       method:'GET',
     })}),
-    deleteUser: builder.query({
+    deleteUser: builder.mutation({
       query: ()=>({
         url:'/users/:id',
         method: 'DELETE',
       })
     }),
     currentUser: builder.query({
-      query: (email) => ({ url: `/user/${email.email}`, method: "GET" }),
+      query: (email) => ({ 
+        url: `/user/${email.email}`, 
+        method: "GET" }),
     }),
   }),
 });

@@ -4,8 +4,9 @@ import Swal from 'sweetalert2';
 
 const AllUser = () => {
     const { data } = useGetAllUserQuery()
-    console.log(data);
-    const handleDelete = data => {
+    
+    const handleDelete = (user) => {
+        console.log(user._id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to Delete this!",
@@ -16,11 +17,23 @@ const AllUser = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+
+                fetch(`http://localhost:5000/users/${user._id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify()
+                })
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
             }
         })
     }
@@ -44,7 +57,7 @@ const AllUser = () => {
                             <td>{user.Name}</td>
                             <td>{user.Email}</td>
                             <td className=' text-end'>Admin</td>
-                            <td className=' text-end'><button onClick={() => handleDelete(data)} className='btn btn-sm'>Delete</button></td>
+                            <td className=' text-end'><button onClick={() => handleDelete(user)} className='btn btn-sm'>Delete</button></td>
                             <th></th>
                         </tr>
                         )
