@@ -1,14 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { FaSearch, FaBars, FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { useGetAllUserQuery } from "../../../redux/api/userApi";
 
 const Navbar = () => {
-  const [searchVisible, setSearchVisible] = useState(false);
   const dispatch = useDispatch();
+  const {user,logOut}=useContext(AuthContext)
+
+
+const handleLogout=()=>{
+  logOut()
+  .then(()=>{})
+  .catch(error=>console.log(error));
+}
+
+  const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
   };
@@ -86,13 +97,15 @@ const Navbar = () => {
             />
           </div>
         )}
-        <FaUserCircle size={24} className="text-gray-400 mr-1" />
-        <Link
-          to="/login"
-          className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white"
-        >
-          Login
-        </Link>
+        
+        {
+          user ? <>
+          <Link to='/userDashboard/account'><FaUserCircle size={24} className="text-gray-400 mr-1" /></Link>
+          <button onClick={handleLogout} className="btn btn-ghost btn-sm">Logout</button>
+          </> : <>
+          <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">Login</Link>
+          </>
+        }
       </div>
     </div>
   );

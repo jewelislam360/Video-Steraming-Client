@@ -66,7 +66,9 @@ const Login = () => {
       //empty error state in redux store
       dispatch(errorEmty());
     }
-  }, [user, isError, isLoginSuccess]);
+  }, [user, isError, isLoginSuccess,actionName,dispatch]);
+
+console.log("token",data,"line 71")
 
   return (
     <>
