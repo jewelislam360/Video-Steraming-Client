@@ -16,7 +16,6 @@ import Contact from "../Pages/Contact/Contact";
 
 import Payment from "../Pages/Payment/Payment";
 import CompletePayment from "../Pages/Payment/CompletePayment";
-import AllUser from "../Pages/DashBoard/AllUser/AllUser";
 
 
 import UserCard from "../Pages/User/UserCard";
@@ -102,10 +101,6 @@ export const router = createBrowserRouter([
         path: "additem",
         element: <AddItem></AddItem>,
       },
-      {
-        path: 'alluser',
-        element: <AllUser></AllUser>
-      }
     ],
   },
   {
