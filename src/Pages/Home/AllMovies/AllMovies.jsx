@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 
 const AllMovies = () => {
@@ -31,7 +32,7 @@ const AllMovies = () => {
               <h1 className='font-bold text-4xl'>All Movies</h1>
             </div>
             <div>
-              <button className='bg-red-600 px-5 py-3'>More Movies</button>
+            <Link to="/movie"><button className='bg-red-600 px-5 py-3'>More Movies</button></Link>
             </div>
           </div>
         <Swiper

@@ -27,6 +27,24 @@ const Movie = () => {
             })
     }, []);
 
+   
+
+    
+    const handelAction =()=>{
+        // useEffect(() => {
+            fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Action")
+                .then(res => res.json())
+                .then(data => {
+                    setMovies(data);
+                })
+                
+        // }, [])
+        
+        
+        
+    }
+    
+
 
     //------handle see all button condition
     const [loadMore, setLoadMore] = useState(false);
@@ -72,7 +90,7 @@ const Movie = () => {
                                 <p className='text-3xl font-semibold mt-10'>
                                     Filter By Genre
                                 </p>
-                                <div className='flex cursor-pointer hover:text-red-600 mt-5'>
+                                <div onClick={()=>handelAction()} className='flex cursor-pointer hover:text-red-600 mt-5'>
                                     <AiOutlineFolderOpen className='mt-1' /> <span className='ms-2'>Action</span>
                                 </div>
                                 <div className='flex cursor-pointer hover:text-red-600 mt-5'>
