@@ -19,12 +19,15 @@ const userApi = api.injectEndpoints({
       query:()=>({
       url:'/users',
       method:'GET',
-    })}),
+    }),
+  providesTags:['allUser']
+  }),
     deleteUser: builder.mutation({
       query: ()=>({
         url:'/users/:id',
         method: 'DELETE',
-      })
+      }),
+invalidatesTags: ['allUser']
     }),
     currentUser: builder.query({
       query: (email) => ({ 

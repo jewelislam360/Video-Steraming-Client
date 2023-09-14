@@ -107,7 +107,6 @@ export const router = createBrowserRouter([
         path: 'alluser',
         element: <AllUser></AllUser>
       },
-      
     ],
   },
   {
