@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 
 const MovieList = () => {
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
@@ -12,6 +12,9 @@ const MovieList = () => {
 
   return (
     <div className="bg-slate-800 w-[90%]">
+    <div className="mx-auto text-center md:w-4/12">
+        <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-t-white border-b-red-800 py-4">---- Movies Managing ----</h3>
+      </div>
       <div className="overflow-x-auto text-white">
         <table className="table table-lg">
           {/* head */}
