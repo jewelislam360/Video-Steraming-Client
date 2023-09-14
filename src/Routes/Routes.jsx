@@ -24,6 +24,7 @@ import UserDashboardHome from "../Pages/User/UserDashboardHome";
 import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
 import Action from "../Pages/Home/Action/Action";
+import MovieList from "../Pages/DashBoard/MovieList/MovieList";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
         path: 'alluser',
         element: <AllUser></AllUser>
       },
+      {
+        path: 'movieList',
+        element: <MovieList></MovieList>
+      }
       
     ],
   },
