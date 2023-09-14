@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
 
 const MovieList = () => {
   const [movie, setMovie] = useState([]);
@@ -11,20 +12,20 @@ const MovieList = () => {
   }, []);
 
   return (
-    <div className="bg-slate-800 w-[90%]">
+    <div className="bg-slate-800 w-[90%] pt-10">
     <div className="mx-auto text-center md:w-4/12">
-        <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-t-white border-b-red-800 py-4">---- Movies Managing ----</h3>
+        <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-t-white border-b-orange-700 py-4">---- Movies Managing ----</h3>
       </div>
-      <div className="overflow-x-auto text-white">
+      <div className="overflow-x-auto text-white my-10">
         <table className="table table-lg">
           {/* head */}
-          <thead>
-            <tr className="text-white">
+          <thead className="text-lg text-orange-500">
+            <tr>
               <th>Thumbnail</th>
               <th>Movie Title</th>
               <th>Category</th>
-              <th></th>
-              <th></th>
+              <th>Update</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -55,10 +56,10 @@ const MovieList = () => {
                   <div className="text-l">{allMovie.category}</div>
                 </td>
                 <td>
-                  <button className="btn btn-ghost btn-xs"><AiFillEdit className="text-xl border p-1 rounded-sm text-green-600 font-bold"></AiFillEdit> </button>
+                  <button className="btn btn-ghost btn-sm  text-cyan-50  bg-orange-700 hover:bg-red-700 border-0"><AiFillEdit></AiFillEdit> </button>
                 </td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">Delete</button>
+                  <button className='btn btn-sm text-white  bg-orange-700 hover:bg-red-700 border-0'><FaTrashAlt></FaTrashAlt></button>
                 </th>
               </tr>
             ))}
