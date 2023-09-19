@@ -62,7 +62,7 @@ const DashBoard = () => {
 
                         <div className="divider"></div>
 
-                        <li><Link><FaTv className='icon' /><span className='nav-item'>Tv-Show</span></Link></li>
+                        <li><Link to="/dashboard/managetvshow"><FaTv className='icon' /><span className='nav-item'>Tv-Show</span></Link></li>
                         <li><Link to="/dashboard/movieList"><FaThList className='icon' /><span className='nav-item'>Movie</span></Link></li>
                         <div className="divider"></div>
 
