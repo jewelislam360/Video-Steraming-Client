@@ -11,13 +11,13 @@ const DashBoard = () => {
     const isAdmin = true;
 
     return (
-        <div className="drawer drawer-open">
+        <div className="drawer drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
                 <Outlet></Outlet>
             </div>
-            <div className="drawer-side px-8 bg-gray-500">
+            <div className="bg-[#1f2937] drawer-side px-8">
                 <nav>
                     <div className="logo  flex justify-start items-center">
                         <FaUserCircle className='text-5xl' />

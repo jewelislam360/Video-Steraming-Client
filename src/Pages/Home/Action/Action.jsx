@@ -24,11 +24,13 @@ const Action = () => {
     return (
         <div className=' px-20'>
           <div className='flex justify-between'>
+          <div className="mx-auto mb-2 text-center md:w-4/12">
+          <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-b-white border-t-orange-700 py-4">
+            ---- Action Movies ----
+          </h3>
+        </div>
             <div>
-              <h1 className='font-bold text-4xl'>Action Movies</h1>
-            </div>
-            <div>
-            <Link to="/movie"><button className='bg-red-600 px-5 py-3'>More Movies</button></Link>
+            <Link to="/movie"><button className='bg-red-600 px-5 py-3 rounded-md'>More Movies</button></Link>
             </div>
           </div>
             <Swiper
