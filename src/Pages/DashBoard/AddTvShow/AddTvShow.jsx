@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const AddItem = () => {
+const AddTvShow = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
@@ -12,31 +12,27 @@ const AddItem = () => {
             thumbnailLink,
             trailerLink,
             videoLink,
-            rating,
             timeDuration,
             description,
             category,
-            liked,
             status
         } = data;
-        const addmovie = {
+        const addTvShow = {
             title,
             img: thumbnailLink,
             trailer: trailerLink,
             video: videoLink,
-            rating: parseFloat(rating),
             time: timeDuration,
             description,
             category,
-            like: parseFloat(liked),
             status
         };
-        fetch('https://video-streaming-server-sigma.vercel.app/addMovies', {
+        fetch('http://localhost:5000/addTvShow', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(addmovie),
+            body: JSON.stringify(addTvShow),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -45,13 +41,12 @@ const AddItem = () => {
                     console.log(data);
                 }
             });
-    };
-
+        };
     return (
         <div className='container mx-auto p-4'>
             <div className='mb-6 text-center'>
                ---------------------------
-               <h2 className='text-2xl font-extrabold text-orange-500'>Add Movies</h2>
+               <h2 className='text-2xl font-extrabold text-orange-500'>Add Tv-Show</h2>
                ---------------------------
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='max-w-md mx-auto'>
@@ -73,10 +68,6 @@ const AddItem = () => {
                 <div className='mb-4'>
                     <label className='text-xl font-bold'>Video Link:</label>
                     <input {...register('videoLink')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
-                </div>
-                <div className='mb-4'>
-                    <label className='text-xl font-bold'>Ratings:</label>
-                    <input {...register('rating')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
                 </div>
                 <div className='mb-4'>
                     <label className='text-xl font-bold'>Duration:</label>
@@ -105,18 +96,14 @@ const AddItem = () => {
                             <option value="Premium">Premium</option>
                         </select>
                     </div>
-                    <div>
-                        <label className='text-xl font-bold'>Like:</label>
-                        <input {...register('liked')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
-                    </div>
                 </div>
 
                 <button type="submit" className='btn btn-outline mt-4 border-none text-white bg-orange-700'>
-                    Add Item
+                    Add Tv-Show
                 </button>
             </form>
         </div>
     );
 };
 
-export default AddItem;
+export default AddTvShow;

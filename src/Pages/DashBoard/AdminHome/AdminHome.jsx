@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaThLarge, FaRegCommentDots, FaRegStar, FaRedoAlt, FaUsers } from 'react-icons/fa'
 import { useGetAllUserQuery } from '../../../redux/api/userApi';
 
 const AdminHome = () => {
+    const [movies, setMovie] = useState([]);
+
+  useEffect(() => {
+    fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
+      .then((res) => res.json())
+      .then((data) => setMovie(data));
+  }, []);
+
     const { data } = useGetAllUserQuery();
     return (
         <div className='container mx-auto p-4'>
@@ -11,8 +19,8 @@ const AdminHome = () => {
                     <div>
                         <h1 className="text-2xl font-extrabold mb-4 text-cyan-50">Total User</h1>
                         <div className='flex justify-around items-center'>
-                            <h2 className='text-4xl font-extrabold'>205</h2>
-                            <FaRegCommentDots className='text-2xl' />
+                            <h2 className='text-4xl font-extrabold'>{data?.length}</h2>
+                            <FaUsers className='text-2xl' />
                         </div>
                     </div>
                 </div>
@@ -20,7 +28,7 @@ const AdminHome = () => {
                     <div>
                         <h1 className="text-2xl font-extrabold text-cyan-50 mb-4">Total Item Added</h1>
                         <div className='flex justify-around items-center'>
-                            <h2 className='text-4xl font-extrabold'>205</h2>
+                            <h2 className='text-4xl font-extrabold'>{movies?.length}</h2>
                             <FaThLarge className='text-2xl' />
                         </div>
                     </div>
@@ -29,7 +37,7 @@ const AdminHome = () => {
                     <div>
                         <h1 className="text-2xl font-extrabold mb-4 text-cyan-50">Total Reviews</h1>
                         <div className='flex justify-around items-center'>
-                            <h2 className='text-4xl font-extrabold'>205</h2>
+                            <h2 className='text-4xl font-extrabold'></h2>
                             <FaRegStar className='text-2xl' />
                         </div>
                     </div>
@@ -42,35 +50,29 @@ const AdminHome = () => {
                         <span className='flex justify-center items-center gap-2'><FaThLarge className='text-2xl' />Top Items</span>
                         <span className='flex justify-center items-center gap-2'><FaRedoAlt className='text-2xl' />View All</span>
                     </div>
-                    <div className="overflow-x-auto text-cyan-50 w-full ">
-                        <table className="table table-xs w-full border-2 border-cyan-50">
+                    <div className="overflow-x-auto w-full ">
+                        <table className="table table-xs w-full border-2 border-gray-800">
                             <thead className='text-lg text-orange-500'>
                                 <tr>
                                     <th>SI</th>
                                     <td>Title</td>
                                     <td>Category</td>
                                     <td>Rating</td>
-                                    <td>Status</td>
+                                    <td>Likes</td>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>1</th>
-                                    <td>Cy Ganderton</td>
-                                    <td>Quality Control Specialist</td>
-                                    <td>Littel, Schaden and Vandervort</td>
-                                    <td>visible</td>
-                                    <th></th>
-                                </tr>
-                                <tr>
-                                    <th>2</th>
-                                    <td>Hart Hagerty</td>
-                                    <td>Desktop Support Technician</td>
-                                    <td>Zemlak, Daniel and Leannon</td>
-                                    <td>visible</td>
-                                    <th></th>
-                                </tr>
+                            {movies?.map((movie, index) => (
+                                    <tr key={movie?._id}>
+                                        <th>{index + 1}</th>
+                                        <td>{movie?.title}</td>
+                                        <td>{movie?.category}</td>
+                                        <td className='text-end'>{movie?.rating}</td>
+                                        <td className='text-end'>{movie?.like}</td>
+                                        <th></th>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -80,8 +82,8 @@ const AdminHome = () => {
                         <span className='flex justify-center items-center gap-2'><FaUsers className='text-2xl' />User Details</span>
                         <span className='flex justify-center items-center gap-2'><FaRedoAlt className='text-2xl' />View All</span>
                     </div>
-                    <div className="overflow-x-auto text-cyan-50 w-full">
-                        <table className="table table-xs w-full border-2 border-cyan-50">
+                    <div className="overflow-x-auto w-full">
+                        <table className="table table-xs w-full border-2 border-gray-800">
                             <thead className='text-orange-500 text-lg'>
                                 <tr>
                                     <th>SI</th>
@@ -93,10 +95,10 @@ const AdminHome = () => {
                             </thead>
                             <tbody>
                                 {data?.map((user, index) => (
-                                    <tr key={user._id}>
+                                    <tr key={user?._id}>
                                         <th>{index + 1}</th>
-                                        <td>{user.Name}</td>
-                                        <td>{user.Email}</td>
+                                        <td>{user?.Name}</td>
+                                        <td>{user?.Email}</td>
                                         <td className='text-end'>{user.role === 'Admin' ? 'Admin' : 'User'}</td>
                                         <th></th>
                                     </tr>
