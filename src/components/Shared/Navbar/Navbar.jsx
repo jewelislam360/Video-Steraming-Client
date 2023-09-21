@@ -100,7 +100,7 @@ const handleLogout=()=>{
         
         {
           user ? <>
-          <Link to='/userDashboard/account'><FaUserCircle size={24} className="text-gray-400 mr-1" /></Link>
+          <Link to='/userDashboard/library'><FaUserCircle size={24} className="text-gray-400 mr-1" /></Link>
           <button onClick={handleLogout} className="btn btn-ghost btn-sm">Logout</button>
           </> : <>
           <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">Login</Link>

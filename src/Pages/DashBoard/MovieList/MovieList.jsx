@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const [movie, setMovie] = useState([]);
@@ -55,7 +56,9 @@ const MovieList = () => {
                   <div className="text-l">{allMovie.category}</div>
                 </td>
                 <td>
+                  <Link to={`/dashboard/movieList/${allMovie?._id}`}>
                   <button className="btn btn-ghost btn-xs"><AiFillEdit className="text-xl border p-1 rounded-sm text-green-600 font-bold"></AiFillEdit> </button>
+                  </Link>
                 </td>
                 <th>
                   <button className="btn btn-ghost btn-xs">Delete</button>

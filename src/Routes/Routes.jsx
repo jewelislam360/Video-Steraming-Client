@@ -25,6 +25,9 @@ import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
 import Action from "../Pages/Home/Action/Action";
 import MovieList from "../Pages/DashBoard/MovieList/MovieList";
+import UpdateMovie from "../Pages/DashBoard/MovieList/UpdateMovie";
+import History from "../Pages/User/History";
+import LikedVideos from "../Pages/User/LikedVideos";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -81,7 +84,7 @@ export const router = createBrowserRouter([
         element: <User />,
       },
       {
-        path:"/tvshows",
+        path: "/tvshows",
         element: <TvShows></TvShows>
       },
       {
@@ -111,16 +114,36 @@ export const router = createBrowserRouter([
       {
         path: 'movieList',
         element: <MovieList></MovieList>
+      },
+      {
+        path: 'movieList/:id',
+        element: <UpdateMovie />,
+        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
       }
-      
+
     ],
   },
   {
     path: "userDashboard",
     element: <UserDashboard />,
     children: [
-      { path: "account", element: <User /> },
-      { path: "library", element: <UserDashboardHome /> },
+      { 
+      path: "account",
+       element: <User /> 
+      },
+      { 
+        path: "library",
+        element: <UserDashboardHome />
+      },
+      {
+        path:'history',
+        element:<History/>
+      },
+      {
+        path:'likedVideos',
+        element:<LikedVideos/>
+      },
+
     ],
   },
 ]);
