@@ -25,8 +25,9 @@ import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
 import Action from "../Pages/Home/Action/Action";
 import MovieList from "../Pages/DashBoard/MovieList/MovieList";
-import UpdateMovie from "../Pages/DashBoard/MovieList/UpdateMovie";
-import History from "../Pages/User/History";
+
+import AddTvShow from "../Pages/DashBoard/AddTvShow/AddTvShow";
+import ManageTvShow from "../Pages/DashBoard/ManageTvShow/ManageTvShow";
 import LikedVideos from "../Pages/User/LikedVideos";
 export const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ export const router = createBrowserRouter([
         element: <AddItem></AddItem>,
       },
       {
+        path: "addTvShow",
+        element: <AddTvShow></AddTvShow>,
+      },
+      {
         path: 'alluser',
         element: <AllUser></AllUser>
       },
@@ -116,11 +121,9 @@ export const router = createBrowserRouter([
         element: <MovieList></MovieList>
       },
       {
-        path: 'movieList/:id',
-        element: <UpdateMovie />,
-        loader: ({ params }) => fetch(`https://video-streaming-server-sigma.vercel.app/allMovies/${params.id}`)
+        path:"manageTvShow",
+        element:<ManageTvShow></ManageTvShow>
       }
-
     ],
   },
   {

@@ -23,11 +23,11 @@ const TvShows = () => {
         const form = event.target;
         const tvshowName = form.tvshowName.value;
         fetch(`https://video-streaming-server-sigma.vercel.app/searchName/${tvshowName}`)
-        .then((res) => res.json())
-        .then((data) => {
-            setTvShows(data);
-            // console.log(data);
-        });
+            .then((res) => res.json())
+            .then((data) => {
+                setTvShows(data);
+                // console.log(data);
+            });
         event.target.reset();
     }
 
@@ -37,13 +37,18 @@ const TvShows = () => {
         const form = event.target;
         const categoryName = form.categoryName.value;
         fetch(`https://video-streaming-server-sigma.vercel.app/moviesByCategory/${categoryName}`)
-        .then((res) => res.json())
-        .then((data) => {
-            setTvShows(data);
-            console.log(data)
-        });
+            .then((res) => res.json())
+            .then((data) => {
+                setTvShows(data);
+                console.log(data)
+            });
         event.target.reset();
     }
+    // btn click load data
+    const [loadMore, setLoadMore] = useState(false);
+    const handleLoadMore = () => {
+        setLoadMore(true);
+    };
 
     return (
         <div className='bg-fixed ' style={{ backgroundImage: `url(${bg})` }}>
@@ -134,13 +139,21 @@ const TvShows = () => {
                         <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4'>
                             {/* use sm MovieCard */}
                             {
-                                tvShows?.map(tvshow => <MovieCard
+                                tvShows?.slice(0, loadMore ? 7: 4).map(tvshow => <MovieCard
                                     key={tvshow._id}
                                     movie={tvshow}
                                 ></MovieCard>)
 
                             }
                         </div>
+                        {!loadMore && (
+                            <button
+                                onClick={handleLoadMore}
+                                className="btn mt-3 rounded text-white mb-5 bg-red-700 hover:bg-red-900 border-none"
+                            >
+                                Load More
+                            </button>
+                        )}
                     </div>
 
 

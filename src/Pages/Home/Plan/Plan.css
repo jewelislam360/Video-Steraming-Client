@@ -29,7 +29,7 @@ ul span li{
     font-weight: bold;
     color: #fff;
     cursor: pointer;
-    background: red;
+    background: rgb(228, 79, 4);
     transition: transform 0.3s ease;
 }
 
