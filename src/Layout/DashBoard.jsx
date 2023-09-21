@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { FaUserCircle, FaHome, FaRegStar, FaRegCommentDots, FaTv, FaThList, FaSignOutAlt, FaListUl, FaUsers } from 'react-icons/fa'
 import './DashBoard.css'
-import { useCurrentUserQuery } from '../redux/api/userApi';
+import { useCurrentUserQuery, useGetAllUserQuery } from '../redux/api/userApi';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext)
+    console.log(user);
     const { data, isSuccess } = useCurrentUserQuery({ email: user?.email })
     console.log(data);
 
@@ -27,7 +28,7 @@ const DashBoard = () => {
                 <nav>
                     <div className="logo  flex justify-start items-center">
                         <img src={data?.photo} alt="" className="w-12 h-12 rounded-full" />
-                        <span>Admin <br />{data.Name}</span>
+                        <span>Admin <br />{data?.Name}</span>
                     </div>
 
                     <ul className="menu">
@@ -75,8 +76,10 @@ const DashBoard = () => {
 
                         <div className="divider"></div>
 
-                        <li><Link className={`${pathname === "/dashboard/additem" ? "text-cyan-50" : "text-orange-500"
+                        <li><Link to="/dashboard/manageTvShow" 
+                        className={`${pathname === "/dashboard/manageTvShow" ? "text-cyan-50" : "text-orange-500"
                             }`}><FaTv className='icon' /><span className='nav-item'>Tv-Show</span></Link></li>
+
                         <li><Link to="/dashboard/movieList"
                             className={`${pathname === "/dashboard/additem" ? "text-cyan-50" : "text-orange-500"
                                 }`}
