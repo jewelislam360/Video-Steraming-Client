@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
-import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 
 const MovieList = () => {
   const [movie, setMovie] = useState([]);
@@ -97,7 +95,9 @@ const MovieList = () => {
                   <div className="text-l">{allMovie.category}</div>
                 </td>
                 <td>
-                    <button className="btn btn-ghost btn-sm  text-cyan-50  bg-orange-700 hover:bg-red-700 border-0"><AiFillEdit></AiFillEdit> </button>
+                  <Link to={`/dashboard/movieList/${allMovie?._id}`}>
+                  <button className="btn btn-ghost btn-xs"><AiFillEdit className="text-xl border p-1 rounded-sm text-green-600 font-bold"></AiFillEdit> </button>
+                  </Link>
                 </td>
                 <th>
                   <button onClick={() => handleDelete(_id)} className='btn btn-sm text-white  bg-orange-700 hover:bg-red-700 border-0'><FaTrashAlt></FaTrashAlt></button>
