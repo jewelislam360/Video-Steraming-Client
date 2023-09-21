@@ -13,30 +13,31 @@ import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const Action = () => {
-    const [movies, setMovies] = useState();
-    useEffect(() => {
-        fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Action")
-            .then(res => res.json())
-            .then(data => {
-                setMovies(data);
-            })
-    }, [])
-    return (
-        <div className=' px-20'>
-          <div className='flex justify-between'>
-          <div className="mx-auto mb-2 text-center md:w-4/12">
-          <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-b-white border-t-orange-700 py-4">
-            ---- Action Movies ----
+  const [movies, setMovies] = useState();
+  useEffect(() => {
+    fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Action")
+      .then(res => res.json())
+      .then(data => {
+        setMovies(data);
+      })
+  }, [])
+  return (
+    <div className=' px-20'>
+      <div className="flex justify-between">
+        <div className=" mb-2 text-left md:w-4/12">
+          <h3 className="text-4xl  text-orange-600 font-bold rounded-full capitalize  py-4">
+            All Movies
           </h3>
         </div>
-            <div>
-              <h1 className='font-bold text-4xl text-orange-600'>Action Movies</h1>
-            </div>
-            <div>
-            <Link to="/movie"><button className='bg-orange-600 hover:bg-gray-700 hover:text-white btn btn-xl'>See More</button></Link>
-            </div>
-          </div>
-            <Swiper
+        <div>
+          <Link to="/movie">
+            <button className="bg-red-600 border-none text-white hover:bg-white-700 hover:text-black btn btn-xl">
+              See More
+            </button>
+          </Link>
+        </div>
+      </div>
+      <Swiper
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -59,23 +60,23 @@ const Action = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        
+
         <div className=''>
-            
-            {
-             movies?.map(movie=><SwiperSlide key={movie._id}><MovieCard
-             movie={movie}
-             ></MovieCard></SwiperSlide>)   
-            
-            }
-        
-    </div>
-        
-        
-      </Swiper>
+
+          {
+            movies?.map(movie => <SwiperSlide key={movie._id}><MovieCard
+              movie={movie}
+            ></MovieCard></SwiperSlide>)
+
+          }
 
         </div>
-    );
+
+
+      </Swiper>
+
+    </div>
+  );
 };
 
 export default Action;

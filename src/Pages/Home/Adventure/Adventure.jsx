@@ -22,20 +22,20 @@ const Adventure = () => {
     }, [])
     return (
         <div className=' px-20'>
-          <div className='flex justify-between'>
-          <div className="mx-auto mb-2 text-center md:w-4/12">
-          <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-b-white border-t-orange-700 py-4">
-            ---- Adventures Movies ----
+          <div className="flex justify-between">
+        <div className=" mb-2 text-left md:w-4/12">
+          <h3 className="text-4xl  text-orange-600 font-bold rounded-full capitalize  py-4">
+             Adventure Movies 
           </h3>
         </div>
-            <div>
-            <Link to="/movie"><button className='bg-red-600 rounded-md px-5 py-3'>More Movies</button></Link>
-              <h1 className='font-bold text-4xl text-orange-600'>Adventure Movies</h1>
-            </div>
-            <div>
-            <Link to="/movie"><button className='bg-orange-600 btn btn-xl hover:bg-gray-700 hover:text-white'>See More</button></Link>
-            </div>
-          </div>
+        <div>
+          <Link to="/movie">
+            <button className="bg-red-600 border-none text-white hover:bg-white-700 hover:text-black btn btn-xl">
+              See More
+            </button>
+          </Link>
+        </div>
+      </div>
             <Swiper
         slidesPerView={1}
         spaceBetween={10}
