@@ -27,11 +27,15 @@ const Adventure = () => {
              Adventure Movies 
           </h3>
         </div>
-            <div>
-            <Link to="/movie"><button className='bg-red-600 rounded-md px-5 py-3'>More Movies</button></Link>
-            </div>
-          </div>
-            <Swiper
+        <div>
+          <Link to="/movie">
+            <button className="bg-red-600 border-none text-white hover:bg-white-700 hover:text-black btn btn-xl">
+              See More
+            </button>
+          </Link>
+        </div>
+      </div>
+      <Swiper
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
