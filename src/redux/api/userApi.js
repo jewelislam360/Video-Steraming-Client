@@ -31,7 +31,7 @@ invalidatesTags: ['allUser']
     }),
     currentUser: builder.query({
       query: (email) => ({ 
-        url: `/user/${email.email}`, 
+        url: `/user/${email?.email}`, 
         method: "GET" }),
     }),
   }),

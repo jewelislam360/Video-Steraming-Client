@@ -27,7 +27,7 @@ nav{
     padding: 5px;
 }
 .drawer .menu li:hover{
-    background: #9f1212;
+    background: white;
     color: #eee;
 }
 .icon{

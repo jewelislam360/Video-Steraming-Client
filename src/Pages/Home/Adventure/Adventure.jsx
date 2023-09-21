@@ -29,7 +29,14 @@ const Adventure = () => {
           </h3>
         </div>
             <div>
+<<<<<<< HEAD
             <Link to="/movie"><button className='bg-red-600 rounded-md px-5 py-3'>More Movies</button></Link>
+=======
+              <h1 className='font-bold text-4xl text-orange-600'>Adventure Movies</h1>
+            </div>
+            <div>
+            <Link to="/movie"><button className='bg-orange-600 btn btn-xl hover:bg-gray-700 hover:text-white'>See More</button></Link>
+>>>>>>> 66a44c73196e06f7830fa7f0ef386431c7047958
             </div>
           </div>
             <Swiper

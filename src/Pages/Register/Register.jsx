@@ -39,7 +39,7 @@ const Register = () => {
 
   //form submit handler
   const onSubmit = (data) => {
-    const saveUser = { Name: data.userName, Email: data.email };
+    const saveUser = { Name: data.userName, Email: data.email, photo: data.photoURL, name: data.userName };
     // user post method
     fetch('https://video-streaming-server-sigma.vercel.app/users', {
       method: 'POST',
@@ -122,7 +122,7 @@ const Register = () => {
           id="photo"
           className="cs-input w-full"
           placeholder="PhotoURL"
-          {...register("PhotoURL", { required: true })}
+          {...register("photoURL", { required: true })}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-2">
           <div>

@@ -25,6 +25,7 @@ import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
 import Action from "../Pages/Home/Action/Action";
 import MovieList from "../Pages/DashBoard/MovieList/MovieList";
+import AddTvShow from "../Pages/DashBoard/AddTvShow/AddTvShow";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -105,12 +106,20 @@ export const router = createBrowserRouter([
         element: <AddItem></AddItem>,
       },
       {
+        path: "addTvShow",
+        element: <AddTvShow></AddTvShow>,
+      },
+      {
         path: 'alluser',
         element: <AllUser></AllUser>
       },
       {
         path: 'movieList',
         element: <MovieList></MovieList>
+      },
+      {
+        path:"manageTvShow",
+        element:<ManageTvShow />
       }
       
     ],

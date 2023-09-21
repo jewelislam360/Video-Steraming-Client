@@ -30,6 +30,10 @@ const Animation = () => {
         </div>
             <div>
               <Link to="/movie"><button className='bg-red-600 rounded-md px-5 py-3'>More Movies</button></Link>
+              <h1 className='font-bold text-4xl text-orange-600'>Animation Movies</h1>
+            </div>
+            <div>
+              <Link to="/movie"><button className='bg-orange-600 btn btn-xl hover:bg-gray-700 hover:text-white'>See More</button></Link>
             </div>
           </div>
             <Swiper

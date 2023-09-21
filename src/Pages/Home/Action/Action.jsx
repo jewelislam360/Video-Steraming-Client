@@ -30,7 +30,10 @@ const Action = () => {
           </h3>
         </div>
             <div>
-            <Link to="/movie"><button className='bg-red-600 px-5 py-3 rounded-md'>More Movies</button></Link>
+              <h1 className='font-bold text-4xl text-orange-600'>Action Movies</h1>
+            </div>
+            <div>
+            <Link to="/movie"><button className='bg-orange-600 hover:bg-gray-700 hover:text-white btn btn-xl'>See More</button></Link>
             </div>
           </div>
             <Swiper
