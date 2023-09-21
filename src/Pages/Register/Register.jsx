@@ -41,7 +41,7 @@ const Register = () => {
   const onSubmit = (data) => {
     const saveUser = { Name: data.userName, Email: data.email, photo: data.photoURL, name: data.userName };
     // user post method
-    fetch('http://localhost:5000/users', {
+    fetch('https://video-streaming-server-sigma.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

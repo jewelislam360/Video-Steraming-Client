@@ -116,6 +116,10 @@ export const router = createBrowserRouter([
       {
         path: 'movieList',
         element: <MovieList></MovieList>
+      },
+      {
+        path:"manageTvShow",
+        element:<ManageTvShow />
       }
       
     ],
