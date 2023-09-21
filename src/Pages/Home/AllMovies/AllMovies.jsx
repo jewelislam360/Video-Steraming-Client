@@ -21,7 +21,6 @@ const AllMovies = () => {
       });
   }, []);
   return (
-<<<<<<< HEAD
     <div className="my-8 px-20">
       <div className="flex justify-between">
         <div className="mx-auto mb-2 text-center md:w-4/12">
@@ -34,7 +33,6 @@ const AllMovies = () => {
             <button className="bg-red-600 px-5 py-3 rounded-md">More Movies</button>
           </Link>
         </div>
-=======
     
 
         
@@ -83,7 +81,6 @@ const AllMovies = () => {
 
         </Swiper>
 
->>>>>>> 66a44c73196e06f7830fa7f0ef386431c7047958
       </div>
       <Swiper
         slidesPerView={1}
@@ -113,6 +110,7 @@ const AllMovies = () => {
           ))}
         </div>
       </Swiper>
+    </div>
     </div>
   );
 };
