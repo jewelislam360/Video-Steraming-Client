@@ -21,9 +21,15 @@ const Animation = () => {
             })
     }, [])
     return (
-        <div className=' px-20'>
+        <div className=' px-20 my-4'>
           <div className='flex justify-between'>
+          <div className="mx-auto mb-2 text-center md:w-4/12">
+          <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-t-white border-b-orange-700 py-4">
+            ---- Animation Movies ----
+          </h3>
+        </div>
             <div>
+              <Link to="/movie"><button className='bg-red-600 rounded-md px-5 py-3'>More Movies</button></Link>
               <h1 className='font-bold text-4xl text-orange-600'>Animation Movies</h1>
             </div>
             <div>
