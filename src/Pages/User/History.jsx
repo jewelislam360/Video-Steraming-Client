@@ -11,6 +11,7 @@ const History = () => {
         setMovies(data);
       });
   }, []);
+  console.log(movies)
   return (
     <div>
       <div className="flex items-center justify-between">

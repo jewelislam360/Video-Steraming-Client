@@ -24,6 +24,19 @@ const paymentApi = api.injectEndpoints({
         };
       },
     }),
+    paymentDoc: builder.mutation({
+      query: (doc) => ({
+        url: "/payments",
+        method: "POST",
+        body: doc,
+      }),
+    }),
+    getPaymentDoc: builder.query({
+      query: (email) => ({
+        url: `/payments?email=${email}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -31,4 +44,6 @@ export const {
   usePaymentConfigQuery,
   usePaymentIntentQuery,
   usePaymentSuccessMutation,
+  usePaymentDocMutation,
+  useGetPaymentDocQuery,
 } = paymentApi;

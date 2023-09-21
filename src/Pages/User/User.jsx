@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useCurrentUserQuery } from "../../redux/api/userApi";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const User = () => {
-  const { user } = useSelector((state) => state.auth);
+  const {user}=useContext(AuthContext)
   const { data, isLoading, isSuccess } = useCurrentUserQuery({
-    email: user?.userEmail,
+    email: user?.email,
   });
+  console.log(data,"loged user")
   const {
-    displayName,
-    email: userEmail,
+    userName,
+    email,
     emailVerified,
     phoneNumber,
     photoURL,
@@ -20,7 +22,6 @@ const User = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
-  console.log(user.userEmail);
   console.log("user line 21", data);
   return (
     <div className="flex flex-col md:flex-row pb-20 gap-x-16 justify-center px-4 md:px-0">
@@ -30,8 +31,8 @@ const User = () => {
           className="w-48 h-44 rounded object-cover  mb-4"
           alt=""
         />
-        <h1 className="text-xl ">{displayName} </h1>
-        <p>{userEmail}</p>
+        <h1 className="text-xl ">{userName} </h1>
+        <p>{email}</p>
       </div>
       <div>
         <h4 className="text-xl">General Information</h4>
@@ -54,7 +55,7 @@ const User = () => {
                 id="display_name"
                 className="cs-input w-full"
                 placeholder="John Doe"
-                value={displayName}
+                value={userName}
                 {...register("display_name")}
               />
             </div>
@@ -103,7 +104,7 @@ const User = () => {
                 id="email"
                 className="cs-input w-full"
                 placeholder="info@example.com"
-                value={userEmail}
+                value={email}
                 {...register("email")}
                 disabled
               />

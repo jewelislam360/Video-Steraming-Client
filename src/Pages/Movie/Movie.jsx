@@ -20,7 +20,7 @@ const Movie = () => {
 
 
     useEffect(() => {
-        fetch("https://video-streaming-server-sigma.vercel.app/allMovies")
+        fetch("http://localhost:5000/allMovies")
             .then(res => res.json())
             .then(data => {
                 setMovies(data);

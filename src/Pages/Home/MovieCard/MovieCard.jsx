@@ -4,9 +4,14 @@ import React from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaPlay, FaPlus, FaShareAlt } from "react-icons/fa";
 import ReactPlayer from "react-player";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAddHistoryMutation } from "../../../redux/api/videoApi";
 
 const MovieCard = ({ movie }) => {
+  const dispatch = useDispatch();
+  const [addHistory, { data }] = useAddHistoryMutation();
+  const { user } = useSelector((state) => state.auth);
   const {
     _id,
     title,
@@ -18,8 +23,13 @@ const MovieCard = ({ movie }) => {
     time,
     rating,
     category,
+    img_url
   } = movie;
- const videoTitle=title?.length>= 49 ? title: title.slice(0,49)+"..."
+  const videoTitle = title?.length >= 49 ? title : title?.slice(0, 49) + "...";
+  const historyHandler = () => {
+    dispatch(addHistory({ videoId: _id, userEmail: user.userEmail }));
+  };
+
   return (
     <>
       <div className="card card-compact w-full bg-black  ">
@@ -66,7 +76,13 @@ const MovieCard = ({ movie }) => {
           </div> */}
         </div>
         <div className="card-body ">
-          <Link to={`viewPlayer/${_id}`} className="hover:underline hover:text-blue-600 text-lg">{videoTitle}</Link>
+          <Link
+            to={`viewPlayer/${_id}`}
+            className="hover:underline hover:text-blue-600 text-lg"
+            onClick={historyHandler}
+          >
+            {videoTitle}
+          </Link>
           <div className="flex">
             <p>{time}</p>
             <p className="text-red-600">{category}</p>
@@ -75,7 +91,6 @@ const MovieCard = ({ movie }) => {
       </div>
     </>
   );
-
 };
 
 export default MovieCard;

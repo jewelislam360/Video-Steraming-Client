@@ -4,29 +4,37 @@ import { FaSearch, FaBars, FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../../../redux/features/authSlice/authThunk";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { useGetAllUserQuery } from "../../../redux/api/userApi";
+import {
+  useCurrentUserQuery,
+  useGetAllUserQuery,
+} from "../../../redux/api/userApi";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const {user,logOut}=useContext(AuthContext)
-
-
-const handleLogout=()=>{
-  logOut()
-  .then(()=>{})
-  .catch(error=>console.log(error));
-}
+  const navigate = useNavigate();
+  const { user, logOut } = useContext(AuthContext);
+  const { data, isSuccess } = useCurrentUserQuery({ email: user?.email });
+  const isAdmin = true;
+  console.log(data);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
   };
-
-  useEffect(() => {
-    dispatch(currentUser());
-  }, [dispatch]);
+  const dashboardRouteHandler = () => {
+    if (isAdmin) {
+      navigate("/dashboard/adminhome");
+    } else {
+      navigate("/userdashboard/library");
+    }
+  };
 
   const navOption = (
     <>
@@ -40,14 +48,10 @@ const handleLogout=()=>{
         <Link to="tvSeries">Tv Series</Link>
       </li>
       <li>
-
-        <Link to='/tvshows'>Tv Shows</Link>
+        <Link to="/tvshows">Tv Shows</Link>
       </li>
       <li>
-     
-
         <Link to="/contact">Contact</Link>
-
       </li>
       <li>
         <Link to="/dashboard/adminhome">Dashboard</Link>
@@ -97,15 +101,32 @@ const handleLogout=()=>{
             />
           </div>
         )}
-        
-        {
-          user ? <>
-          <Link to='/userDashboard/account'><FaUserCircle size={24} className="text-gray-400 mr-1" /></Link>
-          <button onClick={handleLogout} className="btn btn-ghost btn-sm">Logout</button>
-          </> : <>
-          <Link to="/login" className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white">Login</Link>
+
+        {user ? (
+          <>
+            <span onClick={dashboardRouteHandler}>
+              <img src={data?.PhotoURL} alt="" className="w-[30px] rounded-full" />
+            </span>
+            <button onClick={handleLogout} className="btn btn-ghost btn-sm">
+              Logout
+            </button>
           </>
-        }
+        ) : (
+          <>
+            <span>
+              <FaUserCircle
+                size={24}
+                className="text-gray-400 mr-1 cursor-pointer"
+              />
+            </span>
+            <Link
+              to="/login"
+              className="btn btn-sm btn-outline border-none hover:bg-red-600 text-white"
+            >
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

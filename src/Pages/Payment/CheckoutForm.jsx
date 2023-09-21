@@ -74,7 +74,7 @@ export default function CheckoutForm() {
       <form
         id="payment-form"
         onSubmit={handleSubmit}
-        className=" md:w-1/3 bg-white  p-8 rounded mx-auto"
+        className=" md:w-1/3 bg-white  p-8 rounded mx-auto max-w-md"
       >
         <PaymentElement id="payment-element" />
         <button
