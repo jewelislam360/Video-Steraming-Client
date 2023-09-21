@@ -7,7 +7,6 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext)
-    console.log(user);
     const { data, isSuccess } = useCurrentUserQuery({ email: user?.email })
     console.log(data);
 

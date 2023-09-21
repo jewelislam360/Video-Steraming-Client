@@ -23,7 +23,7 @@ const User = () => {
   console.log(user?.userEmail);
   console.log("user line 21", data);
   return (
-    <div className="flex flex-col md:flex-row pb-20 gap-x-16 justify-center px-4 md:px-0">
+    <div data-aos="zoom-in" className=" flex flex-col md:flex-row pb-20 gap-x-16 justify-center p-4 md:px-0 border rounded-md">
       <div className="text-center ">
         <img
           src={photoURL}
