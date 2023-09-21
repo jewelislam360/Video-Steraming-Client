@@ -20,7 +20,7 @@ const User = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
-  console.log(user.userEmail);
+  console.log(user?.userEmail);
   console.log("user line 21", data);
   return (
     <div data-aos="zoom-in" className=" flex flex-col md:flex-row pb-20 gap-x-16 justify-center p-4 md:px-0 border rounded-md">

@@ -7,18 +7,18 @@ const AllUser = () => {
     const { data, refetch } = useGetAllUserQuery()
 
     const handleMakeAdmin = (user) => {
-        fetch(`https://video-streaming-server-sigma.vercel.app/users/admin/${user._id}`, {
+        fetch(`https://video-streaming-server-sigma.vercel.app/users/admin/${user?._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount) {
+                if (data?.modifiedCount) {
                     refetch();
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: `${user.name} is an Admin Now!`,
+                        title: `${user?.name} is an Admin Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -27,7 +27,7 @@ const AllUser = () => {
     }
 
     const handleDelete = (user) => {
-        console.log(user._id);
+        console.log(user?._id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to Delete this!",
@@ -39,7 +39,7 @@ const AllUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://video-streaming-server-sigma.vercel.app/users/${user._id}`, {
+                fetch(`https://video-streaming-server-sigma.vercel.app/users/${user?._id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'
@@ -47,7 +47,7 @@ const AllUser = () => {
                     body: JSON.stringify()
                 })
                     .then(res => {
-                        if (res.data.deletedCount > 0) {
+                        if (res.data?.deletedCount > 0) {
                             refetch();
                             Swal.fire(
                                 'Deleted!',
