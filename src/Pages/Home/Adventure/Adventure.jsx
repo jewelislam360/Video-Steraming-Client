@@ -24,10 +24,10 @@ const Adventure = () => {
         <div className=' px-20'>
           <div className='flex justify-between'>
             <div>
-              <h1 className='font-bold text-4xl'>Adventure Movies</h1>
+              <h1 className='font-bold text-4xl text-orange-600'>Adventure Movies</h1>
             </div>
             <div>
-            <Link to="/movie"><button className='bg-red-600 px-5 py-3'>More Movies</button></Link>
+            <Link to="/movie"><button className='bg-orange-600 btn btn-xl hover:bg-gray-700 hover:text-white'>See More</button></Link>
             </div>
           </div>
             <Swiper

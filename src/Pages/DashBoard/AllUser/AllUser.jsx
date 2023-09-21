@@ -60,11 +60,11 @@ const AllUser = () => {
         })
     }
     return (
-        <div className="overflow-x-auto text-cyan-50 w-full px-10 text-center">
+        <div className="overflow-x-auto w-full px-10 text-center">
             --------------------------------------------
-            <h2 className=' text-2xl font-extrabold text-orange-500'>All User</h2>
+            <h2 className=' text-2xl font-extrabold text-orange-500'>Total User = {data?.length}</h2>
             --------------------------------------------
-            <table className="table table-xs  border-2 my-10">
+            <table className="table table-xs  border-2 border-gray-800 my-10">
                 <thead className='text-xl text-orange-500'>
                     <tr>
                         <th>SI</th>
@@ -77,11 +77,11 @@ const AllUser = () => {
                 </thead>
                 <tbody>
                     {
-                        data?.map((user, index) => <tr key={user._id}>
+                        data?.map((user, index) => <tr key={user?._id}>
                             <th>{index + 1}</th>
-                            <td>{user.Name}</td>
-                            <td>{user.Email}</td>
-                            <td className=' text-end'>{user.role === 'Admin' ? 'Admin' :
+                            <td>{user?.Name}</td>
+                            <td>{user?.Email}</td>
+                            <td className=' text-end'>{user?.role === 'Admin' ? 'Admin' :
                                 <button onClick={() => handleMakeAdmin(user)} className='btn btn-sm bg-orange-700 hover:bg-red-700 text-white border-0'><FaUsers></FaUsers></button>
                             }</td>
                             <td className=' text-end'><button onClick={() => handleDelete(user)} className='btn btn-sm text-white  bg-orange-700 hover:bg-red-700 border-0'><FaTrashAlt></FaTrashAlt></button></td>
