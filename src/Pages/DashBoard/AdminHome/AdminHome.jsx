@@ -12,6 +12,7 @@ const AdminHome = () => {
   }, []);
 
     const { data } = useGetAllUserQuery();
+    console.log(data);
     return (
         <div className='container mx-auto p-4'>
             <div className='flex flex-col lg:flex-row gap-3 mb-10'>
@@ -37,7 +38,7 @@ const AdminHome = () => {
                     <div>
                         <h1 className="text-2xl font-extrabold mb-4 text-cyan-50">Total Reviews</h1>
                         <div className='flex justify-around items-center'>
-                            <h2 className='text-4xl font-extrabold'></h2>
+                            <h2 className='text-4xl font-extrabold'>23</h2>
                             <FaRegStar className='text-2xl' />
                         </div>
                     </div>

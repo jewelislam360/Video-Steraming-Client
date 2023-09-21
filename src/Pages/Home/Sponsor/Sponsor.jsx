@@ -20,7 +20,7 @@ const Sponsor = () => {
     <div
       className=" our-clients height-[full]	 grid	align-middle" >
       <div className="mx-auto text-center md:w-4/12">
-        <h3 className="text-3xl text-white rounded-full capitalize border-y-4 border-t-white border-b-orange-700 py-4">---- Our Sponsors ----</h3>
+        <h3 className="font-medium lg:text-5xl text-3xl underline text-center my-11 text-orange-600">Our Sponsors</h3>
       </div>
       <ul>
         <li>

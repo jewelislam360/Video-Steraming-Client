@@ -15,7 +15,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
 // TODO: This will be conditional
   const isAdmin=true;
-
+  
   const { data, isSuccess } = useCurrentUserQuery({ email: user?.email })
   console.log(data);
 
@@ -36,9 +36,7 @@ const Navbar = () => {
     setSearchVisible(!searchVisible);
   };
 
-  useEffect(() => {
-    dispatch(currentUser());
-  }, [dispatch]);
+
 
   // useEffect(()=>{
   //   fetch(`http://localhost:5000/users/${user?.email}`)
