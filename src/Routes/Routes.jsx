@@ -120,7 +120,7 @@ export const router = createBrowserRouter([
       },
       {
         path:"manageTvShow",
-        element:<ManageTvShow />
+        element:<ManageTvShow></ManageTvShow>
       }
       
     ],
