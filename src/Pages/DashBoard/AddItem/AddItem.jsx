@@ -1,67 +1,129 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const AddItem = () => {
-    const { handleSubmit, control } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
         // You can perform further actions with the form data here
+        const {
+            title,
+            thumbnailLink,
+            trailerLink,
+            videoLink,
+            rating,
+            timeDuration,
+            description,
+            category,
+            liked,
+            status
+        } = data;
+        const addmovie = {
+            title,
+            img: thumbnailLink,
+            trailer: trailerLink,
+            video: videoLink,
+            rating: parseFloat(rating),
+            time: timeDuration,
+            description,
+            category,
+            like: parseFloat(liked),
+            status
+        };
+        fetch('http://localhost:5000/addMovies', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(addmovie),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    console.log(data);
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Item successfuly added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            });
     };
+
     return (
-        <>
-        <div className='mb-10 text-center'>
-            --------------------------------------------
-            <h2 className=' text-2xl font-extrabold'>Add Item</h2>
-            --------------------------------------------
+        <div className='container mx-auto p-4'>
+            <div className='mb-6 text-center'>
+               ---------------------------
+               <h2 className='text-2xl font-extrabold text-orange-500'>Add Movies</h2>
+               ---------------------------
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='max-w-md mx-auto'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'>
+                    <div>
+                        <label className='text-xl font-bold'>Name:</label>
+                        <input {...register('title')} className='w-full text-gray-700 my-2 border-2 border-gray-800' />
+                    </div>
+                    <div>
+                        <label className='text-xl font-bold'>Thumbnail:</label>
+                        <input {...register('thumbnailLink')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                    </div>
+                    <div>
+                        <label className='text-xl font-bold'>Trailer:</label>
+                        <input {...register('trailerLink')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                    </div>
+                </div>
+
+                <div className='mb-4'>
+                    <label className='text-xl font-bold'>Video Link:</label>
+                    <input {...register('videoLink')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                </div>
+                <div className='mb-4'>
+                    <label className='text-xl font-bold'>Ratings:</label>
+                    <input {...register('rating')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                </div>
+                <div className='mb-4'>
+                    <label className='text-xl font-bold'>Duration:</label>
+                    <input {...register('timeDuration')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                </div>
+                <div className='mb-4'>
+                    <label className='text-xl font-bold'>Description:</label>
+                    <textarea {...register('description')} rows="3" className='w-full text-gray-700 my-2 border-2 border-gray-800' />
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'>
+                    <div>
+                        <label className='text-xl font-bold'>Category:</label>
+                        <select {...register('category')} className='w-full text-gray-700 mt-2 border-2 border-gray-800'>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Mystery">Mystery</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label className='text-xl font-bold'>Status:</label>
+                        <select {...register('status')} className='w-full text-gray-700 mt-2 border-2 border-gray-800'>
+                            <option value="Free">Free</option>
+                            <option value="Premium">Premium</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label className='text-xl font-bold'>Like:</label>
+                        <input {...register('liked')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
+                    </div>
+                </div>
+
+                <button type="submit" className='btn btn-outline mt-4 border-none text-white bg-orange-700'>
+                    Add Item
+                </button>
+            </form>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className=' w-full px-8'>
-                <label className=' text-xl font-bold'>Title :</label>
-                <input {...useForm('title')} className=' w-full text-gray-700 px-4 my-2' />
-                <label className=' text-xl font-bold'>Description :</label>
-                <textarea {...useForm('description')} rows="3" className=' w-full  text-gray-700 my-2 px-4'/>
-                <div>
-                    <label className=' text-xl font-bold'>Video Link :</label>
-                    <input {...useForm('videoLink')} className=' w-full text-gray-700 mt-2 px-4'/>
-                </div>
-                <div>
-                    <label className=' text-xl font-bold'>Trailer :</label>
-                    <input {...useForm('trailerLink')} className=' w-full text-gray-700 mt-2 px-4'/>
-                </div>
-                <div>
-                    <label className=' text-xl font-bold'>Thaimnel :</label>
-                    <input {...useForm('thambnelLink')} className=' w-full text-gray-700 mt-2 px-4'/>
-                </div>
-                <div className='my-4'>
-                    <label className=' text-xl font-bold'>Category :</label>
-                    <select {...useForm('category')} className=' text-gray-700 ml-4'>
-                        <option value="movie">Action</option>
-                        <option value="tv-show">Adventure</option>
-                        <option value="movie">Drama</option>
-                        <option value="tv-show">Animation</option>
-                        <option value="tv-show">Mystery</option>
-                    </select>
-                </div>
-                <div className='my-2'>
-                    <label className=' text-xl font-bold'>Free or Paid :</label>
-                    <Controller
-                        name="payment"
-                        control={control}
-                        defaultValue="free"
-                        render={({ field }) => (
-                            <div>
-                                <input type="radio" {...field} value="free" /> Free
-                                <input type="radio" {...field} value="paid" className='ml-4'/> Paid
-                            </div>
-                        )}
-                    />
-                </div>
-                
-
-
-            <button type="submit" className='btn btn-outline mt-10 border-none text-white bg-red-700'>Submit</button>
-        </form>
-        </>
     );
 };
 

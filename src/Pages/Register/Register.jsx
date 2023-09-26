@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import SolialLogin from "../../components/SocialLog";
@@ -9,8 +9,13 @@ import {
 } from "../../redux/features/authSlice/authSlice";
 import { ToastContainer, toast } from "react-toastify";
 import { useSignUpMutation } from "../../redux/api/userApi";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+  // update profile
+  const {updateUserProfile}=useContext(AuthContext);
+
+
   const dispatch = useDispatch();
   //auth state import form store
   const { actionName, error, isLoginSuccess, isError, user } = useSelector(
@@ -34,7 +39,7 @@ const Register = () => {
 
   //form submit handler
   const onSubmit = (data) => {
-    const saveUser = { Name: data.userName, Email: data.email };
+    const saveUser = { Name: data.userName, Email: data.email, photo: data.photoURL, name: data.userName };
     // user post method
     fetch('http://localhost:5000/users', {
       method: 'POST',
@@ -45,6 +50,7 @@ const Register = () => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         if (data.insertedId) {
           success();
           //empty isLoginSuccess state in store
@@ -111,6 +117,13 @@ const Register = () => {
           className="cs-input w-full"
           placeholder="Email"
           {...register("email", { required: true })}
+        />
+        <input
+          type="photo"
+          id="photo"
+          className="cs-input w-full"
+          placeholder="PhotoURL"
+          {...register("photoURL", { required: true })}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-2">
           <div>

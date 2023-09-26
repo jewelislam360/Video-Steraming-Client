@@ -15,58 +15,58 @@ const UserDashboard = () => {
     <>
       <Navbar />
       <div className="max-w-7xl mx-auto pt-24">
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-x-6">
+        <div  className="grid grid-cols-1 md:grid-cols-7 gap-x-6">
           <div className="col-span-1">
-            <ul className="space-y-1 ">
+            <ul  className="space-y-1 ">
               <Link
-                to="/userdashboard/library"
+                to="/userDashboard/library"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/library" &&
+                  pathname === "/userDashboard/library" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
                 <FaHistory className="inline-block" /> Library
               </Link>
               <Link
-                to="/userdashboard/history"
+                to="/userDashboard/history"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/history" &&
+                  pathname === "/userDashboard/history" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
                 <FaHistory className="inline-block" /> History
               </Link>
               <Link
-                to="/userdashboard/likedvideos"
+                to="/userDashboard/likedVideos"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/likedvideos" &&
+                  pathname === "/userDashboard/likedVideos" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
                 <FaHistory className="inline-block" /> Liked Videos
               </Link>
               <Link
-                to="/userdashboard/watchlater"
+                to="/userDashboard/watchlater"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/watchlater" &&
+                  pathname === "/userDashboard/watchlater" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
                 <FaHistory className="inline-block" /> Watch Later
               </Link>
               <Link
-                to="/userdashboard/playlists"
+                to="/userDashboard/playlists"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/playlists" &&
+                  pathname === "/userDashboard/playlists" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >
                 <MdPlaylistAddCircle className="inline-block" /> Play Lists
               </Link>
               <Link
-                to="/userdashboard/account"
+                to="/userDashboard/account"
                 className={`font-semibold block hover:text-sky-600 font-mono hover:bg-gray-400/20 pl-4 py-2 rounded ${
-                  pathname === "/userdashboard/account" &&
+                  pathname === "/userDashboard/account" &&
                   "bg-gray-400/20 text-sky-600"
                 }`}
               >

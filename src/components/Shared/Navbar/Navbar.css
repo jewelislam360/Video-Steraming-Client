@@ -1,11 +1,6 @@
-/* .navbar ul li{
-    border-radius: 3px;
-    color: white;
-    transition: 0.5s;
-    margin-left: 2px;
-    margin-top: 2px;
+ul li a{
+    color: rgb(255, 140, 25);
 }
-.navbar ul li:hover{
-    background: #ee2c2c;
-    color: #ffff;
-} */
+ul li:hover a{
+    color: #fff !important;
+}

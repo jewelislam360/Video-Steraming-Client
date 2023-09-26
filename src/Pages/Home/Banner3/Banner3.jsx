@@ -69,7 +69,7 @@ const Banner3 = () => {
                 }}
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation]}
-                className="mySwiper w-full my-20"
+                className="mySwiper my-10"
             >
                 <div
                     slot="container-start"
@@ -84,27 +84,27 @@ const Banner3 = () => {
                     slidDoc.map(doc => <SwiperSlide
                         key={doc.id}
                     >
-                        <div className='px-20'>
-                            <div className="title" data-swiper-parallax="-300">
-                                <div className='mt-10 md:mt-0 lg:mt-0 xl:mt-0' data-aos="fade-down">
-                                    <img className='movie-title max-w-[250px]' src={doc.title} alt="" />
+                        <div className='lg:px-20 px-2 lg:py-10'>
+                            <div className="text-4xl font-light" data-swiper-parallax="-300">
+                                <div className='pt-10' data-aos="fade-down">
+                                    <img className='movie-title lg:max-w-[250px] max-w-[100px]' src={doc.title} alt="" />
                                 </div>
                             </div>
-                            <div className="subtitle " data-swiper-parallax="-200">
+                            <div className="lg:text-xl text-cyan-50" data-swiper-parallax="-200">
                                 {doc.sub_title}
                             </div>
-                            <div className='flex gap-2 justify-start items-center'>
-                                <FaGenderless className='text-red-400'/><h4>{doc.season} Season</h4>
-                                <FaGenderless className='text-red-400'/><span>{doc.episodes} Episodes</span>
-                                <FaGenderless className='text-red-400'/><p>{doc.year}</p>
-                                <FaGenderless className='text-red-400'/><p>{doc.category}</p>
+                            <div className='flex lg:gap-2 gap-1 justify-start items-center text-cyan-50'>
+                                <FaGenderless className='text-orange-500'/><h4>{doc.season} Season</h4>
+                                <FaGenderless className='text-orange-500'/><span>{doc.episodes} Episodes</span>
+                                <FaGenderless className='text-orange-500'/><p>{doc.year}</p>
+                                <FaGenderless className='text-orange-500'/><p>{doc.category}</p>
                             </div>
-                            <div className="text pt-4" data-swiper-parallax="-100">
+                            <div className="lg:text-base text-sm text-cyan-50 pt-4" data-swiper-parallax="-100">
                                 <p>
                                     {doc.discription}
                                 </p>
                             </div>
-                            <button className='btn btn-outline mt-4 text-white bg-red-600 border-none'>Play Now</button>
+                            <button className='btn btn-outline mt-4 text-cyan-50 bg-orange-500 hover:bg-orange-800 hover:text-white border-none'>Play Now</button>
                         </div>
                     </SwiperSlide>)
                 }

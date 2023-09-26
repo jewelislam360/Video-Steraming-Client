@@ -13,8 +13,14 @@ import {
   sendForgotEmail,
 } from "../../redux/features/authSlice/authThunk";
 import { useLoginMutation } from "../../redux/api/userApi";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location=useLocation();
+
+  const from=location.state?.from?.pathname || "/";
+
   const dispatch = useDispatch();
   //get auth state from redux store
   const { actionName, isError, isLoginSuccess, loading, user } = useSelector(
@@ -58,6 +64,7 @@ const Login = () => {
       success();
       //empty isLoginSuccess state in redux store
       dispatch(setIsLoginSuccess());
+      navigate(from, {replace:true});
     }
 
     //show error message in display
