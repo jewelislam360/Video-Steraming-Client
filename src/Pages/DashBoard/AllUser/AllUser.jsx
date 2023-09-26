@@ -7,7 +7,7 @@ const AllUser = () => {
     const { data, refetch } = useGetAllUserQuery()
 
     const handleMakeAdmin = (user) => {
-        fetch(`https://video-streaming-server-sigma.vercel.app/users/admin/${user?._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user?._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const AllUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://video-streaming-server-sigma.vercel.app/users/${user?._id}`, {
+                fetch(`http://localhost:5000/users/${user?._id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'

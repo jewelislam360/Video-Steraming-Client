@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const MovieList = () => {

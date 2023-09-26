@@ -15,17 +15,17 @@ const Action = () => {
   const [movies, setMovies] = useState();
   useEffect(() => {
     fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Action")
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setMovies(data);
-      });
-  }, []);
+      })
+  }, [])
   return (
-    <div className=" px-20">
+    <div className=' px-20'>
       <div className="flex justify-between">
         <div className=" mb-2 text-left md:w-4/12">
           <h3 className="text-4xl  text-orange-600 font-bold rounded-full capitalize  py-4">
-             Action Movies 
+            All Movies
           </h3>
         </div>
         <div>
@@ -59,14 +59,21 @@ const Action = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <div className="">
-          {movies?.map((movie) => (
-            <SwiperSlide key={movie._id}>
-              <MovieCard movie={movie}></MovieCard>
-            </SwiperSlide>
-          ))}
+
+        <div className=''>
+
+          {
+            movies?.map(movie => <SwiperSlide key={movie._id}><MovieCard
+              movie={movie}
+            ></MovieCard></SwiperSlide>)
+
+          }
+
         </div>
+
+
       </Swiper>
+
     </div>
   );
 };

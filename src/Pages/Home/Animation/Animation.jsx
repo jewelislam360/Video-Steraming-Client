@@ -11,17 +11,17 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Animation = () => {
-  const [movies, setMovies] = useState();
-  useEffect(() => {
-    fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Animation")
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data);
-      });
-  }, []);
-  return (
-    <div className=" px-20 my-4">
-      <div className="flex justify-between">
+    const [movies, setMovies] = useState();
+    useEffect(() => {
+        fetch("https://video-streaming-server-sigma.vercel.app/allMovie/Animation")
+            .then(res => res.json())
+            .then(data => {
+                setMovies(data);
+            })
+    }, [])
+    return (
+        <div className=' px-20 my-4'>
+          <div className="flex justify-between">
         <div className=" mb-2 text-left md:w-4/12">
           <h3 className="text-4xl  text-orange-600 font-bold rounded-full capitalize  py-4">
              Animation Movies 
@@ -35,7 +35,7 @@ const Animation = () => {
           </Link>
         </div>
       </div>
-      <Swiper
+            <Swiper
         slidesPerView={1}
         spaceBetween={10}
         pagination={{

@@ -17,7 +17,7 @@ const ActionCard = ({ movie }) => {
 
                     </div>
                     <div>
-                        <button className=" bg-orange-600 p-5 rounded-full  group/edit invisible absolute bottom-[45%] right-[45%] group-hover/:visible "><a href={video}><FaPlay className=''></FaPlay></a></button>
+                        <button className=" bg-orange-600 p-5 "><a href={video}><FaPlay className=''></FaPlay></a></button>
                     </div>
 
                 </div>

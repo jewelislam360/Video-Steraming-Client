@@ -15,7 +15,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
 // TODO: This will be conditional
   const isAdmin=true;
-  
+
   const { data, isSuccess } = useCurrentUserQuery({ email: user?.email })
   console.log(data);
 
@@ -101,17 +101,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {isDarkTheme ? (
-          <HiOutlineMoon
-            onClick={toggleTheme}
-            size={24}
-            className=" mr-1 cursor-pointer text-orange-500"
-            id="icon"
-          />
-        ) : (
           <HiSun
             onClick={toggleTheme}
             size={24}
             className=" mr-1 cursor-pointer text-white"
+            id="icon"
+          />
+        ) : (
+          <HiOutlineMoon
+            onClick={toggleTheme}
+            size={24}
+            className=" mr-1 cursor-pointer text-orange-500"
             id="icon"
           />
         )}
