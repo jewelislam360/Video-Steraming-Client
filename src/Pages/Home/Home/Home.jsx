@@ -7,6 +7,7 @@ import Action from "../Action/Action";
 import Banner3 from "../Banner3/Banner3";
 import Animation from "../Animation/Animation";
 import Adventure from "../Adventure/Adventure";
+import Sponsor from "../Sponsor/Sponsor";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Adventure></Adventure>
       <Faq></Faq>
       <Plan></Plan>
+      <Sponsor></Sponsor>
     </div>
   );
 };

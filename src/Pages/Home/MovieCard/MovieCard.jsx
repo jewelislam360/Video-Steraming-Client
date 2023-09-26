@@ -22,7 +22,7 @@ const MovieCard = ({ movie }) => {
  const videoTitle=title?.length>= 49 ? title: title.slice(0,49)+"..."
   return (
     <>
-      <div className="card card-compact w-full bg-black  ">
+      <div className="card card-compact w-full hover:text-orange-500">
         <div className="relative group">
           <figure>
             {/* <img
@@ -69,7 +69,7 @@ const MovieCard = ({ movie }) => {
           <Link to={`viewPlayer/${_id}`} className="hover:underline hover:text-blue-600 text-lg">{videoTitle}</Link>
           <div className="flex">
             <p>{time}</p>
-            <p className="text-red-600">{category}</p>
+            <p className="text-orange-600">{category}</p>
           </div>
         </div>
       </div>

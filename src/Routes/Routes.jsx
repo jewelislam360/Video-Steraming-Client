@@ -25,6 +25,10 @@ import UserDashboard from "../Layout/UserDashboard";
 import PrivetRoute from "./PrivetRoute";
 import Action from "../Pages/Home/Action/Action";
 import MovieList from "../Pages/DashBoard/MovieList/MovieList";
+
+import AddTvShow from "../Pages/DashBoard/AddTvShow/AddTvShow";
+import ManageTvShow from "../Pages/DashBoard/ManageTvShow/ManageTvShow";
+import LikedVideos from "../Pages/User/LikedVideos";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -81,7 +85,7 @@ export const router = createBrowserRouter([
         element: <User />,
       },
       {
-        path:"/tvshows",
+        path: "/tvshows",
         element: <TvShows></TvShows>
       },
       {
@@ -105,22 +109,44 @@ export const router = createBrowserRouter([
         element: <AddItem></AddItem>,
       },
       {
+        path: "addTvShow",
+        element: <AddTvShow></AddTvShow>,
+      },
+      {
         path: 'alluser',
         element: <AllUser></AllUser>
       },
       {
         path: 'movieList',
         element: <MovieList></MovieList>
+      },
+      {
+        path:"manageTvShow",
+        element:<ManageTvShow></ManageTvShow>
       }
-      
     ],
   },
   {
     path: "userDashboard",
     element: <UserDashboard />,
     children: [
-      { path: "account", element: <User /> },
-      { path: "library", element: <UserDashboardHome /> },
+      { 
+      path: "account",
+       element: <User /> 
+      },
+      { 
+        path: "library",
+        element: <UserDashboardHome />
+      },
+      {
+        path:'history',
+        element:<History/>
+      },
+      {
+        path:'likedVideos',
+        element:<LikedVideos/>
+      },
+
     ],
   },
 ]);

@@ -40,7 +40,7 @@ const userApi = api.injectEndpoints({
     }),
     editUser: builder.mutation({
       query: (user) => ({
-        url: `/userEdit/${user?.userEmail}`,
+        url: `/userEdit/${user?.Email}`,
         method: "PATCH",
         body: user,
       }),

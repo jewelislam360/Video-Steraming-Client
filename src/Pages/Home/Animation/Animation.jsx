@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import MovieCard from '../MovieCard/MovieCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Animation = () => {
     const [movies, setMovies] = useState();
@@ -21,15 +20,21 @@ const Animation = () => {
             })
     }, [])
     return (
-        <div className=' px-20'>
-          <div className='flex justify-between'>
-            <div>
-              <h1 className='font-bold text-4xl'>Animation Movies</h1>
-            </div>
-            <div>
-              <Link to="/movie"><button className='bg-red-600 px-5 py-3'>More Movies</button></Link>
-            </div>
-          </div>
+        <div className=' px-20 my-4'>
+          <div className="flex justify-between">
+        <div className=" mb-2 text-left md:w-4/12">
+          <h3 className="text-4xl  text-orange-600 font-bold rounded-full capitalize  py-4">
+             Animation Movies 
+          </h3>
+        </div>
+        <div>
+          <Link to="/movie">
+            <button className="bg-red-600 border-none text-white hover:bg-white-700 hover:text-black btn btn-xl">
+              See More
+            </button>
+          </Link>
+        </div>
+      </div>
             <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -53,23 +58,16 @@ const Animation = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        
-        <div className=''>
-            
-            {
-             movies?.map(movie=><SwiperSlide key={movie._id}><MovieCard
-             movie={movie}
-             ></MovieCard></SwiperSlide>)   
-            
-            }
-        
-    </div>
-        
-        
-      </Swiper>
-
+        <div className="">
+          {movies?.map((movie) => (
+            <SwiperSlide key={movie._id}>
+              <MovieCard movie={movie}></MovieCard>
+            </SwiperSlide>
+          ))}
         </div>
-    );
+      </Swiper>
+    </div>
+  );
 };
 
 export default Animation;

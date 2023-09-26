@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
-const AddItem = () => {
+const AddTvShow = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
@@ -13,37 +13,33 @@ const AddItem = () => {
             thumbnailLink,
             trailerLink,
             videoLink,
-            rating,
             timeDuration,
             description,
             category,
-            liked,
             status
         } = data;
-        const addmovie = {
+        const addTvShow = {
             title,
             img: thumbnailLink,
             trailer: trailerLink,
             video: videoLink,
-            rating: parseFloat(rating),
             time: timeDuration,
             description,
             category,
-            like: parseFloat(liked),
             status
         };
-        fetch('http://localhost:5000/addMovies', {
+        fetch('http://localhost:5000/addTvShow', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(addmovie),
+            body: JSON.stringify(addTvShow),
         })
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    console.log(data);
                     reset();
+                    console.log(data);
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -53,13 +49,12 @@ const AddItem = () => {
                     })
                 }
             });
-    };
-
+        };
     return (
         <div className='container mx-auto p-4'>
             <div className='mb-6 text-center'>
                ---------------------------
-               <h2 className='text-2xl font-extrabold text-orange-500'>Add Movies</h2>
+               <h2 className='text-2xl font-extrabold text-orange-500'>Add Tv-Show</h2>
                ---------------------------
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='max-w-md mx-auto'>
@@ -83,10 +78,6 @@ const AddItem = () => {
                     <input {...register('videoLink')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
                 </div>
                 <div className='mb-4'>
-                    <label className='text-xl font-bold'>Ratings:</label>
-                    <input {...register('rating')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
-                </div>
-                <div className='mb-4'>
                     <label className='text-xl font-bold'>Duration:</label>
                     <input {...register('timeDuration')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
                 </div>
@@ -99,11 +90,9 @@ const AddItem = () => {
                     <div>
                         <label className='text-xl font-bold'>Category:</label>
                         <select {...register('category')} className='w-full text-gray-700 mt-2 border-2 border-gray-800'>
-                            <option value="Action">Action</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Animation">Animation</option>
-                            <option value="Mystery">Mystery</option>
+                            <option value="Action">NetFlix</option>
+                            <option value="Adventure">Sony Tv</option>
+                            <option value="Drama">Sport Tv</option>
                         </select>
                     </div>
                     <div>
@@ -113,18 +102,14 @@ const AddItem = () => {
                             <option value="Premium">Premium</option>
                         </select>
                     </div>
-                    <div>
-                        <label className='text-xl font-bold'>Like:</label>
-                        <input {...register('liked')} className='w-full text-gray-700 mt-2 border-2 border-gray-800' />
-                    </div>
                 </div>
 
                 <button type="submit" className='btn btn-outline mt-4 border-none text-white bg-orange-700'>
-                    Add Item
+                    Add Tv-Show
                 </button>
             </form>
         </div>
     );
 };
 
-export default AddItem;
+export default AddTvShow;

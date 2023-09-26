@@ -5,67 +5,67 @@ const Footer = () => {
     return (
         <footer>
             {/* /Top section */}
-            <div className="p-10 bg-[#272829] text-white">
+            <div className="p-10 bg-gray-800 text-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-10">
                     <div className='mr-3 text-white'>
-                        <h2 className='text-3xl font-bold pb-10'>VidBox</h2>
+                        <h2 className='text-3xl font-bold pb-10 text-orange-600'>VidBox</h2>
                         <p className='text-xl pb-10'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, reiciendis.</p>
                         <div className='flex  '>
                             <a className=' flex items-center justify-center  mr-7 text-sky-600 hover:text-white' href=""><FaFacebook className='text-2xl' /></a>
                             <a className=' flex items-center justify-center mr-7 text-sky-600  hover:text-white' href=""><FaSkype className='text-2xl' /></a>
                             <a className='flex items-center justify-center mr-7 text-blue-700  hover:text-white' href=""><FaTwitter className='text-2xl' /></a>
-                            <a className='flex items-center justify-center mr-7 text-red-500  hover:text-white' href=""><FaInstagram className='text-2xl' /></a>
+                            <a className='flex items-center justify-center mr-7 text-orange-500  hover:text-white' href=""><FaInstagram className='text-2xl' /></a>
                         </div>
 
                     </div>
                     {/* Explore section */}
                     <div className='mr-3'>
 
-                        <h2 className='text-3xl font-bold pb-6'>Explore</h2>
+                        <h2 className='text-3xl font-bold pb-6 text-orange-600'>Explore</h2>
                         <div className='flex justify-between gap-2'>
                             <div className=''>
                                 <ul className="">
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Home</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Terms Of Uses </a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Contact Us</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Our Team</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Home</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Terms Of Uses </a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Contact Us</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Our Team</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <ul className="">
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Privacy Policy</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Help Center</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Subscribe</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Faq</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Privacy Policy</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Help Center</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Subscribe</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Faq</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     {/* Company section */}
                     <div className='mr-3'>
-                        <h2 className='text-3xl font-bold pb-6'>Company</h2>
+                        <h2 className='text-3xl font-bold pb-6 text-orange-600'>Company</h2>
                         <div className='flex justify-between gap-2'>
                             <div className=''>
                                 <ul className="">
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Company</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Terms Of Uses </a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Contact Us</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Our Team</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Company</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Terms Of Uses </a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Contact Us</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Our Team</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <ul className="">
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Privacy Policy</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Help Center</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Subscribe</a></li>
-                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-red-600' /><a className='hover:text-red-600' href="">Faq</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Privacy Policy</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Help Center</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Subscribe</a></li>
+                                    <li className="pb-6 flex  font-bold items-center"><FaAngleRight className='text-orange-600' /><a className='hover:text-white' href="">Faq</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     {/* Download app section */}
                     <div>
-                        <h2 className='text-3xl font-bold pb-6'>Downloads App</h2>
+                        <h2 className='text-3xl font-bold pb-6 text-orange-600'>Downloads App</h2>
                         <p className='text-xl pb-10'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, reiciendis.</p>
                         <div className='flex gap-2 '>
                             <a href="" target="_blank"
@@ -123,7 +123,7 @@ const Footer = () => {
                 </div>
             </div>
             {/* buttom */}
-            <div className="bg-[#D71313] p-6 text-white  text-center text-xl ">
+            <div className="bg-orange-700 p-6 text-white  text-center text-xl ">
                 <h2>Copyright 2022 VidBox All Rights Reserved</h2>
             </div>
         </footer>
