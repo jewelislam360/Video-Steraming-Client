@@ -39,7 +39,7 @@ const Navbar = () => {
 
 
   // useEffect(()=>{
-  //   fetch(`http://localhost:5000/users/${user?.email}`)
+  //   fetch(`https://video-streaming-server-sigma.vercel.app/users/${user?.email}`)
   //   .then(res=>res.json())
   //   .then(data=>{
   //     console.log(data);

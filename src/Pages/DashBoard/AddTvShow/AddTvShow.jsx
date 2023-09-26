@@ -28,7 +28,7 @@ const AddTvShow = () => {
             category,
             status
         };
-        fetch('http://localhost:5000/addTvShow', {
+        fetch('https://video-streaming-server-sigma.vercel.app/addTvShow', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -32,7 +32,7 @@ const AddItem = () => {
             like: parseFloat(liked),
             status
         };
-        fetch('http://localhost:5000/addMovies', {
+        fetch('https://video-streaming-server-sigma.vercel.app/addMovies', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
