@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import MovieCard from '../MovieCard/MovieCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import MovieCard from "../MovieCard/MovieCard";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Action = () => {
   const [movies, setMovies] = useState();

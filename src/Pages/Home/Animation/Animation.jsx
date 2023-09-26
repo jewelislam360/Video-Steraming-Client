@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import MovieCard from '../MovieCard/MovieCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Animation = () => {
     const [movies, setMovies] = useState();
@@ -59,23 +58,16 @@ const Animation = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        
-        <div className=''>
-            
-            {
-             movies?.map(movie=><SwiperSlide key={movie._id}><MovieCard
-             movie={movie}
-             ></MovieCard></SwiperSlide>)   
-            
-            }
-        
-    </div>
-        
-        
-      </Swiper>
-
+        <div className="">
+          {movies?.map((movie) => (
+            <SwiperSlide key={movie._id}>
+              <MovieCard movie={movie}></MovieCard>
+            </SwiperSlide>
+          ))}
         </div>
-    );
+      </Swiper>
+    </div>
+  );
 };
 
 export default Animation;
