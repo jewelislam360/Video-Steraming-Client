@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const AddTvShow = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -39,6 +40,13 @@ const AddTvShow = () => {
                 if (data.insertedId) {
                     reset();
                     console.log(data);
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Item successfuly added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
             });
         };
@@ -82,11 +90,9 @@ const AddTvShow = () => {
                     <div>
                         <label className='text-xl font-bold'>Category:</label>
                         <select {...register('category')} className='w-full text-gray-700 mt-2 border-2 border-gray-800'>
-                            <option value="Action">Action</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Animation">Animation</option>
-                            <option value="Mystery">Mystery</option>
+                            <option value="Action">NetFlix</option>
+                            <option value="Adventure">Sony Tv</option>
+                            <option value="Drama">Sport Tv</option>
                         </select>
                     </div>
                     <div>

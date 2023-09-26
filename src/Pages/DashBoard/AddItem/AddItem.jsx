@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const AddItem = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -31,7 +32,7 @@ const AddItem = () => {
             like: parseFloat(liked),
             status
         };
-        fetch('https://video-streaming-server-sigma.vercel.app/addMovies', {
+        fetch('http://localhost:5000/addMovies', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -41,8 +42,15 @@ const AddItem = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    reset();
                     console.log(data);
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Item successfuly added',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
             });
     };
